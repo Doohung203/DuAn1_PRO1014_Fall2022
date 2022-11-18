@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Trang quản trị</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script
       src="https://kit.fontawesome.com/8ddf476500.js"
@@ -14,19 +14,39 @@
   <body>
     <div class="admin mx-auto items-center ">
         <!--nav-bar-top-->
-      <div class="flex justify-between bg-gradient-to-r from-green-500 border">
-        <div class="logo flex items-center max-w-7xl lg:max-w-[14%]">
+      <div class="grid grid-cols-8 gap-4 bg-gradient-to-r from-green-500 border">
+        <div class="logo flex items-center max-w-7xl lg:max-w-[80.5%] col-span-2">
           <img
-            src="../images/zyro-mouth.png"
+            src="../../images/zyro-mouth.png"
             alt=""
             width="30%"
             class="max-w-7xl md:inlne-flex"
           />
           <h2 class="p-4 font-bold text-2xl md:text-center hover:text-white">Health Clinic</h2>
         </div>
+        <div class="user col-span-6 border">
+          <div class="flex justify-between items-center my-10 ">
+            <div class="search">
+              <div class="drop-down">
+                
+              </div>
+            </div>
+            <div class="profile flex space-x-4 p-4">
+              <div class="notification">
+                <a class="" href=""><i class="fa-regular fa-bell"></i></a>
+              </div>
+              <div class="message">
+                <a href=""><i class="fa-regular fa-envelope "></i></a>
+              </div>
+              <div class="icon-user">
+                <a href=""><i class="fa-regular fa-user"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="manage grid grid-cols-5 gap-8 my-4">
-        <div class="menu leading-10 max-w-[500px] text-center  ">
+      <div class="manage grid grid-cols-8 gap-4 my-4">
+        <div class="menu col-span-2 leading-10 text-center  ">
           <a
             class="block py-[35px] my-2 font-bold text-lg text-white bg-gradient-to-r from-green-500 to-yellow-300  hover:from-blue-500 hover:to-green-500 hover:border hover:border-yellow-500"
             href=""
@@ -68,34 +88,41 @@
             >Quản lý kết luận</a
           >
         </div>
-        <div class="col-span-4 grid grid-row-4 gap-8 place-content-center border-2-sm bg-gradient-to-r from-green-500 my-2 ">
-            <div class="bg-gradient-to-r from-blue-500 to-orange-300 rounded-lg font-mono w-[800px] h-[500px] pt-[10%] text-center">
-                <div class="title font-bold uppercase text-2xl py-4 pl-[75px]">
-                    <h2>Bạn cần đăng nhập để sử dụng</h2>
-                </div>
-                <div class="content-center font-bold">
-                    <form action="index.php" method="POST" class="space-y-8">
-                        <div>
-                            <span>Username</span>
-                            <input type="text" placeholder="Enter username..." class="rounded-lg w-[50%] p-2 py-4">
-                        </div>
-                        <div class="password my-3">
-                            <span>Password</span>
-                            <input type="password" placeholder="Enter password..." class="rounded-lg w-[50%] p-2 py-4">
-                        </div>
-                        <div class="log-in grid grid-cols-2 px-10">
-                          <div class="save-password">
-                            <input type="checkbox">Lưu mật khẩu</input>
-                          </div>
-                          <div>
-                            <a>Bạn quên mật khẩu</a>
-                          </div>
-                        </div>
-                        <div class="button">
-                          <button type="submit" name="btn-dangnhap" class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 w-[20%] py-3 px-2  border rounded-lg"> Đăng nhập</button>
-                        </div>
-                      </form>
-                </div>
+        <div class="col-span-6 border-2-sm bg-gradient-to-r from-green-500 my-2 ">
+            <h2 class="p-4 font-bold text-2xl text-center text-gray-600 uppercase">Quản lý tài khoản nhân sự</h2>
+            <div class="max-w-[70%] mx-auto bg-white p-3">
+              <h2 class="border-b-4 font-bold text-2xl py-3">Static voice</h2>
+              <table class="table-auto table-fixed py-3">
+                <thead>
+                  <tr>
+                    <th>STT</th>
+                    <th>Họ Tên</th>
+                    <th>Tài Khoản</th>
+                    <th>Mật Khẩu</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Trần Hữu Hưng</td>
+                    <td>Doohung2003</td>
+                    <td>Hung2003</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Mai Văn Nam</td>
+                    <td>Nammv203</td>
+                    <td>Nam2003</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Lý Tự Lẫm</td>
+                    <td>Lamlt2003</td>
+                    <td>lam2003</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
             </div>
         </div>
       </div>
