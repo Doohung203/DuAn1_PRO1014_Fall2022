@@ -7,7 +7,7 @@
     }elseif(isset($_GET['danh-muc'])){
         $VIEW_NAME = 'danh-muc.php';
     }else{
-        $VIEW_NAME = 'trang-chu.php';
+        $VIEW_NAME = 'home.php';
     }
 
     include_once './layout.php';
