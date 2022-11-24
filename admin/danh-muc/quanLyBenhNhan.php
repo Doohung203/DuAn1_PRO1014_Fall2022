@@ -18,12 +18,12 @@
           <div class=" flex justify-between items-center ">
            <div class=" logo flex items-center">
              <img
-              src="../../images/zyro-mouth.png"
+              src="../images/zyro-mouth.png"
               alt=""
               width="20%"
               class="max-w-7xl md:inlne-flex"
             />
-            <h2 style="font-family: font-logo;" class="p-4 font-bold text-2xl md:text-center text-white">Health Clinic</h2>
+            <h2 class="p-4 font-bold text-2xl md:text-center text-white">Health Clinic</h2>
            </div>
            <div class="search">
   
@@ -50,37 +50,37 @@
           <div class="menu  leading-10 bg-[#30536D]">
             <a
               class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
-              href="index.html"
+              href="../layout/admin/showadmin.php"
               ><i class="fa-solid fa-user p-4"> </i> Quản lý tài khoản nhân sự</a
             >
             <a
               class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
-              href="quanLyBenhNhan.html"
+              href="quanLyBenhNhan.php"
               ><i class="fa-solid fa-hospital-user p-4"></i> Quản lý bệnh nhân</a
             >
             <a
               class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
-              href="quanLyHoSo.html"
+              href="quanLyHoSo.php"
               ><i class="fa-solid fa-file-pen p-4"></i> Quản lý hồ sơ</a
             >
             <a
               class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
-              href="quanLyBinhLuan.html"
+              href="quanLyBinhLuan.php"
               ><i class="fa-solid fa-comments p-4"></i> Quản lý bình luận</a
             >
             <a
               class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
-              href="quanLyBooking.html"
+              href="quanLyBooking.php"
               ><i class="fa-solid fa-calendar-days p-4"></i> Quản lý booking</a
             >
             <a
               class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
-              href="quanLyLichKham.html"
+              href="quanLyLichKham.php"
               ><i class="fa-sharp fa-solid fa-clock p-4"></i> Quản lý lịch khám</a
             >
             <a
               class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500"
-              href="quanLyKetLuan.html"
+              href="quanLyKetLuan.php"
               ><i class="fa-solid fa-comment-medical p-4"></i>Kết luận của bác sĩ</a
             >
           </div>
