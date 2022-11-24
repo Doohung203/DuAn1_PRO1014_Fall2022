@@ -1,5 +1,5 @@
 <?php
-require_once "../../dao/connect.php";
+require_once "../../../dao/connect.php";
 
 $sql = "SELECT * FROM admin";
 $stmt = $conn->prepare($sql);
