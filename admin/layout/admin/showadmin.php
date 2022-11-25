@@ -1,10 +1,12 @@
 <?php
-require_once "../../dao/connect.php";
+require_once "../../../dao/connect.php";
 
+//show
 $sql = "SELECT * FROM admin";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $admin = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -52,13 +54,13 @@ $admin = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <!-- Main -->
         <section class="manage grid grid-cols-5 gap-4 my-4 ">
             <div class="menu  leading-10 bg-[#30536D]">
-                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="index.html"><i class="fa-solid fa-user p-4"> </i> Quản lý tài khoản nhân sự</a>
-                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyBenhNhan.html"><i class="fa-solid fa-hospital-user p-4"></i> Quản lý bệnh nhân</a>
-                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyHoSo.html"><i class="fa-solid fa-file-pen p-4"></i> Quản lý hồ sơ</a>
-                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyBinhLuan.html"><i class="fa-solid fa-comments p-4"></i> Quản lý bình luận</a>
-                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyBooking.html"><i class="fa-solid fa-calendar-days p-4"></i> Quản lý booking</a>
-                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyLichKham.html"><i class="fa-sharp fa-solid fa-clock p-4"></i> Quản lý lịch khám</a>
-                <a class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500" href="quanLyKetLuan.html"><i class="fa-solid fa-comment-medical p-4"></i>Kết luận của bác sĩ</a>
+                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="showadmin.php"><i class="fa-solid fa-user p-4"> </i> Quản lý tài khoản nhân sự</a>
+                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyBenhNhan.php"><i class="fa-solid fa-hospital-user p-4"></i> Quản lý bệnh nhân</a>
+                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyHoSo.php"><i class="fa-solid fa-file-pen p-4"></i> Quản lý hồ sơ</a>
+                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyBinhLuan.php"><i class="fa-solid fa-comments p-4"></i> Quản lý bình luận</a>
+                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyBooking.php"><i class="fa-solid fa-calendar-days p-4"></i> Quản lý booking</a>
+                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyLichKham.php"><i class="fa-sharp fa-solid fa-clock p-4"></i> Quản lý lịch khám</a>
+                <a class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500" href="quanLyKetLuan.php"><i class="fa-solid fa-comment-medical p-4"></i>Kết luận của bác sĩ</a>
             </div>
             <section class="col-span-4 border-2-sm bg-gray-200 shadow-inherit">
                 <h2 class="py-6 font-bold text-3xl text-center text-gray-600 uppercase">Quản lý tài khoản nhân sự</h2>
@@ -70,9 +72,14 @@ $admin = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <th class="py-3 px-6">STT</th>
                                 <th class="py-3 px-6">Tài Khoản</th>
                                 <th class="py-3 px-6">Mật Khẩu</th>
-                                <th class="py-3 px-6"> <a href="" class="border rounded-md px-4 py-2 bg-green-500 text-center text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">Thêm tài khoản</a> </th>
+                                <th class="py-3 px-6"> <a href="QuanLyTK_NV/add.php" class="border rounded-md px-4 py-2 bg-green-500 text-center text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">Thêm tài khoản</a> </th>
                             </tr>
                         </thead>
+
+                        <?php if (isset($_COOKIE['add'])) : ?>
+                            <p style="color: green;"><?= $_COOKIE['add'] ?></p>
+                        <?php endif ?>
+
                         <tbody class="bg-white border-b dark:bg-gray-300 dark:border-gray-700">
                             <?php foreach ($admin as $index => $ad) : ?>
                                 <tr>
@@ -80,43 +87,12 @@ $admin = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     <td class="py-4 px-6"><?= $ad['name'] ?></td>
                                     <td class="py-4 px-6"><?= $ad['password'] ?></td>
                                     <td class="py-4 px-6">
-                                        <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="update.php?id=<?=$ad['id']?>">Sửa</a>
-                                        <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="delete.php?id=<?=$ad['id']?>">Xóa</a>
+                                        <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="QuanLyTK_NV/update.php?id=<?= $ad['id'] ?>">Sửa</a>
+                                        <a onclick="return confirm('Xác nhận xóa ?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="QuanLyTK_NV/delete.php?id=<?= $ad['id'] ?>">Xóa</a>
                                     </td>
 
                                 </tr>
                             <?php endforeach ?>
-                            <tr>
-                                <td class="py-4 px-6">1</td>
-                                <td class="py-4 px-6">Trần Hữu Hưng</td>
-                                <td class="py-4 px-6">Doohung2003</td>
-                                <td class="py-4 px-6">Hung2003</td>
-                                <td class="py-4 px-6">
-                                    <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Sửa</a>
-                                    <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Xóa</a>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td class="py-4 px-6"> 2</td>
-                                <td class="py-4 px-6"> Mai Văn Nam</td>
-                                <td class="py-4 px-6"> Nammv203</td>
-                                <td class="py-4 px-6"> Nam2003</td>
-                                <td class="py-4 px-6">
-                                    <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Sửa</a>
-                                    <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Xóa</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="py-4 px-6">3</td>
-                                <td class="py-4 px-6">Lý Tự Lẫm</td>
-                                <td class="py-4 px-6">Lamlt2003</td>
-                                <td class="py-4 px-6">Lam2003</td>
-                                <td class="py-4 px-6">
-                                    <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Sửa</a>
-                                    <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Xóa</a>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
