@@ -1,5 +1,5 @@
 <?php
-require_once "../../dao/connect.php";
+require_once "../../../dao/connect.php";
 
 //show
 $sql = "SELECT * FROM admin";
