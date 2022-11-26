@@ -32,13 +32,13 @@
               <div class="flex justify-between items-center my-10 ">
                 <div class="profile flex">
                   <div class="notification">
-                    <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-bell"></i></i></a>
+                    <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-bell"></i></i></a>
                   </div>
                   <div class="message">
-                    <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-envelope"></i></ac>
+                    <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-envelope"></i></ac>
                   </div>
                   <div class="icon-user">
-                    <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-user-doctor"></i></a>
+                    <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-user-doctor"></i></a>
                   </div>
                 </div>
               </div>
@@ -82,11 +82,11 @@
             <a
               class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500"
               href="quanLyKetLuan.php"
-              ><i class="fa-solid fa-comment-medical p-4"></i>Kết luận của bác sĩ</a
+              ><i class="fa-solid fa-comment-medical px-8"></i>Kết luận của bác sĩ</a
             >
           </div>
   <section class="col-span-4 border-2-sm bg-gray-200 shadow-inherit">
-      <h2 class="py-6 font-bold text-3xl text-center text-gray-600 uppercase">Quản lý tài khoản nhân sự</h2>
+      <h2 class="py-6 font-bold text-3xl text-center text-gray-600 uppercase">Quản lý đặt lịch khám</h2>
       <div class="max-w-7xl mx-auto bg-white p-3">
         <h2 class="border-b-4 font-bold text-2xl py-3">Static voice</h2>
         <table class="w-full texts-sm text-left p-3 ">
