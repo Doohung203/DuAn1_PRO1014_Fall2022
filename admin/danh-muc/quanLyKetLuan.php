@@ -87,8 +87,51 @@
           </div>
         <section class="col-span-4 border-2-sm bg-gray-200 shadow-inherit">
             <h2 class="py-6 font-bold text-3xl text-center text-gray-600 uppercase">Kết luận của bác sĩ</h2>
-           
-            
+            <div class="max-w-7xl mx-auto bg-white p-3">
+              <h2 class="border-b-4 font-bold text-2xl py-3">Static voice</h2>
+              <table class="w-full texts-sm text-left p-3 ">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
+                  <tr>
+                    <th class="py-3 px-6" >STT</th>
+                    <th class="py-3 px-6" >Họ Tên</th>
+                    <th class="py-3 px-6" >SĐT</th>
+                    <th class="py-3 px-6" >Địa chỉ</th>
+                    <th class="py-3 px-6" >Thời gian khám</th>
+                    <th class="py-3 px-6" >Bác sĩ</th>
+                    <th class="py-3 px-6" >Kết luận của bác sĩ</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white border-b dark:bg-gray-300 dark:border-gray-700">
+                  <tr>
+                    <td class="py-4 px-6" >1</td>
+                    <td class="py-4 px-6" >Trần Hữu Hưng</td>
+                    <td class="py-4 px-6" >0123456890</td>
+                    <td class="py-4 px-6" >Thái Bình</td>
+                    <td class="py-4 px-6" >8:00_17-10-2022</td>
+                    <td class="py-4 px-6" >Nguyễn Văn A</td>
+                    <td class="py-4 px-6">Tình trạng sức khoẻ ổn, cần chăm sóc răng thường xuyên</td>
+                    
+                    
+                  </tr>
+                  <tr>
+                    <td class="py-4 px-6" >1</td>
+                    <td class="py-4 px-6" >Vũ Minh Đại</td>
+                    <td class="py-4 px-6" >0987565442</td>
+                    <td class="py-4 px-6" >Hải Phòng</td>
+                    <td class="py-4 px-6" >9:00_11-10-2022</td>
+                    <td class="py-4 px-6" >Nguyễn Văn C</td>
+                    <td class="py-4 px-6">
+                    Duy  trì việc thăm khám thường xuyên với bác sĩ răng miệng của bạn
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-4 px-6" >1</td>
+                    <td class="py-4 px-6" >Lê Thanh Toàn</td>
+                    <td class="py-4 px-6" >0855499383</td>
+                    <td class="py-4 px-6" >Hà Nội</td>
+                    <td class="py-4 px-6" >15:00_17-11-2022</td>
+                    <td class="py-4 px-6" >Nguyễn Văn B</td>
+                    <td class="py-4 px-6" >Qua thăm khám và tư vấn của bác sĩ, bệnh nhân đã quyết định trám 8 răng sâu, nhổ 2 răng nhiễm trùng không thể giữ lại được và làm 7 đơn vị sứ - kim loại hàm trên qua 3 lần hẹn. Sau điều trị bệnh nhân đã hết hẳn đau và ê buốt đồng thời tự tin hơn trong giao tiếp.  </td>
         </section>
       </section>
 <!-- End-Main -->
