@@ -38,13 +38,13 @@ $admin = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <div class="flex justify-between items-center my-10 ">
                         <div class="profile flex">
                             <div class="notification">
-                                <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-bell"></i></i></a>
+                                <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-bell"></i></i></a>
                             </div>
                             <div class="message">
-                                <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-envelope"></i></ac>
+                                <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-envelope"></i></ac>
                             </div>
                             <div class="icon-user">
-                                <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-user-doctor"></i></a>
+                                <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-user-doctor"></i></a>
                             </div>
                         </div>
                     </div>

@@ -41,13 +41,13 @@ $calendar = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="flex justify-between items-center my-10 ">
               <div class="profile flex">
                 <div class="notification">
-                  <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-bell"></i></i></a>
+                  <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-bell"></i></i></a>
                 </div>
                 <div class="message">
-                  <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-envelope"></i></ac>
+                  <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-envelope"></i></ac>
                 </div>
                 <div class="icon-user">
-                  <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-user-doctor"></i></a>
+                  <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-user-doctor"></i></a>
                 </div>
               </div>
             </div>
@@ -90,7 +90,7 @@ $calendar = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <a
               class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500"
               href="quanLyKetLuan.php"
-              ><i class="fa-solid fa-comment-medical p-4"></i>Kết luận của bác sĩ</a
+              ><i class="fa-solid fa-comment-medical px-8"></i>Kết luận của bác sĩ</a
             >
           </div>
         <section class="col-span-4 border-2-sm bg-gray-200 shadow-inherit">
