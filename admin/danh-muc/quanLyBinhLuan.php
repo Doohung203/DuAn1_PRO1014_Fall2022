@@ -82,6 +82,7 @@ $comment = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   <td class="py-4 px-6"><?= $index + 1 ?></td>
                   <td class="py-4 px-6"><?= $bl['id_user'] ?></td>
                   <td class="py-4 px-6"><?= $bl['noidung'] ?></td>
+                  <td class="py-4 px-6"><?= $bl['time_comment'] ?></td>
                   <td class="py-4 px-6">
                     <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="Comment/update.php?id=<?= $bl['id'] ?>">Sửa</a>
                     <a onclick="return confirm('Xác nhận xóa?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="Comment/delete.php?id=<?= $bl['id'] ?>">Xóa</a>

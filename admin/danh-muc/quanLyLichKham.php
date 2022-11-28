@@ -1,6 +1,6 @@
 <?php
 require "../../dao/connect.php";
-$sql = 'SELECT user.id_user, user.name, bacsi.name as doctor, time.ca,service.name as service,service.price FROM user INNER JOIN bacsi ON user.id_doctor = bacsi.id_doctor INNER JOIN time ON bacsi.id_doctor = time.id_doctor INNER JOIN service ON bacsi.id_service = service.id_service';
+$sql = 'SELECT time.id, user.hoten, time.ca, doctor.hoten as doctor, service.name, service.price from user INNER JOIN schedule on user.id = schedule.id_user INNER JOIN doctor on schedule.id_doctor = doctor.id INNER JOIN service on doctor.id = service.id_doctor INNER JOIN time on doctor.id = time.id_doctor ';
 $stmt = $conn -> prepare($sql);
 $stmt -> execute();
 $calendar = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -113,14 +113,14 @@ $calendar = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach ($calendar as $index => $cld) : ?>
                   <tr>
                     <td class="py-4 px-6"><?= $index + 1 ?></td>
-                    <td class="py-4 px-6" ><?= $cld['name']?>g</td>
+                    <td class="py-4 px-6" ><?= $cld['hoten']?>g</td>
                     <td class="py-4 px-6" ><?= $cld['ca']?></td>
                     <td class="py-4 px-6" ><?= $cld['doctor']?></td>
-                    <td class="py-4 px-6" ><?= $cld['service']?></td>
+                    <td class="py-4 px-6" ><?= $cld['name']?></td>
                     <td class="py-4 px-6" ><?= $cld['price']?></td>
                     <td class="py-4 px-6">
                       <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="../danh-muc/quanlylichkham/detele.php?=id<?$cld['id_user']?>">Sửa</a>
-                      <a onclick="return confirm('Xác nhận xóa?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="quanlylichkham/detele.php?id=<?= $cld ['id_user']?>">Xóa</a>
+                      <a onclick="return confirm('Xác nhận xóa?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="quanlylichkham/detele.php?id=<?= $cld ['id']?>">Xóa</a>
                     </td>
                   </tr>
                   <?php endforeach?>

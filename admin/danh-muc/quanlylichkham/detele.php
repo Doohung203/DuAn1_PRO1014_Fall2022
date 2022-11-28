@@ -2,7 +2,7 @@
 require_once "../../../dao/connect.php";
 
 $id = $_GET['id'];
-$sql = "DELETE FROM user WHERE id_user=$id";
+$sql = "DELETE FROM time WHERE id=$id";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();
