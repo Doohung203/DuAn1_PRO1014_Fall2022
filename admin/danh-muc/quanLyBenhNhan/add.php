@@ -3,7 +3,7 @@ require_once "../../../dao/connect.php";
 
 if (isset($_POST['save'])) {
     $hoten = $_POST['hoten'];
-    $name = $_POST['name'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
     $sdt = $_POST['sdt'];
     $diachi = $_POST['diachi'];
@@ -13,16 +13,16 @@ if (isset($_POST['save'])) {
     if ($hoten == "") {
         $errors['hoten'] = "Nhập họ tên!";
     }
-    if ($name == "") {
-        $errors['name'] = "Tên đăng nhập không được bỏ trống!";
+    if ($username == "") {
+        $errors['username'] = "Tên đăng nhập không được bỏ trống!";
     }
     if ($password == "") {
         $errors['password'] = "Password không được bỏ trống!";
     }
 
     if (!$errors) {
-        $sql = "INSERT INTO `user` (`hoten`, `name`, `password`, `sdt`, `diachi`) 
-        VALUES ('$hoten', '$name', '$password', '$sdt', '$diachi')";
+        $sql = "INSERT INTO `user` (`hoten`, `username`, `password`, `sdt`, `diachi`) 
+        VALUES ('$hoten', '$username', '$password', '$sdt', '$diachi')";
 
         $stmt = $conn->prepare($sql);
         $stmt->execute();

@@ -62,7 +62,7 @@ $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <a class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500" href="quanLyKetLuan.php"><i class="fa-solid fa-comment-medical p-4"></i>Kết luận của bác sĩ</a>
       </div>
       <section class="col-span-4 border-2-sm bg-gray-200 shadow-inherit">
-        <h2 class="py-6 font-bold text-3xl text-center text-gray-600 uppercase">Quản lý tài khoản nhân sự</h2>
+        <h2 class="py-6 font-bold text-3xl text-center text-gray-600 uppercase">Quản lý bệnh nhân</h2>
         <div class="max-w-[70%] mx-auto bg-white p-3">
           <h2 class="border-b-4 font-bold text-2xl py-3">Static voice</h2>
           <table class="w-full texts-sm text-left p-3 ">
@@ -84,7 +84,7 @@ $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <tr>
                   <td class="py-4 px-6"><?= $index + 1 ?></td>
                   <td class="py-4 px-6"><?= $bn['hoten'] ?></td>
-                  <td class="py-4 px-6"><?= $bn['name'] ?></td>
+                  <td class="py-4 px-6"><?= $bn['username'] ?></td>
                   <td class="py-4 px-6"><?= $bn['password'] ?></td>
                   <td class="py-4 px-6"><?= $bn['sdt'] ?></td>
                   <td class="py-4 px-6"><?= $bn['diachi'] ?></td>

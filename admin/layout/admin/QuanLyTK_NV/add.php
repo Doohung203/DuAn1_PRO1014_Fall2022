@@ -2,20 +2,20 @@
 require_once "../../../../dao/connect.php";
 
 if (isset($_POST['save'])) {
-    $name = $_POST['name'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
 
     $errors = [];
 
-    if ($name == "") {
-        $errors['name'] = "Tên đăng nhập không được bỏ trống!";
+    if ($username == "") {
+        $errors['username'] = "Tên đăng nhập không được bỏ trống!";
     }
     if ($password == "") {
         $errors['password'] = "Nhập pass đê!";
     }
 
     if (!$errors) {
-        $sql = "INSERT INTO `admin` (`name`, `password`) VALUES ('$name', '$password')";
+        $sql = "INSERT INTO `admin` (`username`, `password`) VALUES ('$username', '$password')";
 
         $stmt = $conn->prepare($sql);
         $stmt->execute();
@@ -44,10 +44,10 @@ if (isset($_POST['save'])) {
     <a class="btn btn-primary" href="../../../layout/admin/showadmin.php">Quay lại</a>
 
     <form action="" method="post" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Username">
+        <input type="text" name="username" placeholder="Username">
 
-        <?php if (isset($errors['name'])) : ?>
-            <span style="color: red; font-size: 10px;"><?= $errors['name'] ?></span>
+        <?php if (isset($errors['username'])) : ?>
+            <span style="color: red; font-size: 10px;"><?= $errors['username'] ?></span>
         <?php endif ?>
 
         <br>
