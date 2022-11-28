@@ -2,7 +2,7 @@
   require "../../dao/connect.php";
 
   //show
-  $sql = "SELECT user.id_user, user.name, user.sdt, user.diachi, time.ca, bacsi.name as doctor FROM (user INNER JOIN bacsi ON user.id_doctor = user.id_doctor) INNER JOIN time on bacsi.id_doctor = time.id_doctor ";
+  $sql = "SELECT user.id_user, user.hoten, user.sdt, user.diachi, time.id_time, bacsi.name as doctor FROM (user INNER JOIN bacsi ON user.id_doctor = user.id_doctor) INNER JOIN time on bacsi.id_doctor = time.id_doctor ";
   $stmt = $conn -> prepare($sql);
   $stmt ->execute();
   $booking = $stmt -> fetchAll(PDO::FETCH_ASSOC);
@@ -109,7 +109,7 @@
               <th class="py-3 px-6" >Địa chỉ</th>
               <th class="py-3 px-6" >Thời gian khám</th>
               <th class="py-3 px-6" >Bác sĩ</th>
-              
+              <th></th>
               
             </tr>
           </thead>
@@ -119,13 +119,13 @@
             ?>
             <tr>
               <td class="py-4 px-6" ><?= $index + 1?></td>
-                    <td class="py-4 px-6" ><?= $bk['name']?></td>
+                    <td class="py-4 px-6" ><?= $bk['hoten']?></td>
                     <td class="py-4 px-6" ><?= $bk['sdt']?></td>
                     <td class="py-4 px-6" ><?= $bk['diachi']?></td>
-                    <td class="py-4 px-6" ><?= $bk['ca']?></td>
+                    <td class="py-4 px-6" ><?= $bk['id_time']?></td>
                     <td class="py-4 px-6" ><?= $bk['doctor']?></td>
                     <td class="py-4 px-6">
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Sửa</a>
+                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="../danh-muc/quanlybooking/edit.php?id=<?= $bk['id_user']?>">Sửa</a>
                       <a onclick="return confirm('Xác nhận xóa?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="quanlyBooking/delete.php?id=<?= $bk ['id_user']?>">Xóa</a>
                     </td>
               </tr>
