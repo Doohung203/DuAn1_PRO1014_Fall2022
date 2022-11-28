@@ -1,3 +1,11 @@
+<?php
+require "../../dao/connect.php";
+$sql = 'SELECT user.id_user, user.name, bacsi.name as doctor, time.ca,service.name as service,service.price FROM user INNER JOIN bacsi ON user.id_doctor = bacsi.id_doctor INNER JOIN time ON bacsi.id_doctor = time.id_doctor INNER JOIN service ON bacsi.id_service = service.id_service';
+$stmt = $conn -> prepare($sql);
+$stmt -> execute();
+$calendar = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,13 +41,13 @@
             <div class="flex justify-between items-center my-10 ">
               <div class="profile flex">
                 <div class="notification">
-                  <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-bell"></i></i></a>
+                  <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-bell"></i></i></a>
                 </div>
                 <div class="message">
-                  <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-envelope"></i></ac>
+                  <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-envelope"></i></ac>
                 </div>
                 <div class="icon-user">
-                  <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-user-doctor"></i></a>
+                  <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-user-doctor"></i></a>
                 </div>
               </div>
             </div>
@@ -82,63 +90,41 @@
             <a
               class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500"
               href="quanLyKetLuan.php"
-              ><i class="fa-solid fa-comment-medical p-4"></i>Kết luận của bác sĩ</a
+              ><i class="fa-solid fa-comment-medical px-8"></i>Kết luận của bác sĩ</a
             >
           </div>
         <section class="col-span-4 border-2-sm bg-gray-200 shadow-inherit">
-            <h2 class="py-6 font-bold text-3xl text-center text-gray-600 uppercase">Quản lý bình luận</h2>
+            <h2 class="py-6 font-bold text-3xl text-center text-gray-600 uppercase">Quản lý lịch khám</h2>
             <div class="max-w-7xl mx-auto bg-white p-3">
-              <h2 class="border-b-4 font-bold text-2xl py-3">Static voice</h2>
               <table class="w-full texts-sm text-left p-3 ">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
                   <tr>
                     <th class="py-3 px-6" >STT</th>
                     <th class="py-3 px-6" >Họ Tên</th>
-                    <th class="py-3 px-6" >SĐT</th>
-                    <th class="py-3 px-6" >Địa chỉ</th>
                     <th class="py-3 px-6" >Thời gian khám</th>
-                    <th class="py-3 px-6" >Bác sĩ</th>
+                    <th class="py-3 px-6" >Bác sĩ</th> 
+                    <th class="py-3 px-6" >Dịch vụ</th>
+                    <th class="py-3 px-6" >Giá</th>
+
                     <th class="py-3 px-6"> <a href="" class="border rounded-md px-4 py-2 bg-green-500 text-center text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">Thêm tài khoản</a> </th>  
                   </tr>
                 </thead>
                 <tbody class="bg-white border-b dark:bg-gray-300 dark:border-gray-700">
+                <?php foreach ($calendar as $index => $cld) : ?>
                   <tr>
-                    <td class="py-4 px-6" >1</td>
-                    <td class="py-4 px-6" >Trần Hữu Hưng</td>
-                    <td class="py-4 px-6" >0123456890</td>
-                    <td class="py-4 px-6" >Thái Bình</td>
-                    <td class="py-4 px-6" >8:00_17-10-2022</td>
-                    <td class="py-4 px-6" >Nguyễn Văn A</td>
+                    <td class="py-4 px-6"><?= $index + 1 ?></td>
+                    <td class="py-4 px-6" ><?= $cld['name']?>g</td>
+                    <td class="py-4 px-6" ><?= $cld['ca']?></td>
+                    <td class="py-4 px-6" ><?= $cld['doctor']?></td>
+                    <td class="py-4 px-6" ><?= $cld['service']?></td>
+                    <td class="py-4 px-6" ><?= $cld['price']?></td>
                     <td class="py-4 px-6">
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Sửa</a>
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Xóa</a>
-                    </td>
-                    
-                  </tr>
-                  <tr>
-                    <td class="py-4 px-6" >1</td>
-                    <td class="py-4 px-6" >Vũ Minh Đại</td>
-                    <td class="py-4 px-6" >0987565442</td>
-                    <td class="py-4 px-6" >Hải Phòng</td>
-                    <td class="py-4 px-6" >9:00_11-10-2022</td>
-                    <td class="py-4 px-6" >Nguyễn Văn C</td>
-                    <td class="py-4 px-6">
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Sửa</a>
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Xóa</a>
+                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="../danh-muc/quanlylichkham/detele.php?=id<?$cld['id_user']?>">Sửa</a>
+                      <a onclick="return confirm('Xác nhận xóa?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="quanlylichkham/detele.php?id=<?= $cld ['id_user']?>">Xóa</a>
                     </td>
                   </tr>
-                  <tr>
-                    <td class="py-4 px-6" >1</td>
-                    <td class="py-4 px-6" >Lê Thanh Toàn</td>
-                    <td class="py-4 px-6" >0855499383</td>
-                    <td class="py-4 px-6" >Hà Nội</td>
-                    <td class="py-4 px-6" >15:00_17-11-2022</td>
-                    <td class="py-4 px-6" >Nguyễn Văn B</td>
-                    <td class="py-4 px-6">
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Sửa</a>
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Xóa</a>
-                    </td>
-                  </tr>
+                  <?php endforeach?>
+                  
                 </tbody>
               </table>
             </div>

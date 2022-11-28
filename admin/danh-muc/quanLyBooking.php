@@ -1,3 +1,14 @@
+<?php
+  require "../../dao/connect.php";
+
+  //show
+  $sql = "SELECT user.id_user, user.hoten, user.sdt, user.diachi, time.id_time, bacsi.name as doctor FROM (user INNER JOIN bacsi ON user.id_doctor = user.id_doctor) INNER JOIN time on bacsi.id_doctor = time.id_doctor ";
+  $stmt = $conn -> prepare($sql);
+  $stmt ->execute();
+  $booking = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,13 +43,13 @@
               <div class="flex justify-between items-center my-10 ">
                 <div class="profile flex">
                   <div class="notification">
-                    <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-bell"></i></i></a>
+                    <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-bell"></i></i></a>
                   </div>
                   <div class="message">
-                    <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-envelope"></i></ac>
+                    <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-envelope"></i></ac>
                   </div>
                   <div class="icon-user">
-                    <a class="hover:text-white" href=""><i class="fa-2x p-8 fa-solid fa-user-doctor"></i></a>
+                    <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-user-doctor"></i></a>
                   </div>
                 </div>
               </div>
@@ -82,11 +93,11 @@
             <a
               class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500"
               href="quanLyKetLuan.php"
-              ><i class="fa-solid fa-comment-medical p-4"></i>Kết luận của bác sĩ</a
+              ><i class="fa-solid fa-comment-medical px-8"></i>Kết luận của bác sĩ</a
             >
           </div>
   <section class="col-span-4 border-2-sm bg-gray-200 shadow-inherit">
-      <h2 class="py-6 font-bold text-3xl text-center text-gray-600 uppercase">Quản lý tài khoản nhân sự</h2>
+      <h2 class="py-6 font-bold text-3xl text-center text-gray-600 uppercase">Quản lý đặt lịch khám</h2>
       <div class="max-w-7xl mx-auto bg-white p-3">
         <h2 class="border-b-4 font-bold text-2xl py-3">Static voice</h2>
         <table class="w-full texts-sm text-left p-3 ">
@@ -98,48 +109,28 @@
               <th class="py-3 px-6" >Địa chỉ</th>
               <th class="py-3 px-6" >Thời gian khám</th>
               <th class="py-3 px-6" >Bác sĩ</th>
-              <th class="py-3 px-6"> <a href="" class="border rounded-md px-4 py-2 bg-green-500 text-center text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">Thêm tài khoản</a> </th>
+              <th></th>
               
             </tr>
           </thead>
           <tbody class="bg-white border-b dark:bg-gray-300 dark:border-gray-700">
+            <?php
+                foreach( $booking as $index => $bk): 
+            ?>
             <tr>
-              <td class="py-4 px-6" >1</td>
-                    <td class="py-4 px-6" >Trần Hữu Hưng</td>
-                    <td class="py-4 px-6" >0123456890</td>
-                    <td class="py-4 px-6" >Thái Bình</td>
-                    <td class="py-4 px-6" >17-10-2022</td>
-                    <td class="py-4 px-6" >Nguyễn Văn A</td>
+              <td class="py-4 px-6" ><?= $index + 1?></td>
+                    <td class="py-4 px-6" ><?= $bk['hoten']?></td>
+                    <td class="py-4 px-6" ><?= $bk['sdt']?></td>
+                    <td class="py-4 px-6" ><?= $bk['diachi']?></td>
+                    <td class="py-4 px-6" ><?= $bk['id_time']?></td>
+                    <td class="py-4 px-6" ><?= $bk['doctor']?></td>
                     <td class="py-4 px-6">
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Sửa</a>
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Xóa</a>
+                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="../danh-muc/quanlybooking/edit.php?id=<?= $bk['id_user']?>">Sửa</a>
+                      <a onclick="return confirm('Xác nhận xóa?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="quanlyBooking/delete.php?id=<?= $bk ['id_user']?>">Xóa</a>
                     </td>
+              </tr>
+              <?php endforeach?>
               
-              </tr>
-              <tr>
-                    <td class="py-4 px-6" >2</td>
-                    <td class="py-4 px-6" >Vũ Minh Đại</td>
-                    <td class="py-4 px-6" >0987565442</td>
-                    <td class="py-4 px-6" >Hải Phòng</td>
-                    <td class="py-4 px-6" >11-10-2022</td>
-                    <td class="py-4 px-6" >Nguyễn Văn C</td>
-                    <td class="py-4 px-6">
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Sửa</a>
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Xóa</a>
-                    </td>
-              </tr>
-              <tr>
-                    <td class="py-4 px-6" >3</td>
-                    <td class="py-4 px-6" >Lê Thanh Toàn</td>
-                    <td class="py-4 px-6" >0855499383</td>
-                    <td class="py-4 px-6" >Hà Nội</td>
-                    <td class="py-4 px-6" >17-11-2022</td>
-                    <td class="py-4 px-6" >Nguyễn Văn B</td>
-                    <td class="py-4 px-6">
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Sửa</a>
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Xóa</a>
-                    </td>
-              </tr>
           </tbody>
         </table>
       </div>
