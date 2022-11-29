@@ -46,12 +46,12 @@
                           <div>
                             <a>Bạn quên mật khẩu ?</a>
                           </div>
-                          <div class="py-2 " >
-                            <a style="padding-left:80px" href="">Chưa có tài khoản? <a href="" class="uppercase">Đăng ký</a></a>
-                          </div>
                         </div>
                         <div class="button">
                           <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] hover:bg-white hover:text-black w-[20%] py-3 px-2  border rounded-lg"> Đăng nhập</button>
+                        </div>
+                        <div class=" pr-10 text-center" >
+                          <a style="padding-left:80px" href="">Chưa có tài khoản? <a href="../../site/register.php" class="uppercase text-blue-400">Đăng ký</a></a>
                         </div>
                       </form>
                 </div>

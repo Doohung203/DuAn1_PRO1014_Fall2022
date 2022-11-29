@@ -26,11 +26,11 @@
     <div class="mx-auto bg-gradient-to-r from-green-100">
         <div class="grid place-content-center border-2-sm ">
             <div class="my-40 bg-[#2B4B62] rounded-lg font-['Roboto'] text-xl text-white w-[800px] h-[800px] pt-[10%] text-center">
-                <div class="title font-bold uppercase text-4xl py-2 pl-[75px]">
-                    <h2 class="py-4">Đăng ký tài khoản</h2>
+                <div class="title font-bold uppercase text-4xl py-2 ">
+                    <h2 class="py-4 text-center">Đăng ký tài khoản</h2>
                 </div>
-                <div class="py-8 ">
-                    <p style="padding-right: 60px;">Nếu bạn chưa có tài khoản, điền các thông tin đăng ký tại đây
+                <div class="py-8">
+                    <p>Điền thông tin đăng kí tài khoản tại đây
 
                     </p>
                 </div>
@@ -51,10 +51,10 @@
                        
                        
                         <div class="button">
-                          <button type="submit" name="btn-dangky" class="bg-[#2B4B62] hover:bg-white text-black w-[20%] py-3 px-2  border rounded-lg"> Đăng ký</button>
+                          <button type="submit" name="btn-dangky" class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg hover:bg-white hover:text-black "> Đăng ký</button>
                         </div>
-                        <div>
-                            <p style="padding-right:230px"><a href="#" class="font-[Roboto]">Bạn đã có tài khoản? </a><a style="font-weight:bolder;font-size: larger" class="hover:text-orange font-['Roboto'] uppercase" href="#">Đăng nhập</a></p>
+                        <div class=" pr-10 text-center" >
+                          <a style="padding-left:80px" href="">Bạn đã có tài khoản? <a href="../admin/danh-muc/login.php" class="uppercase text-blue-400">Đăng nhập</a></a>
                         </div>
                       </form>
                 </div>
