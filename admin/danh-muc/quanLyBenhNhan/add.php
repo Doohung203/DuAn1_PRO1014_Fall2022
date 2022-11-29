@@ -58,9 +58,9 @@ if (isset($_POST['save'])) {
         <?php endif ?>
         <br>
 
-        <input type="text" name="name" placeholder="Username">
-        <?php if (isset($errors['name'])) : ?>
-            <span style="color: red; font-size: 10px;"><?= $errors['name']?></span>
+        <input type="text" name="username" placeholder="Username">
+        <?php if (isset($errors['username'])) : ?>
+            <span style="color: red; font-size: 10px;"><?= $errors['username']?></span>
         <?php endif ?>
         <br>
 

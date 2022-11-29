@@ -73,7 +73,7 @@ $comment = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <th class="py-3 px-6">User</th>
                 <th class="py-3 px-6">Nội dung</th>
                 <th class="py-3 px-6">Thời gian bình luận</th>
-                <th class="py-3 px-6"> <a href="" class="border rounded-md px-4 py-2 bg-green-500 text-center text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">Thêm tài khoản</a> </th>
+                <th class="py-3 px-6"> <a href="Comment/add.php" class="border rounded-md px-4 py-2 bg-green-500 text-center text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">Thêm tài khoản</a> </th>
               </tr>
             </thead>
             <tbody class="bg-white border-b dark:bg-gray-300 dark:border-gray-700">
