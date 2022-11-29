@@ -51,10 +51,10 @@
                        
                        
                         <div class="button">
-                          <button type="submit" name="btn-dangky" class="bg-[#2B4B62] hover:bg-green-400 w-[20%] py-3 px-2  border rounded-lg"> Đăng ký</button>
+                          <button type="submit" name="btn-dangky" class="bg-[#2B4B62] hover:bg-white text-black w-[20%] py-3 px-2  border rounded-lg"> Đăng ký</button>
                         </div>
                         <div>
-                            <p style="padding-right:280px"><a href="#" class="font-[Roboto]">Bạn đã có tài khoản? </a><a style="font-weight:bolder;font-size: larger" class="hover:text-orange font-['Roboto']" href="#">Đăng nhập</a></p>
+                            <p style="padding-right:230px"><a href="#" class="font-[Roboto]">Bạn đã có tài khoản? </a><a style="font-weight:bolder;font-size: larger" class="hover:text-orange font-['Roboto'] uppercase" href="#">Đăng nhập</a></p>
                         </div>
                       </form>
                 </div>

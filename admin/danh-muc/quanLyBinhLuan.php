@@ -69,11 +69,18 @@ $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
               <tr>
                 <th class="py-3 px-6">STT</th>
+<<<<<<< HEAD
                 <th class="py-3 px-6">Họ Tên</th>
                 <th class="py-3 px-6">Nội Dung</th>
                 <th class="py-3 px-6">Thời Gian Bình luận</th>
                 <th class="py-3 px-6"> <a href="quanLyBinhLuan/add.php" class="border rounded-md px-4 py-2 bg-green-500 text-center text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">hê hê</a> </th>
 
+=======
+                <th class="py-3 px-6">User</th>
+                <th class="py-3 px-6">Nội dung</th>
+                <th class="py-3 px-6">Thời gian bình luận</th>
+                <th class="py-3 px-6"> <a href="Comment/add.php" class="border rounded-md px-4 py-2 bg-green-500 text-center text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">Thêm tài khoản</a> </th>
+>>>>>>> bc17bcf8e8d2ff6c75411f91cec9a199ad5ba984
               </tr>
             </thead>
             <tbody class="bg-white border-b dark:bg-gray-300 dark:border-gray-700">
