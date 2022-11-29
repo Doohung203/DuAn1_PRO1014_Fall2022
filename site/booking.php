@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="../font-css/font-logo.css">
     <script src="../path/to/flowbite/dist/datepicker.js"></script>
     <script src="https://unpkg.com/flowbite@1.5.4/dist/datepicker.js"></script>
+    <style>
+        .logo1{
+            padding-left: 320px;
+        }
+    </style>
 </head>
 <body>
 <!--Main-header -->
@@ -60,8 +65,8 @@
 <!-- End-Header -->
     <section class=" mx-auto py-10 bg-green-300 my-10">
         <div class="booking max-w-3xl mx-auto bg-green-500 px-4 rounded-md">
-            <div>
-                <img src="../admin/images/zyro-mouth.png" alt="" width="10%">
+            <div class="logo1"> 
+                <img src="../admin/images/zyro-mouth.png" alt="" width="100">
             </div>
             <h2 class="text-2xl text-center uppercase text-white font-bold font-['TimeNewRoman']">Đặt lịch khám</h2>
             <div class="form py-10">
@@ -78,10 +83,22 @@
                     <input type="text" name="" id="" placeholder="Email" class="border rounded-md w-full my-4 p-2">     
                     <input type="text" name="" id="" placeholder="Điện thoại" class="border rounded-md w-full my-4 p-2">
                     <span class="text-white text-lg">Thời gian hẹn: </span>
-                     <select name="" id="" class=" w-full border rounded-md text-center px-4 p-2">
-                        <option value="">Sáng : 8:00 A.M - 11:00 A.M  </option>
-                        <option value="">Chiều : 14:00 P.M - 17:00 P.M</option>
-                    </select>            
+                     <select name="" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">
+                        <option value="">SÁNG-CHIỀU</option>
+                        <option value="">SÁNG : 8:00 A.M - 11:00 A.M  </option>
+                        <option value="">CHIỀU : 14:00 P.M - 17:00 P.M</option>
+                    </select>     
+                    <div>
+                        <select class="w-full border rounded-md text-center my-3 px-4 p-2" name="" id="">
+                            <option value="">-Chọn Dịch Vụ Khám-</option>
+                            <option value="">Niềng Răng</option>
+                            <option value="">Bọc Răng Sứ</option>
+                            <option value="">Nhổ Răng</option>
+                        </select>
+                    </div>    
+                    <div>
+                    <textarea class="w-full border rounded-md my-3  px-4 p-2" id="" name="" placeholder="Vấn đề của bạn"></textarea>
+                    </div>   
                     <div class="text-center mt-8 ">
                     <a href="" class="border rounded-md text-white  hover:bg-white hover:text-green-600 hover:border-red-700  font-bold px-3 py-2">Đặt lịch</a>
 
