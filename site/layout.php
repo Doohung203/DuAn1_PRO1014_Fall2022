@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
+    <!-- <nav>
         <ul>
             <li>
                 <a href="">Trang chủ</a>
@@ -16,7 +16,7 @@
                 <a href="<?= SITE_URL . "?danh-muc"?>">Danh mục</a>
             </li>
         </ul>
-    </nav>
+    </nav> -->
     <main>
         <?php include_once $VIEW_NAME ?>
     </main>

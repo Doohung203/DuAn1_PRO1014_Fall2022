@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="../font-css/font-logo.css">
 </head>
 <body>
+<!--Main-header -->
     <div class="container  mx-auto">
-      <!--Main-header -->
     <div class="mx-auto">
         <div class="Header">
             <!-- Lcation - SignIn - SignUp -->
@@ -44,13 +44,13 @@
             <div class="menu-nav max-w-5xl mx-auto relative ">
                 <ul>
                     <li class="flex justify-between items-center font-bold text-white">
-                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500" href="">Trang chủ</a>
-                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500" href="">Bảng giá dịch vụ</a>
-                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500" href="">Dịch vụ</a>
+                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500  hover:rounded-md" href="home.php">Trang chủ</a>
+                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="priceListService.php">Bảng giá dịch vụ</a>
+                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="">Dịch vụ</a>
                         <a style="font-family: Inter-font;" class="py-4 px-2 text-4xl uppercase hover:bg-sky-100 hover:text-green-500" href="">Health Clinic</a>
-                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500" href="">Phòng ban</a>
-                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500" href="">Đội ngũ chuyên gia</a>
-                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500" href="">Liên hệ</a>
+                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="">Phòng ban</a>
+                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="dentist.php">Đội ngũ chuyên gia</a>
+                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="contact.php">Liên hệ</a>
                     </li>
                 </ul>
             </div>
@@ -84,8 +84,8 @@
                     <h2 class="border-b-2 font-bold text-center">ĐỘI NGŨ CHUYÊN GIA</h2>
                     <div class="grid grid-cols-3 gap-8 text-center">
                         <div class="columns">
-                            <a href="detail.html"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt=""></a>
-                            <a class="text-green-500 font-bold text-[14px] " href="detail.html">PGS.TS.TRẦN HỮU HƯNG</a>
+                            <a href="chi-tiet.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt=""></a>
+                            <a class="text-green-500 font-bold text-[14px] " href="chi-tiet.php">PGS.TS.TRẦN HỮU HƯNG</a>
                             <p class="">Giám đốc Bệnh viện</p>
                         </div>
                         <div class="columns">

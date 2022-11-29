@@ -48,11 +48,7 @@
                           </div>
                         </div>
                         <div class="button">
-<<<<<<< HEAD
                           <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] hover:bg-white hover:text-black w-[20%] py-3 px-2  border rounded-lg"> Đăng nhập</button>
-=======
-                          <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] hover:bg-green-400 w-[20%] py-3 px-2  border rounded-lg"> Đăng nhập</button>
->>>>>>> 98cfaea6060131d048853ffbf4cd19038ebf686f
                         </div>
                       </form>
                 </div>
