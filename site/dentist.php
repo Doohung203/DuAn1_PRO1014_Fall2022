@@ -8,8 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+<section class="container mx-auto">
+    <!--Main-header -->
     <div class="contianer mx-auto">
-        <!--Main-header -->
         <div class="Header">
             <!-- location -->
         <div class="flex justify-between items-center">
@@ -37,16 +38,14 @@
         </div>
         <!-- Menu-top -->
         <div class="menu bg-green-500 rounded-md">
-            <div class="menu-nav max-w-5xl mx-auto  ">
+            <div class="menu-nav max-w-5xl mx-auto relative ">
                 <ul>
-                    <li class="flex justify-between items-center py-3 font-bold text-white">
-                        <a href="">Trang chủ</a>
-                        <a href="">Bảng giá dịch vụ</a>
-                        <a href="">Dịch vụ</a>
-                        <img src="./image/zyro-image.png" alt="" width="15%">
-                        <a href="">Phòng ban</a>
-                        <a href="">Đội ngũ chuyên gia</a>
-                        <a href="">Liên hệ</a>
+                    <li class="flex justify-between items-center font-bold text-white">
+                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500  hover:rounded-md" href="home.php">Trang chủ</a>
+                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="priceListService.php">Bảng giá dịch vụ</a>
+                        <a style="font-family: Inter-font;" class="py-4 px-2 text-4xl uppercase hover:bg-sky-100 hover:text-green-500" href="home.php">Health Clinic</a>
+                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="dentist.php">Đội ngũ chuyên gia</a>
+                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="contact.php">Liên hệ</a>
                     </li>
                 </ul>
             </div>
@@ -57,32 +56,6 @@
     <!--Main-content  -->
         <div class="container max-w-7xl mx-auto my-4">
             <h2 class="font-bold text-2xl border-b-2 uppercase">Đội ngũ chuyên gia</h2>
-            <div class="seach grid grid-cols-9 gap-8 bg-gray-300 rounded-md p-2 my-4">
-                <!-- <div class="option"> -->
-                    <input type="text" class="border col-span-2">
-                    <select name="" id="" class="border col-span-2"> 
-                        <option value="">Ban giám đốc</option>
-                        <option value="">Khoa điều trị nội nha</option>
-                        <option value="">Khoa điều trị răng người cao tuổi</option>
-                        <option value="">Khoa điều trị theo yêu cầu</option>
-                        <option value="">Khoa răng trẻ em</option>
-                        <option value="">Khoa nha chu</option>
-                    </select>
-                    <select name="" id="" class="border col-span-2">
-                        <option value="">-Giới tính-</option>
-                        <option value="">Nam</option>
-                        <option value="">Nữ</option>
-                    </select>
-                    <select name="" id="" class="border col-span-2">
-                        <option value="">Chọn trình độ học vấn</option>
-                        <option value="">Phó giáo sư</option>
-                        <option value="">Tiến sĩ</option>
-                        <option value="">Thạc sĩ</option>
-                        <option value="">Bác sĩ</option>
-                    </select>
-                    <button class="border px-4 py-[6px] bg-green-500 hover:bg-green-700 ">Tìm Kiếm</button>
-                <!-- </div> -->
-            </div>
             <div class="grid grid-cols-4 gap-8 my-4 text-center">
                 <div class="dentist">
                     <a href="detail.html"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt=""></a>
@@ -151,6 +124,6 @@
     </div>
   </div>
 <!-- end-Footer -->
-    </div>
+</section>
 </body>
 </html>

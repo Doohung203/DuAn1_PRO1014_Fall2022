@@ -39,16 +39,14 @@
         </div>
         <!-- Menu-top -->
         <div class="menu bg-green-500 rounded-md">
-            <div class="menu-nav max-w-5xl mx-auto relative">
+            <div class="menu-nav max-w-5xl mx-auto relative ">
                 <ul>
-                    <li class="flex justify-between items-center py-3 font-bold text-white>
-                        <a href="">Trang chủ</a>
-                        <a href="">Bảng giá dịch vụ</a>
-                        <a href="">Dịch vụ</a>
-                        <img src="./image/logomouth.png" alt="" width="20%" class="absolute left-[400px] bottom-[-44px]">
-                        <a href="">Phòng ban</a>
-                        <a href="">Đội ngũ chuyên gia</a>
-                        <a href="">Liên hệ</a>
+                    <li class="flex justify-between items-center font-bold text-white">
+                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500  hover:rounded-md" href="home.php">Trang chủ</a>
+                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="priceListService.php">Bảng giá dịch vụ</a>
+                        <a style="font-family: Inter-font;" class="py-4 px-2 text-4xl uppercase hover:bg-sky-100 hover:text-green-500" href="home.php">Health Clinic</a>
+                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="dentist.php">Đội ngũ chuyên gia</a>
+                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="contact.php">Liên hệ</a>
                     </li>
                 </ul>
             </div>

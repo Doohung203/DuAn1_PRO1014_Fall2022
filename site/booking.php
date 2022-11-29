@@ -100,7 +100,7 @@
                     <textarea class="w-full border rounded-md my-3  px-4 p-2" id="" name="" placeholder="Vấn đề của bạn"></textarea>
                     </div>   
                     <div class="text-center mt-8 ">
-                    <a href="" class="border rounded-md text-white  hover:bg-white hover:text-green-600 hover:border-red-700  font-bold px-3 py-2">Đặt lịch</a>
+                    <a href="" class="border rounded-md text-white bg-white hover:bg-white hover:text-green-600 hover:border-red-700  font-bold px-3 py-2">Đặt lịch</a>
 
                     </div>
                 </form>
