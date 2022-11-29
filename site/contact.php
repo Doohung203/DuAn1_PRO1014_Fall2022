@@ -124,10 +124,10 @@
                     <p>Copyright © RANGHAMMAT.ORG.VN. All rights reserved. Thiết kế website bởi ADC.</p>
                 </div>
                 <div class="internet flex justify-between space-x-4">
-                    <a href=""><img src="./svg/facebook.svg" alt=""></a>
-                    <a href=""><img src="./svg/instagram.svg" alt=""></a>
-                    <a href=""><img src="./svg/twitter.svg" alt=""></a>
-                    <a href=""><img src="./svg/youtube.svg" alt=""></a>
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
         </div>
