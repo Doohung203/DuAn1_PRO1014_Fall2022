@@ -91,7 +91,7 @@
                     <th class="py-3 px-6" >User</th>
                     <th class="py-3 px-6" >Nội dung</th>
                     <th class="py-3 px-6" >Thời gian bình luận</th>
-                    <th class="py-3 px-6"> <a href="" class="border rounded-md px-4 py-2 bg-green-500 text-center text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">Thêm tài khoản</a> </th>  
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody class="bg-white border-b dark:bg-gray-300 dark:border-gray-700">
@@ -101,7 +101,6 @@
                     <td class="py-4 px-6" >Phòng khám rất chất lượng, bác sĩ có năng lực chuyên sâu</td>
                     <td class="py-4 px-6" >12-11-2022</td>
                     <td class="py-4 px-6">
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Sửa</a>
                       <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Xóa</a>
                     </td>
                     
@@ -112,7 +111,6 @@
                     <td class="py-4 px-6" >Hài lòng </td>
                     <td class="py-4 px-6" >18-12-2022</td>
                     <td class="py-4 px-6">
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Sửa</a>
                       <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Xóa</a>
                     </td>
                   </tr>
@@ -122,7 +120,6 @@
                     <td class="py-4 px-6" >Các y bác sĩ tại bênh viện tận tình tỉ mỉ</td>
                     <td class="py-4 px-6" >1-12-2022</td>
                     <td class="py-4 px-6">
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Sửa</a>
                       <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="">Xóa</a>
                     </td>
                   </tr>

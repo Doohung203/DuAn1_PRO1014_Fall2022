@@ -30,7 +30,7 @@
                     <h2>Bạn cần đăng nhập</h2>
                 </div>
                 <div class="content-center font-bold">
-                    <form action="index.php" method="POST" class="space-y-8">
+                    <form action="../../../layout/admin/showadmin.php" method="POST" class="space-y-8">
                         <div>
                             <span>Username</span>
                             <input type="text" placeholder="Enter username..." class="rounded-lg w-[50%] p-2 py-4">
@@ -48,7 +48,7 @@
                           </div>
                         </div>
                         <div class="button">
-                          <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] hover:bg-white w-[20%] py-3 px-2  border rounded-lg"> Đăng nhập</button>
+                          <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] hover:bg-white hover:text-black w-[20%] py-3 px-2  border rounded-lg"> Đăng nhập</button>
                         </div>
                       </form>
                 </div>
