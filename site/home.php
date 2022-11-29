@@ -157,7 +157,7 @@
         </div>
 <!-- Footer -->
         <div class="footer bg-[#eff7f9] my-6 rounded-md">
-            <div class="grid grid-cols-5 gap-8 text-center p-4>
+            <div class="grid grid-cols-5 gap-8 text-center p-4">
                 <div class="columns col-span-2">
                     <h2 class="font-bold">BỆNH VIỆN NHA KHOA HEALTH CLINIC</h2>
                     <p>Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</p>
@@ -189,10 +189,10 @@
                         <p>Copyright © RANGHAMMAT.ORG.VN. All rights reserved. Thiết kế website bởi ADC.</p>
                     </div>
                     <div class="internet flex justify-between space-x-4">
-                        <a href=""><img src="./svg/facebook.svg" alt=""></a>
-                        <a href=""><img src="./svg/instagram.svg" alt=""></a>
-                        <a href=""><img src="./svg/twitter.svg" alt=""></a>
-                        <a href=""><img src="./svg/youtube.svg" alt=""></a>
+                        <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                        <a href=""><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
