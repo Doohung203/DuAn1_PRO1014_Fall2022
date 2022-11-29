@@ -1,5 +1,5 @@
 <?php
-    require_once '../global.php';
+    require_once "../global.php";
     require_once '../dao/pdo.php';
 
     if(isset($_GET['chi-tiet'])){

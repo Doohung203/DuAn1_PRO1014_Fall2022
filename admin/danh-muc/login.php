@@ -25,18 +25,18 @@
 <!-- Main-login -->
     <div class="mx-auto bg-gradient-to-r from-green-100">
         <div class="grid place-content-center border-2-sm ">
-            <div class="my-40 bg-[#2B4B62] rounded-lg font-['Roboto'] text-xl text-white w-[800px] h-[500px] pt-[10%] text-center">
-                <div class="title font-bold uppercase text-2xl py-4 pl-[75px]">
+            <div class="my-40 bg-[#2B4B62] rounded-lg font-['Roboto'] text-xl text-white w-[800px] h-[550px] pt-[10%] text-center">
+                <div class="title font-bold uppercase text-3xl py-8 pl-[75px] px-14">
                     <h2>Bạn cần đăng nhập</h2>
                 </div>
                 <div class="content-center font-bold">
                     <form action="../../../layout/admin/showadmin.php" method="POST" class="space-y-8">
                         <div>
-                            <span>Username</span>
+                            
                             <input type="text" placeholder="Enter username..." class="rounded-lg w-[50%] p-2 py-4">
                         </div>
                         <div class="password my-3">
-                            <span>Password</span>
+                            
                             <input type="password" placeholder="Enter password..." class="rounded-lg w-[50%] p-2 py-4">
                         </div>
                         <div class="log-in grid grid-cols-2 px-10">
@@ -44,11 +44,15 @@
                             <input type="checkbox" ><span style="padding-left:8px">Lưu mật khẩu</span></input>
                           </div>
                           <div>
-                            <a>Bạn quên mật khẩu</a>
+                            <a>Bạn quên mật khẩu ?</a>
                           </div>
                         </div>
                         <div class="button">
+<<<<<<< HEAD
                           <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] hover:bg-white hover:text-black w-[20%] py-3 px-2  border rounded-lg"> Đăng nhập</button>
+=======
+                          <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] hover:bg-green-400 w-[20%] py-3 px-2  border rounded-lg"> Đăng nhập</button>
+>>>>>>> 98cfaea6060131d048853ffbf4cd19038ebf686f
                         </div>
                       </form>
                 </div>
