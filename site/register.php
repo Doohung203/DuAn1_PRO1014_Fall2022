@@ -1,3 +1,39 @@
+<?php
+require_once "../dao/connect.php";
+
+if(isset($_POST['btn-dangky'])){
+    $hoten = $_POST['hoten'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $sdt = $_POST['sdt'];
+    $diachi = $_POST['diachi'];
+
+    $errors = [];
+
+    if($hoten == ""){
+        $errors['hoten'] = "Nhập họ tên";
+    }
+    if($username == ""){
+        $errors['username'] = "Nhập username";
+    }
+    if($password == ""){
+        $errors['password'] = "Nhập pass";
+    }
+    
+    if(!$errors){
+        $sql = "INSERT INTO `user`(`hoten`, `username`, `password`, `sdt`, `diachi`) 
+        VALUES ('$hoten', '$username', '$password', '$sdt', '$diachi')";
+
+        $stmt=$conn->prepare($sql);
+        $stmt->execute();
+
+        header("location: login.php");
+        setcookie("dangky", "Đăng ký thành công", time()+1);
+        exit;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +71,7 @@
                     </p>
                 </div>
                 <div class="content-center font-bold text-black">
-                    <form action="index.php" method="POST" class="space-y-6">
+                    <form action="" method="POST" class="space-y-6">
                         <div class="name my-3">
                             <input name="hoten" type="text" placeholder="Nhập họ tên của bạn" class="rounded-lg w-[70%] p-2 py-4">
                         </div>
@@ -55,7 +91,11 @@
                           <button type="submit" name="btn-dangky" class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg hover:bg-white hover:text-black "> Đăng ký</button>
                         </div>
                         <div class=" pr-10 text-center text-white" >
+<<<<<<< HEAD
+                          <a style="padding-left:80px" href="">Bạn đã có tài khoản? <a href="login.php" class="uppercase text-blue-400">Đăng nhập</a></a>
+=======
                           <a style="padding-left:80px" href="">Bạn đã có tài khoản? <a href="../admin/danh-muc/login.php" class="uppercase text-blue-400 underline underline-offset-auto">Đăng nhập</a></a>
+>>>>>>> e87f64793fd87403ad0fe6e0625077bd9955c1cd
                         </div>
                       </form>
                 </div>

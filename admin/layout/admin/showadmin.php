@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../../../dao/connect.php";
 
 //show
@@ -44,7 +45,7 @@ $admin = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-envelope"></i></ac>
                             </div>
                             <div class="icon-user">
-                                <a class="text-white" href=""><i class="fa-2x p-8 fa-solid fa-user-doctor"></i></a>
+                                <a class="text-white" href="../../danh-muc/logout.php"><i class="fa-2x p-8 fa-solid fa-user-doctor"></i></a>
                             </div>
                         </div>
                     </div>

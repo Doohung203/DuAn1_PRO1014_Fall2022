@@ -1,13 +1,13 @@
 <?php
 session_start();
-require_once "../../dao/connect.php";
+require_once "../dao/connect.php";
 // require_once "../../admin/layout/admin/showadmin.php";
 
 if(isset($_POST['btn-dangnhap'])){
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  $sql= "SELECT * FROM admin WHERE username='$username'";
+  $sql= "SELECT * FROM user WHERE username='$username'";
 
   $stmt=$conn->prepare($sql);
   $stmt->execute();
@@ -17,7 +17,7 @@ if(isset($_POST['btn-dangnhap'])){
   if ($admin) {
       if ($password == $admin['password']) {
           $_SESSION['username'] = $username['username'];
-          header("location: ../../admin/layout/admin/showadmin.php");
+          header("location: home.php");
           sleep(1);
       }
   } else {
@@ -69,9 +69,13 @@ if(isset($_POST['btn-dangnhap'])){
                             <input name="username" type="text" placeholder="Enter username..." class="rounded-lg w-[50%] p-2 py-4">
                         </div>
                         <div class="password my-3">
-                            
                             <input name="password" type="text" placeholder="Enter password..." class="rounded-lg w-[50%] p-2 py-4">
                         </div>
+
+                        <?php if(isset($error)) : ?>
+                          <p style="color: red; font-size: 10px;"><?= $error?></p>
+                          <?php endif?>
+
                         <div class="log-in grid grid-cols-2 px-10">
                           <div class="save-password">
                             <input type="checkbox" ><span style="padding-left:8px">Lưu mật khẩu</span></input>
@@ -81,14 +85,10 @@ if(isset($_POST['btn-dangnhap'])){
                           </div>
                         </div>
                         <div class="button">
-                          <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg text-white hover:bg-white hover:text-black"> Đăng nhập</button>
+                          <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] hover:bg-white hover:text-black w-[20%] py-3 px-2  border rounded-lg"> Đăng nhập</button>
                         </div>
                         <div class=" pr-10 text-center text-white">
-<<<<<<< HEAD
-                          <a style="padding-left:80px" href="">Chưa có tài khoản? <a href="registerAdmin.php" class="uppercase text-blue-400 underline underline-offset-auto">Đăng ký</a></a>
-=======
-                          <a style="padding-left:80px" href="">Chưa có tài khoản? <a href="registerAdmin.php" class="uppercase text-blue-400">Đăng ký</a></a>
->>>>>>> 6404db1e600f310e6e49b193b299874ef1520526
+                          <a style="padding-left:80px" href="">Chưa có tài khoản? <a href="register.php" class="uppercase text-blue-400">Đăng ký</a></a>
                         </div>
                       </form>
                 </div>
