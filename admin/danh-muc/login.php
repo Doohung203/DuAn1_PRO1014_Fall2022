@@ -29,7 +29,7 @@
                 <div class="title font-bold uppercase text-3xl py-8 pl-[75px] px-14">
                     <h2>Bạn cần đăng nhập</h2>
                 </div>
-                <div class="content-center font-bold">
+                <div class="content-center font-bold text-black">
                     <form action="login.php" method="POST" class="space-y-8">
                         <div>
                             <input type="text" placeholder="Enter username..." class="rounded-lg w-[50%] p-2 py-4">
@@ -49,7 +49,7 @@
                         <div class="button">
                           <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] hover:bg-white hover:text-black w-[20%] py-3 px-2  border rounded-lg"> Đăng nhập</button>
                         </div>
-                        <div class=" pr-10 text-center" >
+                        <div class=" pr-10 text-center text-white">
                           <a style="padding-left:80px" href="">Chưa có tài khoản? <a href="../../site/register.php" class="uppercase text-blue-400">Đăng ký</a></a>
                         </div>
                       </form>
