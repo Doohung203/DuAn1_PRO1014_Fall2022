@@ -30,9 +30,8 @@
                     <h2>Bạn cần đăng nhập</h2>
                 </div>
                 <div class="content-center font-bold">
-                    <form action="../../../layout/admin/showadmin.php" method="POST" class="space-y-8">
+                    <form action="login.php" method="POST" class="space-y-8">
                         <div>
-                            
                             <input type="text" placeholder="Enter username..." class="rounded-lg w-[50%] p-2 py-4">
                         </div>
                         <div class="password my-3">
