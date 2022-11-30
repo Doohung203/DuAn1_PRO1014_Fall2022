@@ -29,6 +29,10 @@
                 <div class="title font-bold uppercase text-3xl py-8 pl-[75px] px-14">
                     <h2>Bạn cần đăng nhập</h2>
                 </div>
+                <?php if(isset($_COOKIE['dangky'])) : ?>
+                          <p><?= $_COOKIE['dangky']?></p>
+                          <?php endif?>
+
                 <div class="content-center font-bold text-black">
                     <form action="login.php" method="POST" class="space-y-8">
                         <div>
@@ -50,7 +54,11 @@
                           <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg text-white hover:bg-white hover:text-black"> Đăng nhập</button>
                         </div>
                         <div class=" pr-10 text-center text-white">
+<<<<<<< HEAD
                           <a style="padding-left:80px" href="">Chưa có tài khoản? <a href="registerAdmin.php" class="uppercase text-blue-400 underline underline-offset-auto">Đăng ký</a></a>
+=======
+                          <a style="padding-left:80px" href="">Chưa có tài khoản? <a href="registerAdmin.php" class="uppercase text-blue-400">Đăng ký</a></a>
+>>>>>>> 6404db1e600f310e6e49b193b299874ef1520526
                         </div>
                       </form>
                 </div>
