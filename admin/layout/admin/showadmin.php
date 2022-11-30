@@ -54,7 +54,7 @@ $admin = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <!-- Main -->
         <section class="manage grid grid-cols-5 gap-4 my-4 ">
             <div class="menu  leading-10 bg-[#30536D]">
-                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="index.html"><i class="fa-solid fa-user p-4"> </i> Quản lý tài khoản nhân sự</a>
+                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="showadmin.php"><i class="fa-solid fa-user p-4"> </i> Quản lý tài khoản nhân sự</a>
                 <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="../../danh-muc/quanLyBenhNhan.php"><i class="fa-solid fa-hospital-user p-4"></i> Quản lý bệnh nhân</a>
                 <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="../../danh-muc/quanLyHoSo.php"><i class="fa-solid fa-file-pen p-4"></i> Quản lý hồ sơ</a>
                 <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="../../danh-muc/quanLyBinhLuan.php"><i class="fa-solid fa-comments p-4"></i> Quản lý bình luận</a>
