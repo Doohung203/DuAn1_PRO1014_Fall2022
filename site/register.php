@@ -91,7 +91,11 @@ if(isset($_POST['btn-dangky'])){
                           <button type="submit" name="btn-dangky" class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg hover:bg-white hover:text-black "> Đăng ký</button>
                         </div>
                         <div class=" pr-10 text-center text-white" >
+<<<<<<< HEAD
                           <a style="padding-left:80px" href="">Bạn đã có tài khoản? <a href="login.php" class="uppercase text-blue-400">Đăng nhập</a></a>
+=======
+                          <a style="padding-left:80px" href="">Bạn đã có tài khoản? <a href="../admin/danh-muc/login.php" class="uppercase text-blue-400 underline underline-offset-auto">Đăng nhập</a></a>
+>>>>>>> e87f64793fd87403ad0fe6e0625077bd9955c1cd
                         </div>
                       </form>
                 </div>
