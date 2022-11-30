@@ -1,3 +1,32 @@
+<?php
+require_once "../../dao/connect.php";
+
+if(isset($_POST['btn-dangky'])){
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  $errors = [];
+
+  if($username == ""){
+    $errors['username'] = "Username không được bỏ trống!";
+  }
+  if($password == ""){
+    $errors['password'] = "password không được bỏ trống!";
+  }
+
+  if(!$errors){
+    $sql = "INSERT INTO `admin`(`username`, `password`) VALUES ('$username','$password')";
+
+    $stmt=$conn->prepare($sql);
+    $stmt->execute();
+
+    header("location: login.php");
+    setcookie("dangky", "Đăng ký thành công", time()+1);
+    exit;
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +64,7 @@
                     </p>
                 </div>
                 <div class="content-center font-bold text-black">
-                    <form action="index.php" method="POST" class="space-y-8">
+                    <form method="POST" class="space-y-8" >
                         <div>
                             <input name="username" type="text" placeholder="Nhập tên đăng nhập" class="rounded-lg w-[70%] p-2 py-4">
                         </div>
