@@ -32,7 +32,7 @@
                         <ul>
                             <li>
                                 <div >
-                                    <div class="dropdown inline-block relative">
+                                    <div class="dropdown inline-block relative ">
                                         <button class="bg-green-400 text-white font-semibold py-2 px-4 rounded inline-flex items-center">
                                             <span class="mr-1"> <i class="fa-regular fa-user"></i></span>
                                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -40,9 +40,9 @@
                                             </svg>
                                         </button>
                                         <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
-                                            <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-6 block whitespace-no-wrap" href="login.php">Đăng nhập</a></li>
-                                            <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-6 block whitespace-no-wrap" href="register.php">Đăng ký</a></li>
-                                            <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-6 block whitespace-no-wrap" href="logout.php">Đăng xuất</a></li>
+                                            <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-12 block whitespace-no-wrap" href="login.php">Đăng nhập</a></li>
+                                            <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-12 block whitespace-no-wrap" href="register.php">Đăng ký</a></li>
+                                            <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-12 block whitespace-no-wrap" href="logout.php">Đăng xuất</a></li>
                                         </ul>
                                     </div>
 
