@@ -44,10 +44,11 @@
 
         }
     }
-    $sql =" SELECT * FROM service";
+    $sql =" SELECT user.id as id_user, user.hoten,user.sex,user.birthday,user.username,user.sdt,schedule.id as id_schedule,schedule.time,service.id as id_service ,service.name as sv FROM booking INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.id_schedule = schedule.id INNER JOIN service on booking.id_service = service.id";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $sv = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $show = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 
@@ -127,10 +128,9 @@
             </div>
             <h2 class="text-2xl text-center uppercase text-white font-bold font-['TimeNewRoman']">Đặt lịch khám</h2>
           
-            <div class="form py-10">
+            <div class=" py-10">
                 <form action="" method="POST">
                     <input type="text" name="name" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2 ">
-                    <br>
                     <?php if (isset($errors['name'])) : ?>
                         <span style="color: red; font-size: 10px;"><?= $errors['name'] ?></span>
                     <?php endif ?>
@@ -146,7 +146,7 @@
                     <input type="text" name="email" id="" placeholder="Email" class="border rounded-md w-full my-4 p-2">     
                     <input type="text" name="phone" id="" placeholder="Điện thoại" class="border rounded-md w-full my-4 p-2">
                     <span class="text-white text-lg">Thời gian hẹn: </span>
-                     <select name="time" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">
+                    <select name="time" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">
                         <option value="0">SÁNG-CHIỀU</option>
                         <option value="1">Sáng</option>
                         <option value="2">Chiều</option>
@@ -155,9 +155,14 @@
                             <span style="color: red; font-size: 10px;"><?= $errors['time'] ?></span>
                         <?php endif ?>
                     <div>
+                       
                         <select class="w-full border rounded-md text-center my-3 px-4 p-2" name="service" id="">
-                            <option value="">-Chọn Dịch Vụ Khám-</option>
-                            <option value="1"><?= $sv.['name']?></option>
+                            <option value="0">-Chọn Dịch Vụ Khám-</option>
+                                <?php foreach ($show as  $show):?>
+                                <option value="<?= $show[id_service]?>">
+                                    <?= $show['sv']?>
+                                </option>
+                                <?php endforeach ?>
                         </select>
                         
                         <?php if (isset($errors['service'])) : ?>
@@ -166,10 +171,10 @@
                     </div>    
                     
                     <div>
-                    <textarea class="w-full h-20 border rounded-md my-3  px-4 p-2 " id="" name="" placeholder="Vấn đề của bạn" ></textarea>
+                    <textarea class="w-full h-20 border rounded-md my-3 px-4 p-2 " id="" name="" placeholder="Vấn đề của bạn" ></textarea>
                     </div>   
                     <div class="text-center mt-8 ">
-                    <a href="" name='btn-submit' class="border rounded-md text-black bg-white hover:bg-white hover:text-green-600 hover:border-red-700  font-bold px-3 py-2">Đặt lịch</a>
+                    <a href="" name='btn-submit' class="border rounded-md text-black bg-white hover:bg-white hover:text-green-600 hover:border-red-700 font-bold px-3 py-2">Đặt lịch</a>
 
                     </div>
                 </form>
