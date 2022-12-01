@@ -66,7 +66,7 @@
             >
             <a
               class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
-              href="quanLyBinhLuan.php"
+              href="quanLyContact.php"
               ><i class="fa-solid fa-comments p-4"></i> Quản lý bình luận</a
             >
             <a
