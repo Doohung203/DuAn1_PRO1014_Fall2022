@@ -31,7 +31,7 @@
                     <div class="home-doctument text-white font-bold">
                         <ul>
                             <li>
-                                <div >
+                                <div>
                                     <div class="dropdown inline-block relative">
                                         <button class="bg-green-400 text-white font-semibold py-2 px-4 rounded inline-flex items-center">
                                             <span class="mr-1"> <i class="fa-regular fa-user"></i></span>
@@ -211,7 +211,7 @@
                         <p>Copyright © RANGHAMMAT.ORG.VN. All rights reserved. Thiết kế website bởi ADC.</p>
                     </div>
                     <div class="internet flex justify-between space-x-4">
-                        <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/22.L.I.T/"><i class="fa-brands fa-facebook"></i></a>
                         <a href=""><i class="fa-brands fa-instagram"></i></a>
                         <a href=""><i class="fa-brands fa-twitter"></i></a>
                         <a href=""><i class="fa-brands fa-youtube"></i></a>
