@@ -5,7 +5,6 @@ $sql = "SELECT * FROM user";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();
-
 $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
