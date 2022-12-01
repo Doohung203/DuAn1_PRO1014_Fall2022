@@ -112,7 +112,7 @@
                                         class="bg-[#2B4B62] text-white hover:bg-white hover:text-black w-[70%] py-3 px-2  border rounded-lg my-4">
                                         Đăng nhập dưới quyền quản trị viên</button>
                                 </a>
-                                <a href="login.php">
+                                <a href="">
                                     <button type="submit" name="btn-dangnhap"
                                         class="bg-[#2B4B62] text-white hover:bg-white hover:text-black w-[70%] py-3 px-2  border rounded-lg my-4">
                                         Đăng nhập với tư cách người dùng</button>
