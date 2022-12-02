@@ -1,5 +1,41 @@
+<?php
+require_once "../dao/connect.php";
+
+if (isset($_POST['save'])) {
+    $hoten = $_POST['hoten'];
+    $email = $_POST['email'];
+    $sdt = $_POST['sdt'];
+    $noidung = $_POST['noidung'];
+
+    $errors = [];
+
+    if ($hoten == "") {
+        $errors['hoten'] = "Nhập họ tên";
+    }
+    if ($sdt == "") {
+        $errors['sdt'] = "Nhập sdt";
+    }
+    if ($noidung == "") {
+        $errors['noidung'] = "Nhập nội dung";
+    }
+
+    if (!$errors) {
+        $sql = "INSERT INTO `contact`(`hoten`, `email`, `sdt`, `noidung`) VALUES
+            ('$hoten', '$email', '$sdt', '$noidung')";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        header("location: contact.php");
+        setcookie("save", "Vấn đề của bạn đã được gửi đi, nhân viên tư vấn sẽ sớm liên hệ và hỗ trợ cho bạn.", time() + 1);
+        exit;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +44,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/8ddf476500.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<!--Main-header -->
+    <!--Main-header -->
     <div class="mx-auto">
         <div class="Header">
             <!-- Lcation - SignIn - SignUp -->
-          <div class="flex justify-between items-center px-4 py-6 border-b-2 h-4">
-            <div class="location">
-                <p> <i class="fa-regular fa-map"></i> Nơi ở hiện tại : Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</p>
-            </div>
-            <div class="home-doctument text-white font-bold">
-                <ul>
-                    <li>
-                        <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="../admin/danh-muc/login.php">Đăng nhâp</a>
-                        <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="register.php">Đăng ký</a>
-                    </li>
-                </ul>
+            <div class="flex justify-between items-center px-4 py-6 border-b-2 h-4">
+                <div class="location">
+                    <p> <i class="fa-regular fa-map"></i> Nơi ở hiện tại : Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</p>
+                </div>
+                <div class="home-doctument text-white font-bold">
+                    <ul>
+                        <li>
+                            <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="../admin/danh-muc/login.php">Đăng nhâp</a>
+                            <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="register.php">Đăng ký</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -34,7 +71,7 @@
             </div>
             <div class="search relative block">
                 <i class="fas fa-search absolute inset-y-0 left-0 flex items-center pl-2 "></i>
-                <input type="search" placeholder="Tìm kiếm" class="w-[70%] placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-[3px] pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"> 
+                <input type="search" placeholder="Tìm kiếm" class="w-[70%] placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-[3px] pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1">
             </div>
         </div>
         <!-- Menu-top -->
@@ -51,46 +88,63 @@
                 </ul>
             </div>
         </div>
-    </div> 
-<!-- End-Header -->
-    
-<!-- Main-content -->
-        <div class="Contact max-w-7xl mx-auto my-4">
-            <h2 class="font-bold text-2xl uppercase border-b-2">Liên hệ</h2>
-            <div class="grid grid-cols-3 gap-8 my-4">
-                <div class="colums col-span-2">
-                    <img src="https://ranghammat.org.vn/resize/medium/img-lh-dXBsb2FkaW1hZ2Vz-medium.jpg" alt="" width="100%">
-                </div>
-                <div class="colums leading-10 p-4">
-                    <img src="./image/zyro-image.png" alt="">
-                    <p class="font-bold">BỆNH VIỆN RĂNG HÀM MẶT TRUNG ƯƠNG HÀ NỘI</p>
-                    <p> <i class="fas fa-map-marked-alt"></i> Phố Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</p>
-                    <a href="tel: 0877432122"> <i class="fas fa-phone-alt"></i> (024) 3826.9722 - 3928.5172 - 3826.9275</a><br>
-                    <a href="tel: 113">  (024) 3826.9726 - 3826.9725</a>
-                    <p>Số điện thoại tư vấn: <a href="tel: 114">0867.732939</a></p>
-                    
-                </div>
+    </div>
+    <!-- End-Header -->
+
+    <!-- Main-content -->
+    <div class="Contact max-w-7xl mx-auto my-4">
+        <h2 class="font-bold text-2xl uppercase border-b-2">Liên hệ</h2>
+        <div class="grid grid-cols-3 gap-8 my-4">
+            <div class="colums col-span-2">
+                <img src="https://ranghammat.org.vn/resize/medium/img-lh-dXBsb2FkaW1hZ2Vz-medium.jpg" alt="" width="100%">
             </div>
-            <div class="grid grid-cols-5 gap-8 my-4">
-                <div class="form col-span-2 ">
-                    <form action="">
-                        <h2 class="font-bold uppercase">GỬI THÔNG TIN LIÊN HỆ</h2>
-                        <input class="border rounded-md my-2 p-2 w-full" type="text" name="" id="" placeholder="Họ tên bệnh nhân">
-                        <input class="border rounded-md my-2 p-2 w-full" type="email" name="" id="" placeholder="Email">
-                        <input class="border rounded-md my-2 p-2 w-full" type="text" name="" id="" placeholder="Điện thoại">
-                        <input class="border rounded-md my-2 p-2 w-full" type="text" name="" id="" placeholder="Tiêu đề">
-                        <textarea class="border rounded-md my-2 p-2 w-full" name="" id="" cols="30" rows="6" placeholder="Nội dung"></textarea>
-                        <button class="w-full border rounded-md font-bold bg-green-500 hover:bg-green-700 hover:text-white py-2">Gửi đi</button>
-                    </form>
-                </div>
-                <div class="map ">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7448.258938860648!2d105.846598!3d21.027505!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9682de09f7%3A0xfa244bb8e0a6c1e!2zNDAgQiBUcsOgbmcgVGhpLCBIw6BuZyBCw7RuZywgSG_DoG4gS2nhur9tLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2sus!4v1668009926145!5m2!1svi!2sus" width="900" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+            <div class="colums leading-10 p-4">
+                <img src="./image/zyro-image.png" alt="">
+                <p class="font-bold">BỆNH VIỆN RĂNG HÀM MẶT TRUNG ƯƠNG HÀ NỘI</p>
+                <p> <i class="fas fa-map-marked-alt"></i> Phố Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</p>
+                <a href="tel: 0877432122"> <i class="fas fa-phone-alt"></i> (024) 3826.9722 - 3928.5172 - 3826.9275</a><br>
+                <a href="tel: 113"> (024) 3826.9726 - 3826.9725</a>
+                <p>Số điện thoại tư vấn: <a href="tel: 114">0867.732939</a></p>
+
             </div>
         </div>
-<!--End-Main-content -->
+        <div class="grid grid-cols-5 gap-8 my-4">
+            <div class="form col-span-2 ">
+                <form action="" method="post">
+                    <h2 class="font-bold uppercase">GỬI THÔNG TIN LIÊN HỆ</h2>
+                    <input class="border rounded-md my-2 p-2 w-full" type="text" name="hoten" id="" placeholder="Họ tên bệnh nhân">
+                    <br>
+                    <?php if (isset($errors['hoten'])) : ?>
+                        <p style="color: red; font-size: 10px;"><?= $errors['hoten'] ?></p>
+                    <?php endif ?>
+                    <input class="border rounded-md my-2 p-2 w-full" type="email" name="email" id="" placeholder="Email">
+                    <input class="border rounded-md my-2 p-2 w-full" type="text" name="sdt" id="" placeholder="Điện thoại">
+                    <br>
+                    <?php if (isset($errors['sdt'])) : ?>
+                        <p style="color: red; font-size: 10px;"><?= $errors['sdt'] ?></p>
+                    <?php endif ?>
+                    <!-- <input class="border rounded-md my-2 p-2 w-full" type="text" name="" id="" placeholder="Vấn đề"> -->
+                    <textarea class="border rounded-md my-2 p-2 w-full" name="noidung" id="" cols="30" rows="6" placeholder="Nội dung"></textarea>
+                    <br>
+                    <?php if (isset($errors['noidung'])) : ?>
+                        <p style="color: red; font-size: 10px;"><?= $errors['noidung'] ?></p>
+                    <?php endif ?>
+                    <br>
+                    <?php if (isset($_COOKIE['save'])) : ?>
+                        <p style="color: green; font-size: 10px;"><?= $_COOKIE['save'] ?></p>
+                    <?php endif ?>
+                    <br>
+                    <button name="save" class="w-full border rounded-md font-bold bg-green-500 hover:bg-green-700 hover:text-white py-2">Gửi đi</button>
+                </form>
+            </div>
+            <div class="map ">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7448.258938860648!2d105.846598!3d21.027505!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9682de09f7%3A0xfa244bb8e0a6c1e!2zNDAgQiBUcsOgbmcgVGhpLCBIw6BuZyBCw7RuZywgSG_DoG4gS2nhur9tLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2sus!4v1668009926145!5m2!1svi!2sus" width="900" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    <!--End-Main-content -->
 
-<!-- Footer -->
+    <!-- Footer -->
     <div class="footer bg-[#eff7f9] my-6 ">
         <div class="grid grid-cols-5 gap-8 text-center p-4">
             <div class="columns col-span-2">
@@ -132,7 +186,8 @@
             </div>
         </div>
     </div>
-<!-- end-Footer -->
-</div>
+    <!-- end-Footer -->
+    </div>
 </body>
+
 </html>
