@@ -2,12 +2,14 @@
     require"../dao/connect.php";
     if(isset($_POST['btn-submit']))
     {   
+        $id_user = $_POST['id'];
         $name = $_POST['name'];
         $birthday = $_POST['birthday'];
         $sex = $_POST['sex'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $time = $_POST['time'];
+        $id_service = 
         $service = $_POST['service'];
         $errors =[];
         if($name == "")
@@ -44,10 +46,22 @@
 
         }
     }
-    $sql =" SELECT user.id as id_user, user.hoten,user.sex,user.birthday,user.username,user.sdt,schedule.id as id_schedule,schedule.time,service.id as id_service ,service.name as sv FROM booking INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.id_schedule = schedule.id INNER JOIN service on booking.id_service = service.id";
+    // $sql =" SELECT user.id as id_user, user.hoten,user.sex,user.birthday,user.username,user.sdt,schedule.id as id_schedule,schedule.time,service.id as id_service ,service.name as sv FROM booking INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.id_schedule = schedule.id INNER JOIN service on booking.id_service = service.id";
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM user where id= $id";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $show = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $sql4 = "SELECT * FROM schedule";
+    $stmt = $conn->prepare($sql4);
+    $stmt->execute();
+    $schedule = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $sql5 = "SELECT * FROM service";
+    $stmt = $conn->prepare($sql5);
+    $stmt->execute();
+    $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -130,7 +144,8 @@
           
             <div class=" py-10">
                 <form action="" method="POST">
-                    <input type="text" name="name" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2 ">
+                    <input type="hidden" name="id" value="<?= $user['id']?>">
+                    <input type="text" name="name" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2" value="<?= $user['hoten']?>">
                     <?php if (isset($errors['name'])) : ?>
                         <span style="color: red; font-size: 10px;"><?= $errors['name'] ?></span>
                     <?php endif ?>
@@ -148,8 +163,9 @@
                     <span class="text-white text-lg">Thời gian hẹn: </span>
                     <select name="time" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">
                         <option value="0">SÁNG-CHIỀU</option>
-                        <option value="1">Sáng</option>
-                        <option value="2">Chiều</option>
+                        <?php foreach ($schedule as  $sch):?>
+                            <option value="<?= $sch['id'] ?>"><?= $sch['time']?></option>
+                        <?php endforeach?>
                     </select>           
                         <?php if (isset($errors['time'])) : ?>
                             <span style="color: red; font-size: 10px;"><?= $errors['time'] ?></span>
@@ -158,9 +174,9 @@
                        
                         <select class="w-full border rounded-md text-center my-3 px-4 p-2" name="service" id="">
                             <option value="0">-Chọn Dịch Vụ Khám-</option>
-                                <?php foreach ($show as  $show):?>
-                                <option value="<?= $show[id_service]?>">
-                                    <?= $show['sv']?>
+                                <?php foreach ($service as  $sv):?>
+                                <option value="<?= $sv['id']?>">
+                                    <?= $sv['name']?>
                                 </option>
                                 <?php endforeach ?>
                         </select>
