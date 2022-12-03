@@ -1,11 +1,13 @@
 <?php
-require_once "../dao/connect.php";
+// require_once "../dao/connect.php";
+require_once "dentist.php";
 
 $id = $_GET['id'];
 $sql = "SELECT * FROM doctor WHERE id=$id";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $doctor = $stmt->fetch(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -79,43 +81,43 @@ $doctor = $stmt->fetch(PDO::FETCH_ASSOC);
                         </div>
                     </div>
                     <div class="infomation-detail col-span-2">
-                        <?php foreach ($doctor as $bs) : ?>
-                            <div class="name border-b-2 py-4">
-                                <p class="font-bold text-green-800 text-2xl"><?= $bs['hoten']?></p>
-                                <span>Giám đốc bệnh viện</span>
-                            </div>
-                            <div class="position border-b-2 my-4 leading-8 text-[14px]">
-                                <h2 class="font-bold text-[20px]">Chức Vụ</h2>
-                                <p>Giám đốc Bệnh viện, kiêm Phụ trách Phòng Kế hoạch tổng hợp</p>
-                                <p>Phó trưởng Bộ môn Nha cơ sở, Viện Đào tạo RHM, Đại học Y Hà Nội</p>
-                                <p>Giảng viên thỉnh giảng Khoa RHM, Đại học Y Dược Hải Phòng</p>
-                                <p>Giảng viên thỉnh giảng Bộ môn RHM, Khoa Y Dược, Đại học quốc gia Hà Nội</p>
-                                <p>Nhận bằng BS chuyên khoa RHM năm 1994 tại Đại học Y Hà Nội</p>
-                                <p>Nhận bằng ThS. chuyên khoa RHM năm 2002 tại Đại học Y Hà Nội</p>
-                                <p>Nhận bằng TS chuyên khoa RHM năm 2012 tại Viện nghiên cứu khoa học, Y Dược lâm sàng 108, Bệnh viện TW QĐ 108</p>
-                                <p>Nguyên Trưởng Khoa Chẩn đoán hình ảnh, Viện RHM Quốc gia</p>
-                                <p>Nguyên Trưởng phòng Quản lý và Nghiên cứu khoa học, Bệnh viện RHMTW Hà Nội</p>
-                                <p>Nguyên Trưởng Khoa Khám tổng hợp, Bệnh viện RHMTW Hà Nội</p>
-                                <p>Tổng Thư ký Hội RHMVN</p>
-                            </div>
-                            <div class="specialist border-b-2 my-4 leading-8 text-[14px]">
-                                <h2 class="font-bold text-[20px]">Khoa Chuyên Sâu</h2>
-                                <p>Phục hình răng, Phẫu thuật trong miệng, Implant</p>
-                            </div>
-                            <div class="CV border-b-2 my-4 leading-8  text-[14px]">
-                                <h2 class="font-bold text-[20px]">CV</h2>
-                                <p>Nhận bằng BS chuyên khoa RHM năm 1994 tại Đại học Y Hà Nội</p>
-                                <p>Nhận bằng ThS. chuyên khoa RHM năm 2002 tại Đại học Y Hà Nội</p>
-                                <p>Nhận bằng TS chuyên khoa RHM năm 2012 tại Viện nghiên cứu khoa học, Y Dược lâm sàng 108, Bệnh viện TW QĐ 108</p>
-                                <p>Nguyên Trưởng Khoa Chẩn đoán hình ảnh, Viện RHM Quốc gia</p>
-                                <p>Nguyên Trưởng phòng Quản lý và Nghiên cứu khoa học, Bệnh viện RHMTW Hà Nội</p>
-                                <p>Nguyên Trưởng Khoa Khám tổng hợp, Bệnh viện RHMTW Hà Nội</p>
-                                <p>Tổng Thư ký Hội RHMVN</p>
-                            </div>
-                        <?php endforeach ?>
-
+                        <div class="name border-b-2 py-4">
+                            <?php if (isset($doctor['id'])) : ?>
+                                <p class="font-bold text-green-800 text-2xl"><?= $doctor['hoten'] ?></p>
+                                <span><?= $doctor['chucvu'] ?></span>
+                                -
+                                <span>SĐT: <?= $doctor['sdt'] ?></span>
+                            <?php endif ?>
+                        </div>
+                        <div class="position border-b-2 my-4 leading-8 text-[14px]">
+                            <h2 class="font-bold text-[20px]">Chức Vụ</h2>
+                            <p>Giám đốc Bệnh viện, kiêm Phụ trách Phòng Kế hoạch tổng hợp</p>
+                            <p>Phó trưởng Bộ môn Nha cơ sở, Viện Đào tạo RHM, Đại học Y Hà Nội</p>
+                            <p>Giảng viên thỉnh giảng Khoa RHM, Đại học Y Dược Hải Phòng</p>
+                            <p>Giảng viên thỉnh giảng Bộ môn RHM, Khoa Y Dược, Đại học quốc gia Hà Nội</p>
+                            <p>Nhận bằng BS chuyên khoa RHM năm 1994 tại Đại học Y Hà Nội</p>
+                            <p>Nhận bằng ThS. chuyên khoa RHM năm 2002 tại Đại học Y Hà Nội</p>
+                            <p>Nhận bằng TS chuyên khoa RHM năm 2012 tại Viện nghiên cứu khoa học, Y Dược lâm sàng 108, Bệnh viện TW QĐ 108</p>
+                            <p>Nguyên Trưởng Khoa Chẩn đoán hình ảnh, Viện RHM Quốc gia</p>
+                            <p>Nguyên Trưởng phòng Quản lý và Nghiên cứu khoa học, Bệnh viện RHMTW Hà Nội</p>
+                            <p>Nguyên Trưởng Khoa Khám tổng hợp, Bệnh viện RHMTW Hà Nội</p>
+                            <p>Tổng Thư ký Hội RHMVN</p>
+                        </div>
+                        <div class="specialist border-b-2 my-4 leading-8 text-[14px]">
+                            <h2 class="font-bold text-[20px]">Khoa Chuyên Sâu</h2>
+                            <p>Phục hình răng, Phẫu thuật trong miệng, Implant</p>
+                        </div>
+                        <div class="CV border-b-2 my-4 leading-8  text-[14px]">
+                            <h2 class="font-bold text-[20px]">CV</h2>
+                            <p>Nhận bằng BS chuyên khoa RHM năm 1994 tại Đại học Y Hà Nội</p>
+                            <p>Nhận bằng ThS. chuyên khoa RHM năm 2002 tại Đại học Y Hà Nội</p>
+                            <p>Nhận bằng TS chuyên khoa RHM năm 2012 tại Viện nghiên cứu khoa học, Y Dược lâm sàng 108, Bệnh viện TW QĐ 108</p>
+                            <p>Nguyên Trưởng Khoa Chẩn đoán hình ảnh, Viện RHM Quốc gia</p>
+                            <p>Nguyên Trưởng phòng Quản lý và Nghiên cứu khoa học, Bệnh viện RHMTW Hà Nội</p>
+                            <p>Nguyên Trưởng Khoa Khám tổng hợp, Bệnh viện RHMTW Hà Nội</p>
+                            <p>Tổng Thư ký Hội RHMVN</p>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>

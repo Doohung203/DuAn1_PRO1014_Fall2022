@@ -2,14 +2,14 @@
 require_once "../../../dao/connect.php";
 
 if (isset($_POST['save'])) {
-    $name = $_POST['name'];
+    $hoten = $_POST['hoten'];
     $sdt = $_POST['sdt'];
     $chucvu = $_POST['chucvu'];
 
     $errors = [];
 
-    if ($name == "") {
-        $errors['name'] = "Nhập họ tên!";
+    if ($hoten == "") {
+        $errors['hoten'] = "Nhập họ tên!";
     }
     if ($chucvu == "") {
         $errors['chucvu'] = "Chức vụ không được bỏ trống!";
@@ -19,8 +19,8 @@ if (isset($_POST['save'])) {
     }
 
     if (!$errors) {
-        $sql = "INSERT INTO `bacsi` (`name`,`sdt`, `chucvu`) 
-        VALUES ('$name', '$sdt', '$chucvu')";
+        $sql = "INSERT INTO `doctor` (`hoten`,`sdt`, `chucvu`) 
+        VALUES ('$hoten', '$sdt', '$chucvu')";
 
         $stmt = $conn->prepare($sql);
         $stmt->execute();
@@ -50,9 +50,9 @@ if (isset($_POST['save'])) {
     <a href="../quanLyHoSo.php" class="btn btn-primary">Quay lại</a>
 
     <form action="" method="post" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Họ tên">
-        <?php if (isset($errors['name'])) : ?>
-            <span style="color: red; font-size: 10px;"><?= $errors['name']?></span>
+        <input type="text" name="hoten" placeholder="Họ tên">
+        <?php if (isset($errors['hoten'])) : ?>
+            <span style="color: red; font-size: 10px;"><?= $errors['hoten']?></span>
         <?php endif ?>
         <br>
         <input type="text" name="sdt" placeholder="Số điện thoại">
@@ -66,7 +66,6 @@ if (isset($_POST['save'])) {
         <?php endif ?>
         <br>
         <button name="save" class="btn btn-primary">Save</button>
-
     </form>
 
     <!--Optional JavaScript-->

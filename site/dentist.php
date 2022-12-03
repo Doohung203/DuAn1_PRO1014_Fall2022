@@ -73,11 +73,11 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <div class="grid grid-cols-4 gap-8 my-4 text-center">
 
                     <?php foreach ($doctor as $bs) : ?>
-                        <div class="dentist">
-                            <a href="detailDentist.php?id=<?= $bs['id']?>"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt=""></a>
-                            <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php?id=<?= $bs['id']?>"><?= $bs['hoten'] ?></a>
+                        <a href="detailDentist.php?id=<?= $bs['id']?>" class="dentist">
+                            <div href=""><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt=""></div>
+                            <div class="text-green-500 font-bold text-[14px] " href=""><?= $bs['hoten'] ?></div>
                             <p class=""><?= $bs['chucvu'] ?></p>
-                        </div>
+                        </a>
                     <?php endforeach ?>
 
                     <!-- <div class="dentist">
