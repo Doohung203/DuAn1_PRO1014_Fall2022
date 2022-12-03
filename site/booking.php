@@ -1,3 +1,75 @@
+<?php 
+    require"../dao/connect.php";
+    if(isset($_POST['btn-submit']))
+    {   
+        $id_user = $_POST['id'];
+        $name = $_POST['name'];
+        $birthday = $_POST['birthday'];
+        $sex = $_POST['sex'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $time = $_POST['time'];
+        $id_service = 
+        $service = $_POST['service'];
+        $errors =[];
+        if($name == "")
+            {
+                $errors['name'] = "Nhập họ tên";
+            }
+            if($phone == ""){
+                $errors['phone'] = "Nhập số điện thoại";
+            }
+            if($time == "")
+            {
+                $errors['time'] = "Vui lòng chọn thời gian khám";
+            }
+            if($service == "")
+            {
+                $service["service"] = "Vui lòng chọn chuyên khoa";
+            }
+
+        if(!$errors)
+        {
+            
+            $sql3 = "INSERT 'user' ('hoten', 'sex','birthday', 'username', 'sdt' ) VALUES ('$hoten' ,  '$sex', '$birthday','$email', '$phone')";
+            $sql1 = "INSERT 'schedule' ('time') VALUES ('$time')";
+            $sql2 = "INSERT 'service' ('name') VALUES ('$service')";
+
+            $stmt = $conn->prepare($sql3);
+            $stmt->execute();
+            $stmt = $conn->prepare($sql1);
+            $stmt->execute();
+            $stmt = $conn->prepare($sql2);
+            $stmt->execute();
+
+            exit;
+
+        }
+    }
+    // $sql =" SELECT user.id as id_user, user.hoten,user.sex,user.birthday,user.username,user.sdt,schedule.id as id_schedule,schedule.time,service.id as id_service ,service.name as sv FROM booking INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.id_schedule = schedule.id INNER JOIN service on booking.id_service = service.id";
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM user where id= $id";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $sql4 = "SELECT * FROM schedule";
+    $stmt = $conn->prepare($sql4);
+    $stmt->execute();
+    $schedule = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $sql5 = "SELECT * FROM service";
+    $stmt = $conn->prepare($sql5);
+    $stmt->execute();
+    $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,42 +141,61 @@
                 <img src="../admin/images/zyro-mouth.png" alt="" width="100">
             </div>
             <h2 class="text-2xl text-center uppercase text-white font-bold font-['TimeNewRoman']">Đặt lịch khám</h2>
-            <div class="form py-10">
+          
+            <div class=" py-10">
                 <form action="" method="POST">
-                    <input type="text" name="" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2 ">
+                    <input type="hidden" name="id" value="<?= $user['id']?>">
+                    <input type="text" name="name" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2" value="<?= $user['hoten']?>">
+                    <?php if (isset($errors['name'])) : ?>
+                        <span style="color: red; font-size: 10px;"><?= $errors['name'] ?></span>
+                    <?php endif ?>
                     <div class="flex justify-between space-x-4 w-full my-4">
-                        <input datepicker type="text" name="" id="" placeholder="Ngày sinh" class="border rounded-md md:w-[50%] w-full p-2">
-                        <select name="" id="" value ="Nam" class="border rounded-md md:w-[50%] w-full p-2">
-                            <option value="" >Giới Tính</option>
-                            <option value="">Nam</option>
-                            <option value="">Nữ</option>
+                        <input datepicker type="text" name="birthday" id="" placeholder="Ngày sinh" class="border rounded-md md:w-[50%] w-full p-2">
+                     
+                        <select name="sex" id=""  class="border rounded-md md:w-[50%] w-full p-2">
+                            <option value="0" >Giới Tính</option>
+                            <option value="1">Nam</option>
+                            <option value="2">Nữ</option>
                         </select>
                     </div>
-                    <input type="text" name="" id="" placeholder="Email" class="border rounded-md w-full my-4 p-2">     
-                    <input type="text" name="" id="" placeholder="Điện thoại" class="border rounded-md w-full my-4 p-2">
+                    <input type="text" name="email" id="" placeholder="Email" class="border rounded-md w-full my-4 p-2">     
+                    <input type="text" name="phone" id="" placeholder="Điện thoại" class="border rounded-md w-full my-4 p-2">
                     <span class="text-white text-lg">Thời gian hẹn: </span>
-                     <select name="" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">
-                        <option value="">SÁNG-CHIỀU</option>
-                        <option value="">SÁNG : 8:00 A.M - 11:00 A.M  </option>
-                        <option value="">CHIỀU : 14:00 P.M - 17:00 P.M</option>
-                    </select>     
+                    <select name="time" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">
+                        <option value="0">SÁNG-CHIỀU</option>
+                        <?php foreach ($schedule as  $sch):?>
+                            <option value="<?= $sch['id'] ?>"><?= $sch['time']?></option>
+                        <?php endforeach?>
+                    </select>           
+                        <?php if (isset($errors['time'])) : ?>
+                            <span style="color: red; font-size: 10px;"><?= $errors['time'] ?></span>
+                        <?php endif ?>
                     <div>
-                        <select class="w-full border rounded-md text-center my-3 px-4 p-2" name="" id="">
-                            <option value="">-Chọn Dịch Vụ Khám-</option>
-                            <option value="">Niềng Răng</option>
-                            <option value="">Bọc Răng Sứ</option>
-                            <option value="">Nhổ Răng</option>
+                       
+                        <select class="w-full border rounded-md text-center my-3 px-4 p-2" name="service" id="">
+                            <option value="0">-Chọn Dịch Vụ Khám-</option>
+                                <?php foreach ($service as  $sv):?>
+                                <option value="<?= $sv['id']?>">
+                                    <?= $sv['name']?>
+                                </option>
+                                <?php endforeach ?>
                         </select>
+                        
+                        <?php if (isset($errors['service'])) : ?>
+                            <span style="color: red; font-size: 10px;"><?= $errors['service'] ?></span>
+                        <?php endif ?>
                     </div>    
+                    
                     <div>
-                    <textarea class="w-full h-20 border rounded-md my-3  px-4 p-2 " id="" name="" placeholder="Vấn đề của bạn" ></textarea>
+                    <textarea class="w-full h-20 border rounded-md my-3 px-4 p-2 " id="" name="" placeholder="Vấn đề của bạn" ></textarea>
                     </div>   
                     <div class="text-center mt-8 ">
-                    <a href="" class="border rounded-md text-black bg-white hover:bg-white hover:text-green-600 hover:border-red-700  font-bold px-3 py-2">Đặt lịch</a>
+                    <a href="" name='btn-submit' class="border rounded-md text-black bg-white hover:bg-white hover:text-green-600 hover:border-red-700 font-bold px-3 py-2">Đặt lịch</a>
 
                     </div>
                 </form>
             </div>
+            
         </div>
     </section>
     <!-- Footer -->

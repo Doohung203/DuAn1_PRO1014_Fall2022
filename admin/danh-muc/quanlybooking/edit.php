@@ -2,11 +2,13 @@
     require "../../../dao/connect.php";
 
     if(isset($_POST['submit'])){
-        $id = $_POST['id_user'];
-        $name = $_POST['name'];
+        $id = $_POST['id'];
+        $hoten = $_POST['hoten'];
         $address = $_POST['diachi'];
-        $time = $_POST['ca'];
-        $time = $_POST['doctor'];
+        $phone = $_POST['sdt']
+        $time = $_POST['name'];
+        $doctor = $_POST['doctor'];
+        $service = $_POST['service'];
         $errors = [];
         
         if(!$errors)
@@ -19,7 +21,7 @@
     }
 
 $id = $_GET['id_user'];
-$sql = "SELECT user.id_user, user.name, user.sdt, user.diachi, time.ca, bacsi.name as doctor FROM (user INNER JOIN bacsi ON user.id_doctor = user.id_doctor) INNER JOIN time on bacsi.id_doctor = time.id_doctor where id_user = $id";
+$sql = "SELECT booking.id, user.hoten, user.sdt,user.diachi, schedule.time, doctor.hoten as doctor, service.name as service FROM booking INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.id_schedule = schedule.id INNER JOIN doctor on booking.id_doctor = doctor.id INNER JOIN service on booking.id_service = service.id";
 $stmt = $conn ->prepare($sql);
 $stmt = $conn -> execute();
 $user = $stmt -> fetch(PDO::FETCH_ASSOC);

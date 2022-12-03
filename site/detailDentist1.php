@@ -31,8 +31,8 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <div class="home-doctument text-white font-bold">
                         <ul>
                             <li>
-                                <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="login.php">Đăng nhâp</a>
-                                <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="register.php">Đăng ký</a>
+                                <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="index.html">Đăng nhâp</a>
+                                <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="document.html">Đăng ký</a>
                             </li>
                         </ul>
                     </div>
@@ -72,14 +72,14 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <h2 class="font-bold text-2xl border-b-2 uppercase">Thông tin bác sĩ</h2>
                 <div class="grid grid-cols-3 gap-8 my-4">
                     <div class="image-detail ">
-                        <img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt="">
+                        <img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs2.jpg" alt="">
                         <div class="booking text-center text-green-500 font-bold border-2 rounded-lg p-4 my-4  hover:bg-green-500 hover:text-white w-[88%]">
                             <a href="">Đặt lịch khám</a>
                         </div>
                     </div>
                     <div class="infomation-detail col-span-2">
                         <div class="name border-b-2 py-4">
-                            <p class="font-bold text-green-800 text-2xl">PGS.TS. TRẦN HỮU HƯNG</p>
+                            <p class="font-bold text-green-800 text-2xl">TS. MAI VĂN NAM</p>
                             <span>Giám đốc bệnh viện</span>
                         </div>
                         <div class="position border-b-2 my-4 leading-8 text-[14px]">

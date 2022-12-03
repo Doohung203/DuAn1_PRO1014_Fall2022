@@ -2,7 +2,7 @@
 require "../../dao/connect.php";
 
 //show
-$sql = "SELECT user.id, user.hoten, user.sdt, user.diachi, time.ca, doctor.hoten as doctor FROM user INNER JOIN schedule on user.id = schedule.id_user INNER JOIN doctor on schedule.id_doctor = doctor.id INNER JOIN time on doctor.id = time.id_doctor ";
+$sql = " SELECT booking.id, user.hoten, user.sdt,user.diachi, schedule.time, doctor.hoten as doctor, service.name as service FROM booking INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.id_schedule = schedule.id INNER JOIN doctor on booking.id_doctor = doctor.id INNER JOIN service on booking.id_service = service.id ";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();
@@ -58,7 +58,7 @@ $booking = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="../layout/admin/showadmin.php"><i class="fa-solid fa-user p-4"> </i> Quản lý tài khoản nhân sự</a>
         <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyBenhNhan.php"><i class="fa-solid fa-hospital-user p-4"></i> Quản lý bệnh nhân</a>
         <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyHoSo.php"><i class="fa-solid fa-file-pen p-4"></i> Quản lý hồ sơ</a>
-        <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyBinhLuan.php"><i class="fa-solid fa-comments p-4"></i> Quản lý bình luận</a>
+        <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyContact.php"><i class="fa-solid fa-comments p-4"></i> Quản lý bình luận</a>
         <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyBooking.php"><i class="fa-solid fa-calendar-days p-4"></i> Quản lý booking</a>
         <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyLichKham.php"><i class="fa-sharp fa-solid fa-clock p-4"></i> Quản lý lịch khám</a>
         <a class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500" href="quanLyKetLuan.php"><i class="fa-solid fa-comment-medical px-8"></i>Kết luận của bác sĩ</a>
@@ -76,6 +76,7 @@ $booking = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <th class="py-3 px-6">Địa chỉ</th>
                 <th class="py-3 px-6">Thời gian khám</th>
                 <th class="py-3 px-6">Bác sĩ</th>
+                <th class="py-3 px-6">dịch vụ</th>
                 <th></th>
 
               </tr>
@@ -89,8 +90,9 @@ $booking = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   <td class="py-4 px-6"><?= $bk['hoten'] ?></td>
                   <td class="py-4 px-6"><?= $bk['sdt'] ?></td>
                   <td class="py-4 px-6"><?= $bk['diachi'] ?></td>
-                  <td class="py-4 px-6"><?= $bk['ca'] ?></td>
+                  <td class="py-4 px-6"><?= $bk['time'] ?></td>
                   <td class="py-4 px-6"><?= $bk['doctor'] ?></td>
+                  <td class="py-4 px-6"><?= $bk['service'] ?></td>
                   <td class="py-4 px-6">
                     <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="../danh-muc/quanlybooking/edit.php?id=<?= $bk['id'] ?>">Sửa</a>
                     <a onclick="return confirm('Xác nhận xóa?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="quanlyBooking/delete.php?id=<?= $bk['id'] ?>">Xóa</a>
