@@ -60,22 +60,22 @@
             <div class="grid grid-cols-4 gap-8 my-4 text-center">
                 <div class="dentist">
                     <a href="detail.html"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt=""></a>
-                    <a class="text-green-500 font-bold text-[14px] " href="detail.html">PGS.TS.TRẦN HỮU HƯNG</a>
+                    <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php">PGS.TS.TRẦN HỮU HƯNG</a>
                     <p class="">Giám đốc Bệnh viện</p>
                 </div>
                 <div class="dentist">
                     <a href="detail.html"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs2.jpg" alt=""></a>
-                    <a class="text-green-500 font-bold text-[14px] " href="detail.html">TS. PHẠM THANH HÀ</a>
+                    <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php">TS. PHẠM THANH HÀ</a>
                     <p class="">Phó Giám đốc Bệnh viện</p>
                 </div>
                 <div class="dentist">
                     <a href="detail.html"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs3.jpg" alt=""></a>
-                    <a class="text-green-500 font-bold text-[14px] " href="detail.html">PGS.TS. NGUYỄN QUANG BÌNH</a>
+                    <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php">PGS.TS. NGUYỄN QUANG BÌNH</a>
                     <p class="">Phó Giám đốc Bệnh viện</p>
                 </div>
                 <div class="dentist">
                     <a href="detail.html"><img src="https://ranghammat.org.vn/Upload/Avartar/ts-nguyen-thi-van-anh.jpg" alt=""></a>
-                    <a class="text-green-500 font-bold text-[14px] " href="detail.html">TS. NGUYỄN THỊ VÂN ANH</a>
+                    <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php">TS. NGUYỄN THỊ VÂN ANH</a>
                     <p class="">Trưởng khoa Răng Trẻ em</p>
                 </div>
             </div>
