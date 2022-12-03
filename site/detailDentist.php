@@ -31,8 +31,8 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <div class="home-doctument text-white font-bold">
                         <ul>
                             <li>
-                                <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="index.html">Đăng nhâp</a>
-                                <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="document.html">Đăng ký</a>
+                                <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="login.php">Đăng nhâp</a>
+                                <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="register.php">Đăng ký</a>
                             </li>
                         </ul>
                     </div>

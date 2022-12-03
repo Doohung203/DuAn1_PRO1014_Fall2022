@@ -17,14 +17,7 @@
             <div class="location">
                 <p>Nơi ở hiện tại : Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</p>
             </div>
-            <div class="home-doctument">
-                <ul>
-                    <li>
-                        <a class="px-2" href="index.html">Trang chủ</a>
-                        <a class="px-2" href="document.html">Tài liệu văn bản</a>
-                    </li>
-                </ul>
-            </div>
+           
         </div>
         <!-- banner-top -->
         <div class="banner-top flex justify-between items-center">
@@ -59,18 +52,18 @@
             <h2 class="font-bold text-2xl border-b-2 uppercase">Đội ngũ chuyên gia</h2>
             <div class="grid grid-cols-4 gap-8 my-4 text-center">
                 <div class="dentist">
-                    <a href="detail.html"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt=""></a>
+                    <a href="detailDentist.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt=""></a>
                     <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php">PGS.TS.TRẦN HỮU HƯNG</a>
                     <p class="">Giám đốc Bệnh viện</p>
                 </div>
                 <div class="dentist">
-                    <a href="detail.html"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs2.jpg" alt=""></a>
-                    <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php">TS. PHẠM THANH HÀ</a>
+                    <a href="detailDentist1.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs2.jpg" alt=""></a>
+                    <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php">TS. MAI VĂN NAM</a>
                     <p class="">Phó Giám đốc Bệnh viện</p>
                 </div>
                 <div class="dentist">
-                    <a href="detail.html"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs3.jpg" alt=""></a>
-                    <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php">PGS.TS. NGUYỄN QUANG BÌNH</a>
+                    <a href="detailDentist2.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs3.jpg" alt=""></a>
+                    <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php">TS. LÝ TỰ LẪM</a>
                     <p class="">Phó Giám đốc Bệnh viện</p>
                 </div>
                 <div class="dentist">
