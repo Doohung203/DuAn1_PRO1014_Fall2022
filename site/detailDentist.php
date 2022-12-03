@@ -7,7 +7,6 @@ $sql = "SELECT * FROM doctor WHERE id=$id";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $doctor = $stmt->fetch(PDO::FETCH_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
