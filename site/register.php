@@ -61,7 +61,7 @@ if(isset($_POST['btn-dangky'])){
 <!-- Main-register -->
     <div class="mx-auto bg-gradient-to-r from-green-100">
         <div class="grid place-content-center border-2-sm ">
-            <div class="my-40 bg-[#2B4B62] rounded-lg font-['Roboto'] text-xl text-white w-[800px] h-[800px] pt-[10%] text-center">
+            <div class="my-40 bg-[#2B4B62] rounded-lg font-['Roboto'] text-xl text-white w-[800px] h-[820px] pt-[10%] text-center">
                 <div class="title font-bold uppercase text-4xl py-2 ">
                     <h2 class="py-4 text-center">Đăng ký tài khoản</h2>
                 </div>
@@ -79,10 +79,10 @@ if(isset($_POST['btn-dangky'])){
                             <input name="username" type="text" placeholder="Nhập tên đăng nhập" class="rounded-lg w-[70%] p-2 py-4">
                         </div>
                         <div class="password my-3">
-                            <input name="password" type="password" placeholder="Nhập password" class="rounded-lg w-[70%] p-2 py-4">
+                            <input name="password" type="password" placeholder="Nhập mật khẩu" class="rounded-lg w-[70%] p-2 py-4">
                         </div>
                         <div class="phone-number my-3">
-                            <input name="sdt" type="password" placeholder="Nhập số điện thoại" class="rounded-lg w-[70%] p-2 py-4">
+                            <input name="sdt" type="text" placeholder="Nhập số điện thoại" class="rounded-lg w-[70%] p-2 py-4">
                         </div>
                         <div class="location my-3">
                             <input name="diachi" type="text" placeholder="Nhập thành phố của bạn" class="rounded-lg w-[70%] p-2 py-4">
@@ -91,11 +91,7 @@ if(isset($_POST['btn-dangky'])){
                           <button type="submit" name="btn-dangky" class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg hover:bg-white hover:text-black "> Đăng ký</button>
                         </div>
                         <div class=" pr-10 text-center text-white" >
-<<<<<<< HEAD
                           <a style="padding-left:80px" href="">Bạn đã có tài khoản? <a href="login.php" class="uppercase text-blue-400">Đăng nhập</a></a>
-=======
-                          <a style="padding-left:80px" href="">Bạn đã có tài khoản? <a href="../admin/danh-muc/login.php" class="uppercase text-blue-400 underline underline-offset-auto">Đăng nhập</a></a>
->>>>>>> e87f64793fd87403ad0fe6e0625077bd9955c1cd
                         </div>
                       </form>
                 </div>
