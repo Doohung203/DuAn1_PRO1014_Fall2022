@@ -1,4 +1,4 @@
-<?php
+  <?php
 session_start();
 require_once "../../dao/connect.php";
 // require_once "../../admin/layout/admin/showadmin.php";
@@ -66,15 +66,15 @@ if(isset($_POST['btn-dangnhap'])){
                 <div class="content-center font-bold text-black">
                     <form  method="POST" class="space-y-8">
                         <div>
-                            <input name="username" type="text" placeholder="Enter username..." class="rounded-lg w-[50%] p-2 py-4">
+                            <input name="username" type="text" placeholder="Nhập tên tài khoản" class="rounded-lg w-[50%] p-2 py-4">
                         </div>
                         <div class="password my-3">
                             
-                            <input name="password" type="text" placeholder="Enter password..." class="rounded-lg w-[50%] p-2 py-4">
+                            <input name="password" type="password" placeholder="Nhập mật khẩu " class="rounded-lg w-[50%] p-2 py-4">
                         </div>
                         <div class="log-in grid grid-cols-2 px-10">
                           <div class="save-password">
-                            <input type="checkbox" ><span style="padding-left:8px">Lưu mật khẩu</span></input>
+                            <input type="checkbox"><span style="padding-left:8px;">Lưu mật khẩu</span></input>
                           </div>
                           <div>
                             <a>Bạn quên mật khẩu ?</a>
@@ -84,11 +84,7 @@ if(isset($_POST['btn-dangnhap'])){
                           <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg text-white hover:bg-white hover:text-black"> Đăng nhập</button>
                         </div>
                         <div class=" pr-10 text-center text-white">
-<<<<<<< HEAD
                           <a style="padding-left:80px" href="">Chưa có tài khoản? <a href="registerAdmin.php" class="uppercase text-blue-400 underline underline-offset-auto">Đăng ký</a></a>
-=======
-                          <a style="padding-left:80px" href="">Chưa có tài khoản? <a href="registerAdmin.php" class="uppercase text-blue-400">Đăng ký</a></a>
->>>>>>> 6404db1e600f310e6e49b193b299874ef1520526
                         </div>
                       </form>
                 </div>
