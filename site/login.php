@@ -66,10 +66,10 @@ if(isset($_POST['btn-dangnhap'])){
                 <div class="content-center font-bold text-black">
                     <form  method="POST" class="space-y-8">
                         <div>
-                            <input name="username" type="text" placeholder="Enter username..." class="rounded-lg w-[50%] p-2 py-4">
+                            <input name="username" type="text" placeholder="Nhập tên tài khoản" class="rounded-lg w-[50%] p-2 py-4">
                         </div>
                         <div class="password my-3">
-                            <input name="password" type="text" placeholder="Enter password..." class="rounded-lg w-[50%] p-2 py-4">
+                            <input name="password" type="password" placeholder="Nhập mật khẩu" class="rounded-lg w-[50%] p-2 py-4">
                         </div>
 
                         <?php if(isset($error)) : ?>
