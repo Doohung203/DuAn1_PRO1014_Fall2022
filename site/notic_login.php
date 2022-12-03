@@ -107,16 +107,13 @@
                     <div class="content-center font-bold text-black">
                         <form method="POST" class="space-y-8">
                             <section>
-                                <a href="" class="w-full">
-                                    <button type="submit" name="btn-dangnhap"
-                                        class="bg-[#2B4B62] text-white hover:bg-white hover:text-black w-[70%] py-3 px-2  border rounded-lg my-4">
-                                        Đăng nhập dưới quyền quản trị viên</button>
+                                <a class="bg-[#2B4B62] text-white hover:bg-white hover:text-black w-[70%] py-3 px-2  border rounded-lg my-4 w-full" href="../admin/danh-muc/login.php">
+                                        Đăng nhập dưới quyền quản trị viên
                                 </a>
-                                <a href="">
-                                    <button type="submit" name="btn-dangnhap"
-                                        class="bg-[#2B4B62] text-white hover:bg-white hover:text-black w-[70%] py-3 px-2  border rounded-lg my-4">
-                                        Đăng nhập với tư cách người dùng</button>
+                                <a class="bg-[#2B4B62] text-white hover:bg-white hover:text-black w-[70%] py-3 px-2  border rounded-lg my-4 w-full" href="../admin/danh-muc/login.php">
+                                        Đăng nhập dưới quyền người dùng
                                 </a>
+                                 
                             </section>
                             <div class=" pr-10 text-center text-white">
                                 <a style="padding-left:80px" href="">Chưa có tài khoản? <a href="register.php"

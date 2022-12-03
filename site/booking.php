@@ -149,6 +149,5 @@
             </div>
         </div>
     </section>
-<!-- End-Footer -->
 </body>
 </html>
