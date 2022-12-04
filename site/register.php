@@ -82,7 +82,7 @@ if(isset($_POST['btn-dangky'])){
                             <input type="password" placeholder="Nhập số điện thoại" class="rounded-lg w-[70%] p-2 py-4 text-black">
                         </div>
                         <div class="password my-3">
-                            <input type="password" placeholder="Nhập email của bạn" class="rounded-lg w-[70%] p-2 py-4 text-black">
+                            <input type="text" placeholder="Nhập email của bạn" class="rounded-lg w-[70%] p-2 py-4 text-black">
                         </div>
                         <div class="password my-3">
                             <input type="password" placeholder="Nhập password" class="rounded-lg w-[70%] p-2 py-4 text-black">
