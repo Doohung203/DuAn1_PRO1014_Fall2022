@@ -21,7 +21,7 @@ if(isset($_POST['btn-dangnhap'])){
           sleep(1);
       }
   } else {
-      $error = "* User hoặc pass không đúng !";
+      $error = "* Username hoặc Password không đúng !";
   }
 
 
@@ -73,10 +73,10 @@ if(isset($_POST['btn-dangnhap'])){
                         </div>
 
                         <?php if(isset($error)) : ?>
-                          <p style="color: red; font-size: 10px;"><?= $error?></p>
+                          <p class="text-green-300 text-lg"><?= $error?></p>
                           <?php endif?>
 
-                        <div class="log-in grid grid-cols-2 px-10">
+                        <div class="log-in grid grid-cols-2 px-10 text-white">
                           <div class="save-password">
                             <input type="checkbox" ><span style="padding-left:8px">Lưu mật khẩu</span></input>
                           </div>
@@ -85,7 +85,7 @@ if(isset($_POST['btn-dangnhap'])){
                           </div>
                         </div>
                         <div class="button">
-                          <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] hover:bg-white hover:text-black w-[20%] py-3 px-2  border rounded-lg"> Đăng nhập</button>
+                          <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] text-white hover:bg-white hover:text-black w-[20%] py-3 px-2  border rounded-lg"> Đăng nhập</button>
                         </div>
                         <div class=" pr-10 text-center text-white">
                           <a style="padding-left:80px" href="">Chưa có tài khoản? <a href="register.php" class="uppercase text-blue-400">Đăng ký</a></a>

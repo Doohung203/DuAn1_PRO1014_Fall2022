@@ -28,11 +28,26 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <div class="location">
                         <p> <i class="fa-regular fa-map"></i> Nơi ở hiện tại : Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</p>
                     </div>
-                    <div class="home-doctument text-white font-bold">
+                    <div class="home-document text-white font-bold">
                         <ul>
                             <li>
-                                <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="index.html">Đăng nhâp</a>
-                                <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="document.html">Đăng ký</a>
+                               <!-- login-logout -->
+                               <div >
+                                    <div class="dropdown inline-block relative">
+                                        <button class="bg-green-400 text-white font-semibold py-2 px-8 rounded inline-flex items-center">
+                                            <span class="mr-1"> <i class="fa-regular fa-user"></i></span>
+                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                            </svg>
+                                        </button>
+                                        <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+                                            <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="login.php">Đăng nhập</a></li>
+                                            <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="register.php">Đăng ký</a></li>
+                                            <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="logout.php">Đăng xuất</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!--  End-login-logout -->
                             </li>
                         </ul>
                     </div>
@@ -42,10 +57,6 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="banner-top flex justify-between items-center px-4">
                 <div class="phone flex my-4 uppercase">
                     <p> <i class="fa-sharp fa-solid fa-phone-volume"></i> Khoa cấp cứu : <a href="" class="text-red-500 font-bold">098775423</a></p>
-                </div>
-                <div class="search relative block">
-                    <i class="fas fa-search absolute inset-y-0 left-0 flex items-center pl-2 "></i>
-                    <input type="search" placeholder="Tìm kiếm" class="w-[70%] placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-[3px] pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1">
                 </div>
             </div>
             <!-- Menu-top -->
@@ -79,7 +90,7 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="infomation-detail col-span-2">
                         <div class="name border-b-2 py-4">
-                            <p class="font-bold text-green-800 text-2xl">PGS.TS. TRẦN CAO BÍNH</p>
+                            <p class="font-bold text-green-800 text-2xl">PGS.TS. TRẦN HỮU HƯNG</p>
                             <span>Giám đốc bệnh viện</span>
                         </div>
                         <div class="position border-b-2 my-4 leading-8 text-[14px]">
