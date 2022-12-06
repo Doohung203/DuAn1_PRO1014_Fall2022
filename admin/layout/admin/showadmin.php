@@ -8,6 +8,19 @@ $stmt = $conn->prepare($sql);
 $stmt->execute();
 $admin = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+//title
+// $id = $_GET['id'];
+// $sql2 = "SELECT * FROM admin WHERE id=$id";
+// $stmt = $conn->prepare($sql2);
+// $stmt->execute();
+// $admin2 = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// if (isset($id)) {
+//     $title = $admin2['hoten'];
+// } else {
+//     $title = "Trang quản trị";
+// }
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +34,7 @@ $admin = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/8ddf476500.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../font-css/font-logo.css">
-</head> 
+</head>
 
 <body>
     <section class="admin mx-auto items-center ">

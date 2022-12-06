@@ -1,7 +1,7 @@
 <?php
-session_start();
-// require_once "../dao/connect.php";
+
 // require_once "login.php";
+// require_once "../dao/connect.php";
 
 // $id = $_GET['id'];
 // $sql = "SELECT * FROM user WHERE id=$id";

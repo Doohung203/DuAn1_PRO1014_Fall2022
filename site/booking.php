@@ -1,4 +1,5 @@
 <?php
+// session_start();
 require "../dao/connect.php";
 require_once "login.php";
 if (isset($_POST['btn-submit'])) {
