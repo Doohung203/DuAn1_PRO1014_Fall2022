@@ -65,46 +65,7 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
             <!-- End-Header -->
-=======
-            <div class="home-doctument">
-                <ul>
-                    <li>
-                        <a class="px-2" href="index.html">Trang chủ</a>
-                        <a class="px-2" href="document.html">Tài liệu văn bản</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- banner-top -->
-        <div class="banner-top flex justify-between items-center">
-            <div class="phone flex my-4">
-                <img src="./svg/phone.svg" alt="" class="px-2">
-                <p>KHÁM CẤP CỨU 24/7 : <a href="" class="text-red-500 font-bold">098775423</a></p>
-            </div>
-            <div class="search">
-                <p class="border-b-2 ">Tìm kiếm</p>
-            </div>
-        </div>
-        <!-- Menu-top -->
-        <div class="menu bg-green-500 rounded-md">
-            <div class="menu-nav max-w-5xl mx-auto relative ">
-                <ul>
-                    <li class="flex justify-between items-center font-bold text-white">
-                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500  hover:rounded-md" href="home.php">Trang chủ</a>
-                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="priceListService.php">Bảng giá dịch vụ</a>
-                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="">Đăng ký dịch vụ</a>
-                        <a style="font-family: Inter-font;" class="py-4 px-2 text-4xl uppercase hover:bg-sky-100 hover:text-green-500" href="home.php">Health Clinic</a>
-                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="dentist.php">Đội ngũ chuyên gia</a>
-                        <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="contact.php">Liên hệ</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- End-Header -->
->>>>>>> 3e9e35ddebd82f34dce9089ec6315ae10750c5f5
 
             <!--Main-content  -->
             <div class="container max-w-7xl mx-auto my-4">
