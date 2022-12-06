@@ -78,12 +78,12 @@
                     <p class="">Giám đốc Bệnh viện</p>
                 </div>
                 <div class="dentist">
-                    <a href="detailDentist1.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs2.jpg" alt=""></a>
+                    <a href="detailDentist.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs2.jpg" alt=""></a>
                     <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php">TS. MAI VĂN NAM</a>
                     <p class="">Phó Giám đốc Bệnh viện</p>
                 </div>
                 <div class="dentist">
-                    <a href="detailDentist2.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs3.jpg" alt=""></a>
+                    <a href="detailDentist.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs3.jpg" alt=""></a>
                     <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php">TS. LÝ TỰ LẪM</a>
                     <p class="">Phó Giám đốc Bệnh viện</p>
                 </div>
