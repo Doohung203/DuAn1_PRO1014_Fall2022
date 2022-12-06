@@ -1,10 +1,12 @@
 <?php
-require_once "../dao/connect.php";
+// require_once "../dao/connect.php";
+require_once "dentist.php";
 
-$sql = "SELECT * FROM doctor";
+$id = $_GET['id'];
+$sql = "SELECT * FROM doctor WHERE id=$id";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
-$doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$doctor = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -90,8 +92,12 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="infomation-detail col-span-2">
                         <div class="name border-b-2 py-4">
-                            <p class="font-bold text-green-800 text-2xl">PGS.TS. TRẦN HỮU HƯNG</p>
-                            <span>Giám đốc bệnh viện</span>
+                            <?php if (isset($doctor['id'])) : ?>
+                                <p class="font-bold text-green-800 text-2xl"><?= $doctor['hoten'] ?></p>
+                                <span><?= $doctor['chucvu'] ?></span>
+                                -
+                                <span>SĐT: <?= $doctor['sdt'] ?></span>
+                            <?php endif ?>
                         </div>
                         <div class="position border-b-2 my-4 leading-8 text-[14px]">
                             <h2 class="font-bold text-[20px]">Chức Vụ</h2>
@@ -122,7 +128,6 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <p>Tổng Thư ký Hội RHMVN</p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

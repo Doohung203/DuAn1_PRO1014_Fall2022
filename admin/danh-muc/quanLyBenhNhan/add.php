@@ -10,12 +10,28 @@ if (isset($_POST['save'])) {
 
     $errors = [];
 
+    $sql1 = "SELECT * FROM doctor";
+
+    $stmt = $conn->prepare($sql1);
+    $stmt->execute();
+
+    $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     if ($hoten == "") {
         $errors['hoten'] = "Nhập họ tên!";
     }
     if ($username == "") {
         $errors['username'] = "Tên đăng nhập không được bỏ trống!";
     }
+
+    if($username == $doctor['username']){
+        $errors['username'] = "Tên đăng nhập đã tồn tại!";
+    }
+    // if ($doctor) {
+    // if ($username == $doctor['username']) {
+    //     $errors['username'] = "Tên đăng nhập đã tồn tại!";
+    // }
+    // }
     if ($password == "") {
         $errors['password'] = "Password không được bỏ trống!";
     }
@@ -54,19 +70,19 @@ if (isset($_POST['save'])) {
     <form action="" method="post" enctype="multipart/form-data">
         <input type="text" name="hoten" placeholder="Họ tên">
         <?php if (isset($errors['hoten'])) : ?>
-            <span style="color: red; font-size: 10px;"><?= $errors['hoten']?></span>
+            <span style="color: red; font-size: 10px;"><?= $errors['hoten'] ?></span>
         <?php endif ?>
         <br>
 
         <input type="text" name="username" placeholder="Username">
         <?php if (isset($errors['username'])) : ?>
-            <span style="color: red; font-size: 10px;"><?= $errors['username']?></span>
+            <span style="color: red; font-size: 10px;"><?= $errors['username'] ?></span>
         <?php endif ?>
         <br>
 
         <input type="text" name="password" placeholder="Password">
         <?php if (isset($errors['password'])) : ?>
-            <span style="color: red; font-size: 10px;"><?= $errors['password']?></span>
+            <span style="color: red; font-size: 10px;"><?= $errors['password'] ?></span>
         <?php endif ?>
         <br>
 

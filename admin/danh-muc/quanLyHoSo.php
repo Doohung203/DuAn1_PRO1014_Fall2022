@@ -1,12 +1,12 @@
 <?php
 require_once "../../dao/connect.php";
 
-$sql = "SELECT * FROM bacsi";
+$sql = "SELECT * FROM doctor";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 
-$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -78,15 +78,15 @@ $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </thead>
             <tbody class="bg-white border-b dark:bg-gray-300 dark:border-gray-700">
 
-              <?php foreach ($user as $index => $bn) : ?>
+              <?php foreach ($doctor as $index => $bs) : ?>
                 <tr>
                   <td class="py-4 px-6"><?= $index + 1 ?></td>
-                  <td class="py-4 px-6"><?= $bn['name'] ?></td>
-                  <td class="py-4 px-6"><?= $bn['sdt'] ?></td>
-                  <td class="py-4 px-6"><?= $bn['chucvu'] ?></td>
+                  <td class="py-4 px-6"><?= $bs['hoten'] ?></td>
+                  <td class="py-4 px-6"><?= $bs['sdt'] ?></td>
+                  <td class="py-4 px-6"><?= $bs['chucvu'] ?></td>
                   <td class="py-4 px-6">
-                    <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="quanLyHoSo/update.php?id=<?= $bn['id']?>">Sửa</a>
-                    <a onclick="return confirm('Xác nhận xóa?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="quanLyHoSo/delete.php?id=<?= $bn['id']?>">Xóa</a>
+                    <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="quanLyHoSo/update.php?id=<?= $bs['id']?>">Sửa</a>
+                    <a onclick="return confirm('Xác nhận xóa?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="quanLyHoSo/delete.php?id=<?= $bs['id']?>">Xóa</a>
                   </td>
 
                 </tr>
