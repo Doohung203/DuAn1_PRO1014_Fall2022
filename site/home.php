@@ -66,6 +66,7 @@
                 </div>
             </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
             <!-- PhoneNumber - Search -->
@@ -99,22 +100,19 @@
 >>>>>>> 277eabe1763143ca426d55a796994c8bc10eccd6
 <!-- PhoneNumber - Search -->
 >>>>>>> ddcc907c76c59ec86727d06187d2b2e252e33ae2
+=======
+        <!-- PhoneNumber - Search -->
+>>>>>>> 833a11e1232139b9b6b9670b3c963d2a69837935
         <div class="banner-top flex justify-between items-center px-4">
             <div class="phone flex my-4 uppercase">
                 <p> <i class="fa-sharp fa-solid fa-phone-volume"></i> Khoa cấp cứu : <a href="" class="text-red-500 font-bold">098775423</a></p>
             </div>
-<<<<<<< HEAD
             <div class="search relative block">
                 <i class="fas fa-search absolute inset-y-0 left-0 flex items-center pl-2 "></i>
                 <input type="search" placeholder="Tìm kiếm" class="w-[70%] placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-[3px] pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1">
             </div>
         </div>
         <!-- Menu-top -->
-=======
-        </div>
-<!-- End-PhoneNumber - Search -->
-<!-- Menu-top -->
->>>>>>> ddcc907c76c59ec86727d06187d2b2e252e33ae2
         <div class="menu bg-green-500 rounded-md">
             <div class="menu-nav max-w-5xl mx-auto relative ">
                 <ul>
@@ -152,7 +150,6 @@
                             </li>
                         </ul>
                     </div>
-<<<<<<< HEAD
                 </div>
                 <!-- Nav-center -->
                 <div class="nav-center col-span-2">
@@ -173,27 +170,6 @@
                             <a class="text-green-500 font-bold text-[13px] " href="">TS.LÝ TỰ LẪM</a>
                             <p class="">Phó Giám đốc Bệnh viện</p>
                         </div>
-=======
-                    <!-- Nav-center -->
-                    <div class="nav-center col-span-2">
-                        <h2 class="border-b-2 font-bold text-center">ĐỘI NGŨ CHUYÊN GIA</h2>
-                        <div class="grid grid-cols-3 gap-8 text-center">
-                            <div class="columns">
-                                <a href="detailDentist.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt=""></a>
-                                <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php">PGS.TS.TRẦN HỮU HƯNG</a>
-                                <p class="">Giám đốc Bệnh viện</p>
-                            </div>
-                            <div class="columns">
-                                <a href="detailDentist1.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs2.jpg" alt=""></a>
-                                <a class="text-green-500 font-bold text-[14px] " href="detailDentist1.php">TS.MAI VĂN NAM</a>
-                                <p class="">Phó Giám đốc Bệnh viện</p>
-                            </div>
-                            <div class="columns">
-                                <a href="detailDentist2.php"><img src="https://ranghammat.org.vn/Upload/Avartar/a-binh.JPG" alt=""></a>
-                                <a class="text-green-500 font-bold text-[13px] " href="">TS.LÝ TỰ LẪM</a>
-                                <p class="">Phó Giám đốc Bệnh viện</p>
-                            </div>
->>>>>>> ddcc907c76c59ec86727d06187d2b2e252e33ae2
 
                     </div>
                 </div>
