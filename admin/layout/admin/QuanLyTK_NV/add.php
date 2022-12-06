@@ -39,28 +39,63 @@ if (isset($_POST['save'])) {
 </head>
 
 <body>
+<section class="Login">
+    <!-- Header -->
+    <div class="flex justify-center bg-gradient-to-r from-green-500 border">
+      <div class="logo flex items-center max-w-7xl lg:max-w-[20%]">
+        <img src="../../images/zyro-mouth.png" alt="" width="30%" class="max-w-7xl md:inlne-flex" />
+        <h2 class="p-4 font-bold text-4xl md:text-center hover:text-white"><a href="../site/home.php">Health Clinic</a></h2>
+      </div>
+    </div>
+     <!-- End-header -->
+     <div class="mx-auto bg-gradient-to-r from-green-100">
+     <div class="grid place-content-center border-2-sm ">
+    <div class="grid place-content-center max-w-4xl mx-auto py-4">
+    </button>
 
-<div class="grid place-content-center max-w-4xl mx-auto py-4">
-    <a class="border " href="../../../layout/admin/showadmin.php" >Quay lại</a>
+    <form action="" method="post" enctype="multipart/form-data" class="space-y-6">
+        <div class="my-40 bg-[#2B4B62] rounded-lg font-['Roboto'] text-xl text-white w-[800px] h-[550px] pt-[10%] text-center">
+                <div class="title font-bold uppercase text-4xl py-2 ">
+                    <h2 class="py-4 text-center"> Thêm tài khoản</h2>
+                </div>
+                <div class="py-8">
+                    <p>Điền thông tin tài khoản tại đây
 
-    <form action="" method="post" enctype="multipart/form-data">
-        <input type="text" name="username" placeholder="Username">
+                    </p>
+                </div>
+                <div class="content-center font-bold text-black">
+                       
+                        <div>
+                            <input type="text" name="username" placeholder="Nhập tên đăng nhập" class="rounded-lg w-[70%] p-2 py-4 text-black">
+                        </div>
+                        <?php if (isset($errors['username'])) : ?>
+                         <span style="color: red; font-size: 10px;"><?= $errors['username'] ?></span>
+                        <?php endif ?>
+                       
+                       
+                        <div class="password my-3">
+                            <input type="password" name="password" placeholder="Nhập password" class="rounded-lg w-[70%] p-2 py-4 text-black">
+                        </div>
+                        <br>
+                        <?php if (isset($errors['password'])) : ?>
+                         <span style="color: red; font-size: 10px;"><?= $errors['password'] ?></span>
+                         <?php endif ?>
+                        <br>
+                        <div class="space-x-4" >
+                        <button class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg hover:bg-white hover:text-black " href="../../../layout/admin/showadmin.php">Quay Lại</button>
+                        <button class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg hover:bg-white hover:text-black " name="save">Save</button>
+                        </div>
+                       
 
-        <?php if (isset($errors['username'])) : ?>
-            <span style="color: red; font-size: 10px;"><?= $errors['username'] ?></span>
-        <?php endif ?>
 
-        <br>
+                     
+                      
+                </div>
+            </div>
 
-        <input type="text" name="password" placeholder="Password">
-
-        <?php if (isset($errors['password'])) : ?>
-            <span style="color: red; font-size: 10px;"><?= $errors['password'] ?></span>
-        <?php endif ?>
-
-        <br>
-        <button class="btn btn-primary" name="save">Save</button>
-    </form>
+        
+        </form>
+    </div>
 
 </div>
     <!--Optional JavaScript-->
