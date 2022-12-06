@@ -76,16 +76,16 @@ if(isset($_POST['btn-dangky'])){
                             <input name="hoten" type="text" placeholder="Nhập họ tên của bạn" class="rounded-lg w-[70%] p-2 py-4">
                         </div>
                         <div>
-                            <input type="text" placeholder="Nhập tên đăng nhập" class="rounded-lg w-[70%] p-2 py-4 text-black">
+                            <input name="username" type="text" placeholder="Nhập tên đăng nhập" class="rounded-lg w-[70%] p-2 py-4 text-black">
                         </div>
                         <div class="password my-3">
-                            <input type="password" placeholder="Nhập số điện thoại" class="rounded-lg w-[70%] p-2 py-4 text-black">
+                            <input name="sdt" type="number" placeholder="Nhập số điện thoại" class="rounded-lg w-[70%] p-2 py-4 text-black">
                         </div>
                         <div class="password my-3">
-                            <input type="text" placeholder="Nhập email của bạn" class="rounded-lg w-[70%] p-2 py-4 text-black">
+                            <input type="text" name= "diachi" placeholder="Địa chỉ" class="rounded-lg w-[70%] p-2 py-4 text-black">
                         </div>
                         <div class="password my-3">
-                            <input type="password" placeholder="Nhập password" class="rounded-lg w-[70%] p-2 py-4 text-black">
+                            <input type="password" name="password" placeholder="Nhập password" class="rounded-lg w-[70%] p-2 py-4 text-black">
                         </div>
                         <div class="button">
                           <button type="submit" name="btn-dangky" class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg hover:bg-white hover:text-black "> Đăng ký</button>
