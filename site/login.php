@@ -16,6 +16,7 @@ if (isset($_POST['btn-dangnhap'])) {
 
   if ($admin) {
     if ($password == $admin['password']) {
+      $_SESSION['username'] = $username;
       header("location: home.php");
       sleep(1);
     }
@@ -79,7 +80,7 @@ if (isset($_POST['btn-dangnhap'])) {
                 </div>
               </div>
               <div class="button">
-                <button type="submit" name="btn-dangnhap" class="bg-[#2B4B62] hover:bg-white hover:text-black w-[20%] py-3 px-2  border rounded-lg"> Đăng nhập</button>
+                <input type="submit" name="btn-dangnhap" class="bg-[#2B4B62] hover:bg-white hover:text-black w-[20%] py-3 px-2  border rounded-lg" value="Đăng nhập"> </input>
               </div>
               <div class=" pr-10 text-center text-white">
                 <a style="padding-left:80px" href="">Chưa có tài khoản? <a href="register.php" class="uppercase text-blue-400">Đăng ký</a></a>
