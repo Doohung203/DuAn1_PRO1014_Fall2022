@@ -65,7 +65,7 @@ if (isset($_POST['save'])) {
                 </div>
                 <div class="content-center font-bold text-black">
                        
-                        <div>
+                        <div class="pb-2">
                             <input type="text" name="username" placeholder="Nhập tên đăng nhập" class="rounded-lg w-[70%] p-2 py-4 text-black">
                         </div>
                         <?php if (isset($errors['username'])) : ?>
@@ -82,7 +82,7 @@ if (isset($_POST['save'])) {
                          <?php endif ?>
                         <br>
                         <div class="space-x-4" >
-                        <button class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg hover:bg-white hover:text-black " href="../../../layout/admin/showadmin.php">Quay Lại</button>
+                        <button class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg hover:bg-white hover:text-black " href="../admin/layout/admin/showadmin.php">Quay Lại</button>
                         <button class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg hover:bg-white hover:text-black " name="save">Save</button>
                         </div>
                        
