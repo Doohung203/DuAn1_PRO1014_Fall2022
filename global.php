@@ -1,14 +1,10 @@
 <?php
 
-function dd(){
-    echo "<pre>";
-    $args = func_get_args();
-    var_dump($args);
-    die;
-}
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+session_start();
 
 
-const BASE_URL = "http://localhost/mvc/";
+const BASE_URL = "";
 const SITE_URL = BASE_URL . "site/index.php";
 const ADMIN_BASE = BASE_URL . 'admin/';
 

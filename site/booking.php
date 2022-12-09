@@ -1,9 +1,12 @@
 <?php
 
 require "../dao/connect.php";
+include "../global.php";
 
 if (isset($_POST['btn-submit'])) {
-    $id_user = $_POST['id'];
+    $id_user = $_POST['idr'];
+    $id_sch = $_POST['id'];
+    $id_sv = $_POST['id'];
     $hoten = $_POST['hoten'];
     $phone = $_POST['phone'];
     $time = $_POST['time'];
@@ -36,6 +39,11 @@ if (isset($_POST['btn-submit'])) {
         $stmt = $conn->prepare($sql2);
         $stmt->execute();
 
+       // $sql7 = "INSERT 'booking' ('id_user', 'id_doctor','id_schedule') VALUES ('$id_user','$id_sch','$id_sv')";
+       // $stmt = $conn-> prepare($sql7);
+       // $stmt ->execute();
+
+
         exit;
     }
 }
@@ -46,12 +54,12 @@ if (isset($_POST['btn-submit'])) {
 // $stmt->execute();
 // $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$sql4 = "SELECT * FROM schedule";
+$sql4 = "SELECT * FROM schedule ";
 $stmt = $conn->prepare($sql4);
 $stmt->execute();
 $schedule = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$sql5 = "SELECT * FROM service";
+$sql5 = "SELECT * FROM service ";
 $stmt = $conn->prepare($sql5);
 $stmt->execute();
 $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -60,6 +68,8 @@ $sql6 = "SELECT * FROM user";
 $stmt = $conn->prepare($sql6);
 $stmt->execute();
 $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
 ?>
 
 
@@ -133,16 +143,13 @@ $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             <div class=" py-10">
                 <form action="" method="POST">
-                        <?php if (isset($user['id'])) : ?>
-                            <input type="text" name="hoten" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2" value="<?= $user['hoten'] ?>">
-                        <?php endif ?>
-                            <?php if (isset($errors['hoten'])) : ?>
-                                <span style="color: red; font-size: 10px;"><?= $errors['hoten'] ?></span>
-                            <?php endif ?>
-                
-                        <?php if(isset($user['id'])): ?>
-                            <input value="<?= $user['sdt']?>" type="text" name="sdt" id="" placeholder="Điện thoại" class="border rounded-md w-full my-4 p-2">
-                        <?php endif?>
+                        
+                            <input type="hidden" name='id_user'  value= "">
+                            <input type="text" name="hoten" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2" value="">
+                            <input  type="text" name="sdt" id="" placeholder="Điện thoại" class="border rounded-md w-full my-4 p-2" value="">
+                            <input  type="text" name="address" id="" placeholder="địa chỉ" class="border rounded-md w-full my-4 p-2" value="">
+                        
+
 
                     <span class="text-white text-lg">Thời gian hẹn: </span>
                     <select name="time" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">

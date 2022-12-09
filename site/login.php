@@ -18,6 +18,7 @@ if (isset($_POST['btn-dangnhap'])) {
     if ($password == $admin['password']) {
       $_SESSION['username'] = $username;
       header("location: home.php");
+      $title  = "Đăng nhập thành công";
       sleep(1);
     }
   } else {
