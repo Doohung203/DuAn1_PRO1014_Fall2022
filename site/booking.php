@@ -247,10 +247,7 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
     </section>
-<<<<<<< HEAD
     <!-- End-Footer -->
-=======
->>>>>>> ddcc907c76c59ec86727d06187d2b2e252e33ae2
 </body>
 
 </html>
