@@ -1,7 +1,7 @@
 <?php
 // session_start();
 require "../dao/connect.php";
-require_once "login.php";
+// require_once "login.php";
 if (isset($_POST['btn-submit'])) {
     $id_user = $_POST['id'];
     $hoten = $_POST['hoten'];
@@ -43,11 +43,11 @@ if (isset($_POST['btn-submit'])) {
     }
 }
 // $sql =" SELECT user.id as id_user, user.hoten,user.sex,user.birthday,user.username,user.sdt,schedule.id as id_schedule,schedule.time,service.id as id_service ,service.name as sv FROM booking INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.id_schedule = schedule.id INNER JOIN service on booking.id_service = service.id";
-// $id_user = $_GET['id'];
-// $sql = "SELECT * FROM user where id= $id_user";
-// $stmt = $conn->prepare($sql);
-// $stmt->execute();
-// $user = $stmt->fetch(PDO::FETCH_ASSOC);
+$id = $_GET['id'];
+$sql = "SELECT * FROM user WHERE id=$id";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $sql4 = "SELECT * FROM schedule";
 $stmt = $conn->prepare($sql4);
@@ -112,7 +112,6 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </ul>
                 </div>
             </div>
-<<<<<<< HEAD
         </div>
         <!-- PhoneNumber - Search -->
         <div class="banner-top flex justify-between items-center px-4">
@@ -123,36 +122,6 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <i class="fas fa-search absolute inset-y-0 left-0 flex items-center pl-2 "></i>
                 <input type="search" placeholder="Tìm kiếm" class="w-[70%] placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-[3px] pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1">
             </div>
-=======
-        </div> <!-- login-logout -->
-                    <div class="home-doctument text-white font-bold">
-                        <ul>
-                            <li>
-                                <div >
-                                    <div class="dropdown inline-block relative">
-                                        <button class="bg-green-400 text-white font-semibold py-2 px-8 rounded inline-flex items-center">
-                                            <span class="mr-1"> <i class="fa-regular fa-user"></i></span>
-                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                            </svg>
-                                        </button>
-                                        <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
-                                            <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="login.php">Đăng nhập</a></li>
-                                            <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="register.php">Đăng ký</a></li>
-                                            <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="logout.php">Đăng xuất</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--  End-login-logout -->
-    </div>
-<!-- PhoneNumber - Search -->
-    <div class="banner-top flex justify-between items-center px-4">
-        <div class="phone flex my-4 uppercase">
-            <p> <i class="fa-sharp fa-solid fa-phone-volume"></i> Khoa cấp cứu : <a href="" class="text-red-500 font-bold">098775423</a></p>
->>>>>>> ddcc907c76c59ec86727d06187d2b2e252e33ae2
         </div>
         <!-- Menu-top -->
         <div class="menu bg-green-500 rounded-md">
@@ -181,8 +150,8 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             <div class=" py-10">
                 <form action="" method="POST">
-                    <?php if (isset($admin['id'])) : ?>
-                        <input type="text" name="hoten" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2" value="<?= $admin['hoten'] ?>">
+                    <input type="hidden" name="id" value="<?= $user['id']?>">
+                        <input type="text" name="hoten" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2" value="<?= $user['hoten'] ?>">
                         <?php if (isset($errors['hoten'])) : ?>
                             <span style="color: red; font-size: 10px;"><?= $errors['hoten'] ?></span>
                         <?php endif ?>
@@ -197,7 +166,6 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                         <input type="text" name="email" id="" placeholder="Email" class="border rounded-md w-full my-4 p-2">
                         <input value="<?= $admin['sdt']?>" type="text" name="sdt" id="" placeholder="Điện thoại" class="border rounded-md w-full my-4 p-2">
-                    <?php endif ?>
 
                     <span class="text-white text-lg">Thời gian hẹn: </span>
                     <select name="time" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">
