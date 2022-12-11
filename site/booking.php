@@ -2,51 +2,9 @@
 
 require "../dao/connect.php";
 include "../global.php";
-
-if (isset($_POST['btn-submit'])) {
-    $id_user = $_POST['idr'];
-    $id_sch = $_POST['id'];
-    $id_sv = $_POST['id'];
-    $hoten = $_POST['hoten'];
-    $phone = $_POST['phone'];
-    $time = $_POST['time'];
-    $id_service =
-        $service = $_POST['service'];
-    $errors = [];
-    if ($hoten == "") {
-        $errors['hoten'] = "Nhập họ tên";
-    }
-    if ($phone == "") {
-        $errors['phone'] = "Nhập số điện thoại";
-    }
-    if ($time == "") {
-        $errors['time'] = "Vui lòng chọn thời gian khám";
-    }
-    if ($service == "") {
-        $service["service"] = "Vui lòng chọn chuyên khoa";
-    }
-
-    if (!$errors) {
-
-        $sql3 = "INSERT 'user' ('hoten', 'sex','birthday', 'username', 'sdt' ) VALUES ('$hoten' ,  '$sex', '$birthday','$email', '$phone')";
-        $sql1 = "INSERT 'schedule' ('time') VALUES ('$time')";
-        $sql2 = "INSERT 'service' ('name') VALUES ('$service')";
-
-        $stmt = $conn->prepare($sql3);
-        $stmt->execute();
-        $stmt = $conn->prepare($sql1);
-        $stmt->execute();
-        $stmt = $conn->prepare($sql2);
-        $stmt->execute();
-
-       // $sql7 = "INSERT 'booking' ('id_user', 'id_doctor','id_schedule') VALUES ('$id_user','$id_sch','$id_sv')";
-       // $stmt = $conn-> prepare($sql7);
-       // $stmt ->execute();
+require "../dao/pdo.php";
 
 
-        exit;
-    }
-}
 // $sql =" SELECT user.id as id_user, user.hoten,user.sex,user.birthday,user.username,user.sdt,schedule.id as id_schedule,schedule.time,service.id as id_service ,service.name as sv FROM booking INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.id_schedule = schedule.id INNER JOIN service on booking.id_service = service.id";
 // $id_user = $_GET['id'];
 // $sql = "SELECT * FROM user where id= $id_user";
@@ -63,11 +21,6 @@ $sql5 = "SELECT * FROM service ";
 $stmt = $conn->prepare($sql5);
 $stmt->execute();
 $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-$sql6 = "SELECT * FROM user";
-$stmt = $conn->prepare($sql6);
-$stmt->execute();
-$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 ?>
@@ -114,13 +67,27 @@ $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <div class="location">
                     <p> <i class="fa-regular fa-map"></i> Nơi ở hiện tại : Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</p>
                 </div>
-                <div class="home-doctument text-white font-bold">
+                    <?php if(empty($_SESSION['user'])){?>
+                    <div class="home-doctument text-white font-bold">
                     <ul>
                         <li>
                             <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="login.php">Đăng nhâp</a>
                             <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="register.php">Đăng ký</a>
                         </li>
                     </ul>
+                    </div>
+                    <?php } else {?>
+                    <div>
+                        <div class="home-doctument text-white font-bold">
+                        <ul>
+                            <li>
+                                <a class="px-3 py-1 border rounded-md bg-green-400 text-black-400" href=""><?= $_SESSION['user']['username']?></a>
+                                <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="logout.php">Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+                    <?php }?>
                 </div>
             </div>
         </div>
@@ -142,22 +109,20 @@ $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <h2 class="text-2xl text-center uppercase text-white font-bold font-['TimeNewRoman']">Đặt lịch khám</h2>
 
             <div class=" py-10">
-                <form action="" method="POST">
-                        
-                            <input type="hidden" name='id_user'  value= "">
-                            <input type="text" name="hoten" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2" value="">
-                            <input  type="text" name="sdt" id="" placeholder="Điện thoại" class="border rounded-md w-full my-4 p-2" value="">
-                            <input  type="text" name="address" id="" placeholder="địa chỉ" class="border rounded-md w-full my-4 p-2" value="">
-                        
-
-
+                <form action="index.php?act=btn-submit" method="POST">     
+                    <input type="hidden" name="id_user" id=""  class="w-full border rounded-md my-4 p-2" value="<?= $_SESSION['user']['id']?>">               
+                    <input type="text" name="name" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2" value="<?= $_SESSION['user']['hoten']?>">
+                    <input  type="text" name="phone" id="" placeholder="Điện thoại" class="border rounded-md w-full my-4 p-2" value="<?= $_SESSION['user']['sdt']?>">
+                    <input  type="text" name="address" id="" placeholder="địa chỉ" class="border rounded-md w-full my-4 p-2" value="<?= $_SESSION['user']['diachi']?>">
                     <span class="text-white text-lg">Thời gian hẹn: </span>
+                    
                     <select name="time" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">
                         <option value="0">SÁNG-CHIỀU</option>
-                        <?php foreach ($schedule as  $sch) : ?>
-                            <option name="time" value="<?= $sch['id'] ?>"><?= $sch['time'] ?></option>
-                        <?php endforeach ?>
+                        <?php foreach ($schedule as  $sch) : ?>  
+                            <option name="time" value=""><?= $sch['time'] ?></option>
+                        <?php endforeach ?>    
                     </select>
+                    
                     <?php if (isset($errors['time'])) : ?>
                         <span style="color: red; font-size: 10px;"><?= $errors['time'] ?></span>
                     <?php endif ?>
@@ -166,9 +131,11 @@ $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <select class="w-full border rounded-md text-center my-3 px-4 p-2" name="service" id="">
                             <option value="0">-Chọn Dịch Vụ Khám-</option>
                             <?php foreach ($service as  $sv) : ?>
-                                <option name="service" value="<?= $sv['id'] ?>">
-                                    <?= $sv['name'] ?>
+                
+                                <option   name="service" value=" ">
+                                <?= $sv['name'] ?>
                                 </option>
+                                
                             <?php endforeach ?>
                         </select>
 
@@ -181,7 +148,7 @@ $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <textarea class="w-full h-20 border rounded-md my-3 px-4 p-2 " id="" name="" placeholder="Vấn đề của bạn"></textarea>
                     </div>
                     <div class="text-center mt-8 ">
-                        <a href="" name='btn-submit' class="border rounded-md text-black bg-white hover:bg-white hover:text-green-600 hover:border-red-700 font-bold px-3 py-2">Đặt lịch</a>
+                        <a href="" name='submit-booking' class="border rounded-md text-black bg-white hover:bg-white hover:text-green-600 hover:border-red-700 font-bold px-3 py-2">Đặt lịch</a>
 
                     </div>
                 </form>

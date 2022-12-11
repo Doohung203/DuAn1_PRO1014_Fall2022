@@ -1,29 +1,29 @@
 <?php
 session_start();
 require_once "../dao/connect.php";
+require "../dao/pdo.php";
 // require_once "../../admin/layout/admin/showadmin.php";
 
-if (isset($_POST['btn-dangnhap'])) {
+if (isset($_POST['btn-dangnhap'])){
+  function checkUser($username,$password)
+  {
+    $sql =  "select * from user where username='" . $username . "' and password='" . $password . "'";
+    $user = pdo_query_one($sql);
+    return $user;
+  }
+  
   $username = $_POST['username'];
   $password = $_POST['password'];
 
-  $sql = "SELECT * FROM user WHERE username='$username'";
+ $checkUser = checkUser($username,$password);
+ if(is_array($checkUser)) {
+  $_SESSION['user']=$checkUser;
+  $error = "Đăng đăng nhập thành công!";
+  header('location: index.php');
+} else {
+  $error= "Tài khoản không tồn tại!";
+}
 
-  $stmt = $conn->prepare($sql);
-  $stmt->execute();
-
-  $admin = $stmt->fetch(PDO::FETCH_ASSOC);
-
-  if ($admin) {
-    if ($password == $admin['password']) {
-      $_SESSION['username'] = $username;
-      header("location: home.php");
-      $title  = "Đăng nhập thành công";
-      sleep(1);
-    }
-  } else {
-    $error = "* User hoặc pass không đúng !";
-  }
 }
 ?>
 
