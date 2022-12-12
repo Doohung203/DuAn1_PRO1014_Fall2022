@@ -2,26 +2,26 @@
 require_once "../dao/connect.php";
 
 if (isset($_POST['save'])) {
-    $hoten = $_POST['hoten'];
+    $lastname = $_POST['lastname'];
     $email = $_POST['email'];
-    $sdt = $_POST['sdt'];
-    $noidung = $_POST['noidung'];
+    $phone = $_POST['phone'];
+    $description = $_POST['description'];
 
     $errors = [];
 
-    if ($hoten == "") {
-        $errors['hoten'] = "Nhập họ tên";
+    if ($lastname == "") {
+        $errors['lastname'] = "Nhập họ tên";
     }
-    if ($sdt == "") {
-        $errors['sdt'] = "Nhập sdt";
+    if ($phone == "") {
+        $errors['phone'] = "Nhập sdt";
     }
-    if ($noidung == "") {
-        $errors['noidung'] = "Nhập nội dung";
+    if ($description == "") {
+        $errors['description'] = "Nhập nội dung";
     }
 
     if (!$errors) {
-        $sql = "INSERT INTO `contact`(`hoten`, `email`, `sdt`, `noidung`) VALUES
-            ('$hoten', '$email', '$sdt', '$noidung')";
+        $sql = "INSERT INTO `contact`(`lastname`, `email`, `phone`, `description`) VALUES
+            ('$lastname', '$email', '$phone', '$description')";
 
         $stmt = $conn->prepare($sql);
         $stmt->execute();
@@ -132,22 +132,22 @@ if (isset($_POST['save'])) {
             <div class="form col-span-2 ">
                 <form action="" method="post">
                     <h2 class="font-bold uppercase">GỬI THÔNG TIN LIÊN HỆ</h2>
-                    <input class="border rounded-md my-2 p-2 w-full" type="text" name="hoten" id="" placeholder="Họ tên bệnh nhân">
+                    <input class="border rounded-md my-2 p-2 w-full" type="text" name="lastname" id="" placeholder="Họ tên bệnh nhân">
                     <br>
-                    <?php if (isset($errors['hoten'])) : ?>
-                        <p style="color: red; font-size: 10px;"><?= $errors['hoten'] ?></p>
+                    <?php if (isset($errors['lastname'])) : ?>
+                        <p style="color: red; font-size: 10px;"><?= $errors['lastname'] ?></p>
                     <?php endif ?>
                     <input class="border rounded-md my-2 p-2 w-full" type="email" name="email" id="" placeholder="Email">
-                    <input class="border rounded-md my-2 p-2 w-full" type="text" name="sdt" id="" placeholder="Điện thoại">
+                    <input class="border rounded-md my-2 p-2 w-full" type="text" name="phone" id="" placeholder="Điện thoại">
                     <br>
-                    <?php if (isset($errors['sdt'])) : ?>
-                        <p style="color: red; font-size: 10px;"><?= $errors['sdt'] ?></p>
+                    <?php if (isset($errors['phone'])) : ?>
+                        <p style="color: red; font-size: 10px;"><?= $errors['phone'] ?></p>
                     <?php endif ?>
                     <!-- <input class="border rounded-md my-2 p-2 w-full" type="text" name="" id="" placeholder="Vấn đề"> -->
-                    <textarea class="border rounded-md my-2 p-2 w-full" name="noidung" id="" cols="30" rows="6" placeholder="Nội dung"></textarea>
+                    <textarea class="border rounded-md my-2 p-2 w-full" name="description" id="" cols="30" rows="6" placeholder="Nội dung"></textarea>
                     <br>
-                    <?php if (isset($errors['noidung'])) : ?>
-                        <p style="color: red; font-size: 10px;"><?= $errors['noidung'] ?></p>
+                    <?php if (isset($errors['description'])) : ?>
+                        <p style="color: red; font-size: 10px;"><?= $errors['description'] ?></p>
                     <?php endif ?>
                     <br>
                     <?php if (isset($_COOKIE['save'])) : ?>
