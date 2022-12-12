@@ -1,28 +1,19 @@
 <?php
 session_start();
+ob_start();
 require_once "../dao/connect.php";
-require "../dao/pdo.php";
+
+require "../dao/user.php";
 // require_once "../../admin/layout/admin/showadmin.php";
 
 if (isset($_POST['btn-dangnhap'])){
-  function checkUser($username,$password)
-  {
-    $sql =  "select * from user where username='" . $username . "' and password='" . $password . "'";
-    $user = pdo_query_one($sql);
-    return $user;
-  }
-  
   $username = $_POST['username'];
   $password = $_POST['password'];
-
- $checkUser = checkUser($username,$password);
- if(is_array($checkUser)) {
-  $_SESSION['user']=$checkUser;
-  $error = "Đăng đăng nhập thành công!";
-  header('location: index.php');
-} else {
-  $error= "Tài khoản không tồn tại!";
-}
+  $role = checkUser($username,$password);
+  $_SESSION['role']= $role;
+  if($role == 3) header('location: home.php');
+  else header('location: login.php');
+  
 
 }
 ?>

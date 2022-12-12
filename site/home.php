@@ -1,7 +1,6 @@
 <?php
 require_once "../dao/connect.php";
 
-<<<<<<< HEAD
 // require_once "login.php";
  require_once "../dao/connect.php"; 
     
@@ -11,14 +10,6 @@ require_once "../dao/connect.php";
  $stmt->execute();
 
  $user = $stmt->fetch(PDO::FETCH_ASSOC);
-=======
-$sql = "SELECT * FROM user";
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-
-$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
->>>>>>> c13ffceaf0e236381e19dede86ecf4eab890162a
 ?>
 
 <!DOCTYPE html>

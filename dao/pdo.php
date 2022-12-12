@@ -1,6 +1,4 @@
 <?php
-
-
 const DBNAME = "nha_khoa_x";
 const DBUSER = "root";
 const DBPASS = "";
@@ -48,9 +46,7 @@ function pdo_query_one($query)
 
     $args = func_get_args();
     $args = array_slice($args, 1);
-
     $conn = getConnect();
-
     $stmt = $conn->prepare($query);
     $stmt->execute($args);
     $data = $stmt->fetch();

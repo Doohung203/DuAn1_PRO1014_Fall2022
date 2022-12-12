@@ -1,35 +1,8 @@
 <?php
 
 require "../dao/connect.php";
-<<<<<<< HEAD
 include "../global.php";
 require "../dao/pdo.php";
-=======
-// require_once "login.php";
-if (isset($_POST['btn-submit'])) {
-    $id_user = $_POST['id'];
-    $hoten = $_POST['hoten'];
-    $birthday = $_POST['birthday'];
-    $sex = $_POST['sex'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $time = $_POST['time'];
-    $id_service =
-        $service = $_POST['service'];
-    $errors = [];
-    if ($hoten == "") {
-        $errors['hoten'] = "Nhập họ tên";
-    }
-    if ($phone == "") {
-        $errors['phone'] = "Nhập số điện thoại";
-    }
-    if ($time == "") {
-        $errors['time'] = "Vui lòng chọn thời gian khám";
-    }
-    if ($service == "") {
-        $service["service"] = "Vui lòng chọn chuyên khoa";
-    }
->>>>>>> c13ffceaf0e236381e19dede86ecf4eab890162a
 
 
 // $sql =" SELECT user.id as id_user, user.hoten,user.sex,user.birthday,user.username,user.sdt,schedule.id as id_schedule,schedule.time,service.id as id_service ,service.name as sv FROM booking INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.id_schedule = schedule.id INNER JOIN service on booking.id_service = service.id";
@@ -127,29 +100,7 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <i class="fas fa-search absolute inset-y-0 left-0 flex items-center pl-2 "></i>
                 <input type="search" placeholder="Tìm kiếm" class="w-[70%] placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-[3px] pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1">
             </div>
-<<<<<<< HEAD
         </div> 
-=======
-        </div>
-        <!-- Menu-top -->
-        <div class="menu bg-green-500 rounded-md">
-            <div class="menu-nav max-w-5xl mx-auto relative">
-                <ul>
-                    <li class="flex justify-between items-center py-3 font-bold text-white">
-                        <a href="">Trang chủ</a>
-                        <a href="">Bảng giá dịch vụ</a>
-                        <a href="">Dịch vụ</a>
-                        <img src="./image/logomouth.png" alt="" width="20%" class="absolute left-[400px] bottom-[-44px]">
-                        <a href="">Phòng ban</a>
-                        <a href="">Đội ngũ chuyên gia</a>
-                        <a href="">Liên hệ</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <!-- End-Header -->
->>>>>>> c13ffceaf0e236381e19dede86ecf4eab890162a
     <section class=" mx-auto py-10 bg-green-300 my-10">
         <div class="booking max-w-3xl mx-auto bg-green-500 px-4 rounded-md">
             <div class="logo1">
@@ -158,32 +109,11 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <h2 class="text-2xl text-center uppercase text-white font-bold font-['TimeNewRoman']">Đặt lịch khám</h2>
 
             <div class=" py-10">
-<<<<<<< HEAD
                 <form action="index.php?act=btn-submit" method="POST">     
                     <input type="hidden" name="id_user" id=""  class="w-full border rounded-md my-4 p-2" value="<?= $_SESSION['user']['id']?>">               
                     <input type="text" name="name" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2" value="<?= $_SESSION['user']['hoten']?>">
                     <input  type="text" name="phone" id="" placeholder="Điện thoại" class="border rounded-md w-full my-4 p-2" value="<?= $_SESSION['user']['sdt']?>">
                     <input  type="text" name="address" id="" placeholder="địa chỉ" class="border rounded-md w-full my-4 p-2" value="<?= $_SESSION['user']['diachi']?>">
-=======
-                <form action="" method="POST">
-                    <input type="hidden" name="id" value="<?= $user['id']?>">
-                        <input type="text" name="hoten" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2" value="<?= $user['hoten'] ?>">
-                        <?php if (isset($errors['hoten'])) : ?>
-                            <span style="color: red; font-size: 10px;"><?= $errors['hoten'] ?></span>
-                        <?php endif ?>
-                        <div class="flex justify-between space-x-4 w-full my-4">
-                            <input datepicker type="text" name="birthday" id="" placeholder="Ngày sinh" class="border rounded-md md:w-[50%] w-full p-2">
-
-                            <select name="sex" id="" class="border rounded-md md:w-[50%] w-full p-2">
-                                <option value="0">Giới Tính</option>
-                                <option value="1">Nam</option>
-                                <option value="2">Nữ</option>
-                            </select>
-                        </div>
-                        <input type="text" name="email" id="" placeholder="Email" class="border rounded-md w-full my-4 p-2">
-                        <input value="<?= $admin['sdt']?>" type="text" name="sdt" id="" placeholder="Điện thoại" class="border rounded-md w-full my-4 p-2">
-
->>>>>>> c13ffceaf0e236381e19dede86ecf4eab890162a
                     <span class="text-white text-lg">Thời gian hẹn: </span>
                     
                     <select name="time" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">
