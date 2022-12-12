@@ -82,10 +82,10 @@ $contact = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <?php foreach ($contact as $index => $lh) : ?>
                 <tr>
                   <td class="py-4 px-6"><?= $index + 1 ?></td>
-                  <td class="py-4 px-6"><?= $lh['hoten'] ?></td>
+                  <td class="py-4 px-6"><?= $lh['lastname'] ?></td>
                   <td class="py-4 px-6"><?= $lh['email'] ?></td>
-                  <td class="py-4 px-6"><?= $lh['sdt'] ?></td>
-                  <td class="py-4 px-6"><?= $lh['noidung'] ?></td>
+                  <td class="py-4 px-6"><?= $lh['phone'] ?></td>
+                  <td class="py-4 px-6"><?= $lh['description'] ?></td>
                   <td class="py-4 px-6">
                     <a onclick="return confirm('Xác nhận xóa?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="Contact/delete.php?id=<?= $lh['id']?>">Xóa</a>
                   </td>

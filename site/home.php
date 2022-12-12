@@ -56,9 +56,6 @@ require_once "../dao/connect.php";
                                         <?php if(empty($_SESSION['user'])){?>
                                         <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="login.php">Đăng nhập</a></li>
                                         <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="register.php">Đăng ký</a></li>
-                                        
-                                    
-                                    
                                     <?php } else{?>
                                         <div>
                                             <li><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href=""><?= $_SESSION['user']['username']?></a></li>
@@ -77,7 +74,6 @@ require_once "../dao/connect.php";
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
 
         <div class="banner-top flex justify-between items-center px-4">
             <div class="phone flex my-4 uppercase">
@@ -92,7 +88,13 @@ require_once "../dao/connect.php";
                     <li class="flex justify-between items-center font-bold text-white">
                         <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500  hover:rounded-md" href="home.php">Trang chủ</a>
                         <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="priceListService.php">Bảng giá dịch vụ</a>
+                        <?php if(empty($_SESSION['user'])){?>
+                        
+                            <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="login.php">Đặt lịch</a>
+                        
+                        <?php } else {?>
                         <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="booking.php">Đặt lịch</a>
+                        <?php }?>
                         <a style="font-family: Inter-font;" class="py-4 px-2 text-4xl uppercase hover:bg-sky-100 hover:text-green-500" href="home.php">Health Clinic</a>
                         <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="dentist.php">Đội ngũ chuyên gia</a>
                         <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="contact.php">Liên hệ</a>
@@ -123,34 +125,6 @@ require_once "../dao/connect.php";
                             </li>
                         </ul>
                     </div>
-=======
-            <!-- PhoneNumber - Search -->
-            <div class="banner-top flex justify-between items-center px-4">
-                <div class="phone flex my-4 uppercase">
-                    <p> <i class="fa-sharp fa-solid fa-phone-volume"></i> Khoa cấp cứu : <a href="" class="text-red-500 font-bold">098775423</a></p>
-                </div>
-                <!-- <div class="search relative block">
-                <i class="fas fa-search absolute inset-y-0 left-0 flex items-center pl-2 "></i>
-                <input type="search" placeholder="Tìm kiếm" class="w-[70%] placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-[3px] pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1">
-            </div> -->
-            </div>
-            <!-- Menu-top -->
-            <div class="menu bg-green-500 rounded-md">
-                <div class="menu-nav max-w-5xl mx-auto relative ">
-                    <ul>
-                        <li class="flex justify-between items-center font-bold text-white">
-                            <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500  hover:rounded-md" href="home.php">Trang chủ</a>
-                            <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="priceListService.php">Bảng giá dịch vụ</a>
-                            <?php foreach ($user as $us) : ?>
-                                <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="booking.php?id=<?= $us['id']?>">Đặt lịch</a>
-                            <?php endforeach ?>
-                            <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="booking.php">Đặt lịch</a>
-                            <a style="font-family: Inter-font;" class="py-4 px-2 text-4xl uppercase hover:bg-sky-100 hover:text-green-500" href="home.php">Health Clinic</a>
-                            <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="dentist.php">Đội ngũ chuyên gia</a>
-                            <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="contact.php">Liên hệ</a>
-                        </li>
-                    </ul>
->>>>>>> c13ffceaf0e236381e19dede86ecf4eab890162a
                 </div>
             </div>
         </div>

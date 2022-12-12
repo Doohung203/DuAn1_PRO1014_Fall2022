@@ -6,11 +6,32 @@ require "../dao/pdo.php";
 
 
 // $sql =" SELECT user.id as id_user, user.hoten,user.sex,user.birthday,user.username,user.sdt,schedule.id as id_schedule,schedule.time,service.id as id_service ,service.name as sv FROM booking INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.id_schedule = schedule.id INNER JOIN service on booking.id_service = service.id";
-$id = $_GET['id'];
-$sql = "SELECT * FROM user WHERE id=$id";
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-$user = $stmt->fetch(PDO::FETCH_ASSOC);
+// $id = $_GET['id'];
+// $sql = "SELECT * FROM user WHERE id=$id";
+// $stmt = $conn->prepare($sql);
+// $stmt->execute();
+// $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (isset($_POST['submit-booking'])) {
+    $id_user = $_POST['id_user'];
+    // $id_doctor = $_POST['id_doctor'];
+    $schedule = $_POST['schedule'];
+    $service = $_POST['service'];
+
+    $errors = [];
+
+    if (!$errors) {
+        $sql = "INSERT INTO `booking` (`id_user`, `schedule`, `service`) 
+        VALUES ('$id_user', '$schedule', '$service')";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        header("location: contact.php");
+        setcookie("booking", "Đặt lịch thành công, bạn hãy đến phòng khám đúng giờ để chúng tôi dễ dàng làm việc. Thanks.", time() + 1);
+        exit;
+    }
+}
 
 $sql4 = "SELECT * FROM schedule ";
 $stmt = $conn->prepare($sql4);
@@ -48,14 +69,14 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
             padding-left: 320px;
         }
     </style>
-        <!-- JavaScript Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="../font-css/font-logo.css">
-        <style>
-            .dropdown:hover .dropdown-menu {
-                display: block;
-            }
-        </style>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../font-css/font-logo.css">
+    <style>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -67,29 +88,29 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <div class="location">
                     <p> <i class="fa-regular fa-map"></i> Nơi ở hiện tại : Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</p>
                 </div>
-                    <?php if(empty($_SESSION['user'])){?>
+                <?php if (empty($_SESSION['user'])) { ?>
                     <div class="home-doctument text-white font-bold">
-                    <ul>
-                        <li>
-                            <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="login.php">Đăng nhâp</a>
-                            <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="register.php">Đăng ký</a>
-                        </li>
-                    </ul>
-                    </div>
-                    <?php } else {?>
-                    <div>
-                        <div class="home-doctument text-white font-bold">
                         <ul>
                             <li>
-                                <a class="px-3 py-1 border rounded-md bg-green-400 text-black-400" href=""><?= $_SESSION['user']['username']?></a>
-                                <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="logout.php">Đăng xuất</a>
+                                <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="login.php">Đăng nhâp</a>
+                                <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="register.php">Đăng ký</a>
                             </li>
                         </ul>
                     </div>
+                <?php } else { ?>
+                    <div>
+                        <div class="home-doctument text-white font-bold">
+                            <ul>
+                                <li>
+                                    <a class="px-3 py-1 border rounded-md bg-green-400 text-black-400" href=""><?= $_SESSION['user']['username'] ?></a>
+                                    <a class="px-3 py-1 border rounded-md bg-green-400 hover:bg-white hover:border-green-400 hover:text-green-400" href="logout.php">Đăng xuất</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <?php }?>
-                </div>
+                <?php } ?>
             </div>
+        </div>
         </div>
         <!-- PhoneNumber - Search -->
         <div class="banner-top flex justify-between items-center px-4">
@@ -139,66 +160,63 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <?php endforeach ?>
                         </select>
 
-                        <?php if (isset($errors['service'])) : ?>
-                            <span style="color: red; font-size: 10px;"><?= $errors['service'] ?></span>
-                        <?php endif ?>
-                    </div>
+                        
 
-                    <div>
-                        <textarea class="w-full h-20 border rounded-md my-3 px-4 p-2 " id="" name="" placeholder="Vấn đề của bạn"></textarea>
-                    </div>
-                    <div class="text-center mt-8 ">
-                        <a href="" name='submit-booking' class="border rounded-md text-black bg-white hover:bg-white hover:text-green-600 hover:border-red-700 font-bold px-3 py-2">Đặt lịch</a>
+                        <div>
+                            <textarea class="w-full h-20 border rounded-md my-3 px-4 p-2 " id="" name="" placeholder="Vấn đề của bạn"></textarea>
+                        </div>
+                        <div class="text-center mt-8 ">
+                            <a href="" name='submit-booking' class="border rounded-md text-black bg-white hover:bg-white hover:text-green-600 hover:border-red-700 font-bold px-3 py-2">Đặt lịch</a>
 
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </section>
-    <!-- Footer -->
-    <section class="footer bg-[#eff7f9] my-6 ">
-        <div class="grid grid-cols-5 gap-8 text-center p-4">
-            <div class="columns col-span-2">
-                <h2 class="font-bold">BỆNH VIỆN NHA KHOA HEALTH CLINIC</h2>
-                <p>Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</p>
-                <p>(024) 3826.9722 - 3928.5172 - 3826.9275</p>
-                <p>(024) 3826.9726 - 3826.9725</p>
-                <p>Số Điện Thoại Tư Vấn: 0867.732939</p>
-            </div>
-            <div class="columns">
-                <p>Chuyên Khoa</p>
-                <p>Giới Thiệu</p>
-                <p>Phòng Ban</p>
-                <p>Liên Hệ</p>
-            </div>
-            <div class="columns">
-                <p>Tài Liệu</p>
-                <p>Đặt Lịch Khám</p>
-                <p>Hướng dẫn khách hàng</p>
-            </div>
-            <div class="columns">
-                <p>Video</p>
-                <p>Dành Cho Nhân Viên</p>
-                <p>Đội Ngũ Chuyên Gia</p>
-                <p>Tin Tức</p>
-            </div>
-        </div>
-        <div class="copyright bg-green-500 ">
-            <div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
-                <div class="copy-right ">
-                    <p>Copyright © RANGHAMMAT.ORG.VN. All rights reserved. Thiết kế website bởi ADC.</p>
+                        </div>
+                    </form>
                 </div>
-                <div class="internet flex justify-between space-x-4">
-                    <a href=""><img src="./svg/facebook.svg" alt=""></a>
-                    <a href=""><img src="./svg/instagram.svg" alt=""></a>
-                    <a href=""><img src="./svg/twitter.svg" alt=""></a>
-                    <a href=""><img src="./svg/youtube.svg" alt=""></a>
+
+            </div>
+        </section>
+        <!-- Footer -->
+        <section class="footer bg-[#eff7f9] my-6 ">
+            <div class="grid grid-cols-5 gap-8 text-center p-4">
+                <div class="columns col-span-2">
+                    <h2 class="font-bold">BỆNH VIỆN NHA KHOA HEALTH CLINIC</h2>
+                    <p>Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</p>
+                    <p>(024) 3826.9722 - 3928.5172 - 3826.9275</p>
+                    <p>(024) 3826.9726 - 3826.9725</p>
+                    <p>Số Điện Thoại Tư Vấn: 0867.732939</p>
+                </div>
+                <div class="columns">
+                    <p>Chuyên Khoa</p>
+                    <p>Giới Thiệu</p>
+                    <p>Phòng Ban</p>
+                    <p>Liên Hệ</p>
+                </div>
+                <div class="columns">
+                    <p>Tài Liệu</p>
+                    <p>Đặt Lịch Khám</p>
+                    <p>Hướng dẫn khách hàng</p>
+                </div>
+                <div class="columns">
+                    <p>Video</p>
+                    <p>Dành Cho Nhân Viên</p>
+                    <p>Đội Ngũ Chuyên Gia</p>
+                    <p>Tin Tức</p>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- End-Footer -->
+            <div class="copyright bg-green-500 ">
+                <div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
+                    <div class="copy-right ">
+                        <p>Copyright © RANGHAMMAT.ORG.VN. All rights reserved. Thiết kế website bởi ADC.</p>
+                    </div>
+                    <div class="internet flex justify-between space-x-4">
+                        <a href=""><img src="./svg/facebook.svg" alt=""></a>
+                        <a href=""><img src="./svg/instagram.svg" alt=""></a>
+                        <a href=""><img src="./svg/twitter.svg" alt=""></a>
+                        <a href=""><img src="./svg/youtube.svg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End-Footer -->
 </body>
 
 </html>
