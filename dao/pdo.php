@@ -31,7 +31,7 @@ function pdo_query_all($query)
 
     $stmt = $conn->prepare($query);
     $stmt->execute($args);
-    $data = $stmt->fetchAll();
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($data) > 0) {
         return $data;
     }
@@ -49,7 +49,7 @@ function pdo_query_one($query)
     $conn = getConnect();
     $stmt = $conn->prepare($query);
     $stmt->execute($args);
-    $data = $stmt->fetch();
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
     if (count($data) > 0) {
         return $data;
     }

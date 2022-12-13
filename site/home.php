@@ -3,7 +3,7 @@ require_once "../dao/connect.php";
 
 // require_once "login.php";
  require_once "../dao/connect.php"; 
-    
+
  
  $sql = "SELECT * FROM user ";
  $stmt = $conn->prepare($sql);
@@ -88,7 +88,7 @@ require_once "../dao/connect.php";
                     <li class="flex justify-between items-center font-bold text-white">
                         <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500  hover:rounded-md" href="home.php">Trang chủ</a>
                         <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="priceListService.php">Bảng giá dịch vụ</a>
-                        <?php if(empty($_SESSION['user'])){?>
+                        <?php if( empty($_SESSION['user'])){?>
                         
                             <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="login.php">Đặt lịch</a>
                         

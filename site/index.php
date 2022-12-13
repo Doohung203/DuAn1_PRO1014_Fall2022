@@ -12,17 +12,17 @@
         switch($_GET['act'])
         {
             case 'btn-submit':
-                require_once "../dao/";
+                require_once "../dao/booking_dao.php";
                 if(isset($_POST['submit-booking']))
                 {
                     $id_user = $_POST['id_user']; 
                     $name = $_POST['name'];
                     $phone = $_POST['phone'];
                     $address = $_POST['address'];
-                    $time = $_POST['time'];
+                    $schedule = $_POST['time'];
                     $service = $_POST['service'];
                     $user_booking = userBooking($name,$phone,$address);
-                    booking($_SESSION['user']['id'],$_SESSION['user']['id'],$schedule,$service);
+                    Booking($_SESSION['user']['id'],$_SESSION['user']['id'],$schedule,$service);
                     header ('location: index.php');
                 }
         }

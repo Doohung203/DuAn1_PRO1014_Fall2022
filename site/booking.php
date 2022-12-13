@@ -140,7 +140,7 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <select name="time" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">
                         <option value="0">SÁNG-CHIỀU</option>
                         <?php foreach ($schedule as  $sch) : ?>  
-                            <option name="time" value=""><?= $sch['time'] ?></option>
+                            <option name="time" value="<?= $sch['id'] ?>"><?= $sch['time'] ?></option>
                         <?php endforeach ?>    
                     </select>
                     
@@ -153,7 +153,7 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <option value="0">-Chọn Dịch Vụ Khám-</option>
                             <?php foreach ($service as  $sv) : ?>
                 
-                                <option   name="service" value=" ">
+                                <option   name="service" value="<?= $sv['id'] ?>">
                                 <?= $sv['name'] ?>
                                 </option>
                                 
@@ -166,7 +166,7 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <textarea class="w-full h-20 border rounded-md my-3 px-4 p-2 " id="" name="" placeholder="Vấn đề của bạn"></textarea>
                         </div>
                         <div class="text-center mt-8 ">
-                            <a href="" name='submit-booking' class="border rounded-md text-black bg-white hover:bg-white hover:text-green-600 hover:border-red-700 font-bold px-3 py-2">Đặt lịch</a>
+                            <button type="submit" name='submit-booking' class="border rounded-md text-black bg-white hover:bg-white hover:text-green-600 hover:border-red-700 font-bold px-3 py-2">Đặt lịch</button>
 
                         </div>
                     </form>
