@@ -121,49 +121,52 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <i class="fas fa-search absolute inset-y-0 left-0 flex items-center pl-2 "></i>
                 <input type="search" placeholder="Tìm kiếm" class="w-[70%] placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-[3px] pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1">
             </div>
-        </div>
-        <section class=" mx-auto py-10 bg-green-300 my-10">
-            <div class="booking max-w-3xl mx-auto bg-green-500 px-4 rounded-md">
-                <div class="logo1">
-                    <img src="../admin/images/zyro-mouth.png" alt="" width="100">
-                </div>
-                <h2 class="text-2xl text-center uppercase text-white font-bold font-['TimeNewRoman']">Đặt lịch khám</h2>
+        </div> 
+    <section class=" mx-auto py-10 bg-green-300 my-10">
+        <div class="booking max-w-3xl mx-auto bg-green-500 px-4 rounded-md">
+            <div class="logo1">
+                <img src="../admin/images/zyro-mouth.png" alt="" width="100">
+            </div>
+            <h2 class="text-2xl text-center uppercase text-white font-bold font-['TimeNewRoman']">Đặt lịch khám</h2>
 
-                <div class=" py-10">
-                    <form action="index.php?act=btn-submit" method="POST">
-                        <input type="hidden" name="id_user" id="" class="w-full border rounded-md my-4 p-2" value="<?= $_SESSION['user']['id'] ?>">
-                        <input type="text" name="hoten" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2" value="<?= $_SESSION['user']['hoten'] ?>">
-                        <input type="text" name="sdt" id="" placeholder="Điện thoại" class="border rounded-md w-full my-4 p-2" value="<?= $_SESSION['user']['sdt'] ?>">
-                        <input type="text" name="diachi" id="" placeholder="địa chỉ" class="border rounded-md w-full my-4 p-2" value="<?= $_SESSION['user']['diachi'] ?>">
-                        <span class="text-white text-lg">Thời gian hẹn: </span>
+            <div class=" py-10">
+                <form action="index.php?act=btn-submit" method="POST">     
+                    <input type="hidden" name="id_user" id=""  class="w-full border rounded-md my-4 p-2" value="<?= $_SESSION['user']['id']?>">               
+                    <input type="text" name="name" id="" placeholder="Họ tên bệnh nhân" class="w-full border rounded-md my-4 p-2" value="<?= $_SESSION['user']['hoten']?>">
+                    <input  type="text" name="phone" id="" placeholder="Điện thoại" class="border rounded-md w-full my-4 p-2" value="<?= $_SESSION['user']['sdt']?>">
+                    <input  type="text" name="address" id="" placeholder="địa chỉ" class="border rounded-md w-full my-4 p-2" value="<?= $_SESSION['user']['diachi']?>">
+                    <span class="text-white text-lg">Thời gian hẹn: </span>
+                    
+                    <select name="time" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">
+                        <option value="0">SÁNG-CHIỀU</option>
+                        <?php foreach ($schedule as  $sch) : ?>  
+                            <option name="time" value="<?= $sch['id'] ?>"><?= $sch['time'] ?></option>
+                        <?php endforeach ?>    
+                    </select>
+                    
+                    <?php if (isset($errors['time'])) : ?>
+                        <span style="color: red; font-size: 10px;"><?= $errors['time'] ?></span>
+                    <?php endif ?>
+                    <div>
 
-                        <select name="time" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">
-                            <option value="0">SÁNG-CHIỀU</option>
-                            <?php foreach ($schedule as  $sch) : ?>
-                                <option name="time" value=""><?= $sch['time'] ?></option>
+                        <select class="w-full border rounded-md text-center my-3 px-4 p-2" name="service" id="">
+                            <option value="0">-Chọn Dịch Vụ Khám-</option>
+                            <?php foreach ($service as  $sv) : ?>
+                
+                                <option   name="service" value="<?= $sv['id'] ?>">
+                                <?= $sv['name'] ?>
+                                </option>
+                                
                             <?php endforeach ?>
                         </select>
 
-                        <div>
-
-                            <select class="w-full border rounded-md text-center my-3 px-4 p-2" name="service" id="">
-                                <option value="0">-Chọn Dịch Vụ Khám-</option>
-                                <?php foreach ($service as  $sv) : ?>
-
-                                    <option name="service" value=" ">
-                                        <?= $sv['name'] ?>
-                                    </option>
-
-                                <?php endforeach ?>
-                            </select>
-
-                        </div>
+                        
 
                         <div>
                             <textarea class="w-full h-20 border rounded-md my-3 px-4 p-2 " id="" name="" placeholder="Vấn đề của bạn"></textarea>
                         </div>
                         <div class="text-center mt-8 ">
-                            <a href="" name='submit-booking' class="border rounded-md text-black bg-white hover:bg-white hover:text-green-600 hover:border-red-700 font-bold px-3 py-2">Đặt lịch</a>
+                            <button type="submit" name='submit-booking' class="border rounded-md text-black bg-white hover:bg-white hover:text-green-600 hover:border-red-700 font-bold px-3 py-2">Đặt lịch</button>
 
                         </div>
                     </form>

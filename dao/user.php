@@ -1,10 +1,14 @@
-
+ 
 <?php
-    function checkuser ($user,$pass)
-    {
-        $conn = connectdb();
-        $stmt = $conn ->prepare("SELECT * FORM user wherre")
-    }
+    require "../dao/pdo.php";
+    require "../dao/connect.php";    
+
+    function checkUser($username,$password)
+  {
+    $sql =  "select * from user where username='" . $username . "' and password='" . $password . "'";
+    return pdo_query_one($sql);
+  }
+
 
 
 ?>

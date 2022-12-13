@@ -1,6 +1,4 @@
 <?php
-
-
 const DBNAME = "nha_khoa_x";
 const DBUSER = "root";
 const DBPASS = "";
@@ -33,7 +31,7 @@ function pdo_query_all($query)
 
     $stmt = $conn->prepare($query);
     $stmt->execute($args);
-    $data = $stmt->fetchAll();
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($data) > 0) {
         return $data;
     }
@@ -48,12 +46,10 @@ function pdo_query_one($query)
 
     $args = func_get_args();
     $args = array_slice($args, 1);
-
     $conn = getConnect();
-
     $stmt = $conn->prepare($query);
     $stmt->execute($args);
-    $data = $stmt->fetch();
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
     if (count($data) > 0) {
         return $data;
     }

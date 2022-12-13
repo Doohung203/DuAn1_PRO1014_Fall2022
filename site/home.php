@@ -3,7 +3,7 @@ require_once "../dao/connect.php";
 
 // require_once "login.php";
  require_once "../dao/connect.php"; 
-    
+
  
  $sql = "SELECT * FROM user ";
  $stmt = $conn->prepare($sql);
@@ -56,9 +56,6 @@ require_once "../dao/connect.php";
                                         <?php if(empty($_SESSION['user'])){?>
                                         <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="login.php">Đăng nhập</a></li>
                                         <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="register.php">Đăng ký</a></li>
-                                        
-                                    
-                                    
                                     <?php } else{?>
                                         <div>
                                             <li><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href=""><?= $_SESSION['user']['username']?></a></li>
@@ -91,7 +88,13 @@ require_once "../dao/connect.php";
                     <li class="flex justify-between items-center font-bold text-white">
                         <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500  hover:rounded-md" href="home.php">Trang chủ</a>
                         <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="priceListService.php">Bảng giá dịch vụ</a>
+                        <?php if( empty($_SESSION['user'])){?>
+                        
+                            <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="login.php">Đặt lịch</a>
+                        
+                        <?php } else {?>
                         <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="booking.php">Đặt lịch</a>
+                        <?php }?>
                         <a style="font-family: Inter-font;" class="py-4 px-2 text-4xl uppercase hover:bg-sky-100 hover:text-green-500" href="home.php">Health Clinic</a>
                         <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="dentist.php">Đội ngũ chuyên gia</a>
                         <a class="py-4 px-2 hover:bg-sky-100 hover:text-green-500 hover:rounded-md" href="contact.php">Liên hệ</a>

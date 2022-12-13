@@ -8,22 +8,20 @@ if (isset($_POST['btn-dangnhap'])){
   function checkUser($username,$password)
   {
     $sql =  "select * from user where username='" . $username . "' and password='" . $password . "'";
-    $user = pdo_query_one($sql);
-    return $user;
+    return pdo_query_one($sql);
   }
   
   $username = $_POST['username'];
   $password = $_POST['password'];
-
- $checkUser = checkUser($username,$password);
- if(is_array($checkUser)) {
-  $_SESSION['user']=$checkUser;
-  $error = "Đăng đăng nhập thành công!";
-  header('location: index.php');
-} else {
-  $error= "Tài khoản không tồn tại!";
-}
-
+  $user = checkUser($username,$password);
+  $_SESSION['user'] = $user;
+  if($user['role'] == 1){
+    header("Location: home.php");
+  }elseif($user['role'] == 2){
+    header("Location: ../admin/danh-muc/quanLyBenhNhan.php");
+  }elseif($user['role'] == 3){
+    header("Location: ../admin");
+  }
 }
 ?>
 
