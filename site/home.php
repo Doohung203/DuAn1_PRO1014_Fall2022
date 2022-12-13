@@ -101,31 +101,6 @@ require_once "../dao/connect.php";
         </div>
     </div>
     <!-- End-Header -->
-    <!-- Content -->
-    <div class="content my-4">
-        <div class="container max-w-7xl mx-auto ">
-            <div class="grid grid-cols-4 gap-8">
-                <!-- Nav-left -->
-                <div class="nav-left">
-                    <h2 class="border-b-2 font-bold text-center">CHUYÊN KHOA</h2>
-                    <div class="content my-5 leading-8">
-                        <ul>
-                            <li>
-                                <a class="flex border-b-2 " href=""><img src="svg/arrow.svg" alt="" class="px-2"> Khoa Phẫu thuật trong miệng</a>
-                                <a class="flex border-b-2 " href=""><img src="svg/arrow.svg" alt="" class="px-2"> Khoa Phục hình răng</a>
-                                <a class="flex border-b-2 " href=""><img src="svg/arrow.svg" alt="" class="px-2"> Khoa Implant</a>
-                                <a class="flex border-b-2 " href=""><img src="svg/arrow.svg" alt="" class="px-2"> Khoa Nắn chỉnh răng</a>
-                                <a class="flex border-b-2 " href=""><img src="svg/arrow.svg" alt="" class="px-2"> Khoa Răng trẻ em</a>
-                                <a class="flex border-b-2 " href=""><img src="svg/arrow.svg" alt="" class="px-2"> Khoa Nha chu</a>
-                                <a class="flex border-b-2 " href=""><img src="svg/arrow.svg" alt="" class="px-2"> Khoa Điều trị răng người cao tuổi</a>
-                                <a class="flex border-b-2 " href=""><img src="svg/arrow.svg" alt="" class="px-2"> Khoa Phẩu thuật hàm mặt</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End-Header -->
         <!-- Content -->
         <div class="content my-4">
             <div class="container max-w-7xl mx-auto ">
