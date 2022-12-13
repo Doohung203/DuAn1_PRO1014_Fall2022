@@ -12,7 +12,7 @@ if (isset($_POST['save'])) {
     }
 
     if (!$errors) {
-        $sql = "UPDATE `admin` SET password='$password' WHERE id='$id'";
+        $sql = "UPDATE `admin` SET password='$password' WHERE id='$id' and where role = '2'";
 
         $stmt = $conn->prepare($sql);
         $stmt->execute();
@@ -24,7 +24,7 @@ if (isset($_POST['save'])) {
 }
 
 $id = $_GET['id'];
-$sql = "SELECT * FROM admin WHERE id=$id";
+$sql = "SELECT * FROM user WHERE id=$id and role = '2'";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();

@@ -42,7 +42,6 @@ if (isset($_POST['save'])) {
 
         $stmt = $conn->prepare($sql);
         $stmt->execute();
-
         header("location: ../quanLyBenhNhan.php");
         setcookie("add", "Thêm thành công", time() + 1);
         exit;

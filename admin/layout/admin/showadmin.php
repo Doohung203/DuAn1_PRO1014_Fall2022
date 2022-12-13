@@ -3,10 +3,16 @@ session_start();
 require_once "../../../dao/connect.php";
 
 //show
-$sql = "SELECT * FROM admin";
+$sql = "SELECT * FROM user where role =  '2' ";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $admin = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$sql2 = "SELECT * FROM doctor ";
+$stmt = $conn->prepare($sql2);
+$stmt->execute();
+$doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
 //title
 // $id = $_GET['id'];
@@ -70,16 +76,16 @@ $admin = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="menu  leading-10 bg-[#30536D]">
                 <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="showadmin.php"><i class="fa-solid fa-user p-4"> </i> Quản lý tài khoản nhân sự</a>
                 <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="../../danh-muc/quanLyBenhNhan.php"><i class="fa-solid fa-hospital-user p-4"></i> Quản lý bệnh nhân</a>
-                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="../../danh-muc/quanLyHoSo.php"><i class="fa-solid fa-file-pen p-4"></i> Quản lý hồ sơ</a>
-                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="../../danh-muc/quanLyContact.php"><i class="fa-solid fa-comments p-4"></i> Quản lý bình luận</a>
+ g                <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="../../danh-muc/quanLyContact.php"><i class="fa-solid fa-comments p-4"></i> Quản lý bình luận</a>
                 <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="../../danh-muc/quanLyBooking.php"><i class="fa-solid fa-calendar-days p-4"></i> Quản lý booking</a>
                 <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="../../danh-muc/quanLyLichKham.php"><i class="fa-sharp fa-solid fa-clock p-4"></i> Quản lý lịch khám</a>
                 <a class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500" href="../../danh-muc/quanLyKetLuan.php"><i class="fa-solid fa-comment-medical p-4"></i>Kết luận của bác sĩ</a>
             </div>
             <section class="col-span-4 border-2-sm bg-gray-200 shadow-inherit">
                 <h2 class="py-6 font-bold text-3xl text-center text-gray-600 uppercase">Quản lý tài khoản nhân sự</h2>
+
                 <div class="max-w-7xl mx-auto bg-white p-3">
-                    <h2 class="border-b-4 font-bold text-2xl py-3">Static voice</h2>
+                    <h2 class="border-b-4 font-bold text-2xl py-3">admin</h2>
                     <table class="w-full texts-sm text-left p-3 ">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
                             <tr>
@@ -110,7 +116,46 @@ $admin = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </tbody>
                     </table>
                 </div>
+                <section class="manage grid grid-cols-5 gap-4 my-4 ">
             </section>
+            <section class="col-span-4 border-2-sm bg-gray-200 shadow-inherit">
+                
+                <div class="max-w-7xl mx-auto bg-white p-3">
+                <h2 class="border-b-4 font-bold text-2xl py-3">Bác sĩ</h2>
+                <table class="w-full texts-sm text-left p-3 ">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
+                    <tr>
+                        <th class="py-3 px-6">STT</th>
+                        <th class="py-3 px-6">Họ Tên</th>
+                        <th class="py-3 px-6">Ảnhn</th>
+                        <th class="py-3 px-6">Thông tin</th>
+                        <th class="py-3 px-6"> <a href="../../danh-muc/quanLyDoctor/add.php" class="border rounded-md px-4 py-2 bg-green-500 text-center text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">Thêm tài khoản</a> </th>
+
+                    </tr>
+                    </thead>
+                    <tbody class="bg-white border-b dark:bg-gray-300 dark:border-gray-700">
+
+                    <?php foreach ($doctor as $index => $doctor) : ?>
+                        <tr>
+                        <td class="py-4 px-6"><?= $index + 1 ?></td>
+                        <td class="py-4 px-6"><?= $doctor['name'] ?></td>
+                        <td class="py-4 px-6"><img src="quanLyDoctor/img/<?= $doctor['img']?>" alt="" width="200px"></td>
+                        <td class="py-4 px-6"><?= $doctor['information'] ?></td>
+                        
+                        <td class="py-4 px-6">
+                            <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="quanLyBenhNhan/update.php?id=<?= $doctor['id']?>">Sửa</a>
+                            <a onclick="return confirm('Xác nhận xóa?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="../../danh-muc/quanLyDoctor/delete.php?id=<?= $doctor['id']?>">Xóa</a>
+                        </td>
+
+                        </tr>
+                    <?php endforeach ?>
+                    </tbody>
+                </table>
+                </div>
+        </section>
+                    
+    </section>
+            
         </section>
         <!-- End-Main -->
     </section>

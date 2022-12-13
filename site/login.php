@@ -20,7 +20,11 @@ if (isset($_POST['btn-dangnhap'])){
   }elseif($user['role'] == 2){
     header("Location: ../admin/danh-muc/quanLyBenhNhan.php");
   }elseif($user['role'] == 3){
-    header("Location: ../admin");
+    header("Location: .../../../doctor/quanLyLichKham.php");
+  }
+  else{
+    header("location: login.php");
+    
   }
 }
 ?>

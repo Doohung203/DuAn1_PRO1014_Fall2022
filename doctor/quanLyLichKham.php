@@ -1,6 +1,6 @@
 <?php
-require "../../dao/connect.php";
-$sql = 'SELECT time.id, user.hoten, time.ca, doctor.hoten as doctor, service.name, service.price from user INNER JOIN schedule on user.id = schedule.id_user INNER JOIN doctor on schedule.id_doctor = doctor.id INNER JOIN service on doctor.id = service.id_doctor INNER JOIN time on doctor.id = time.id_doctor ';
+require "../dao/connect.php";
+$sql = 'SELECT booking.id as id_booking,user.hoten,schedule.time,service.name as sv,service.price,doctor.name as doctor FROM `booking` INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.schedule = schedule.id INNER JOIN service on booking.service = service.id INNER JOIN doctor on booking.id_doctor = doctor.id ';
 $stmt = $conn -> prepare($sql);
 $stmt -> execute();
 $calendar = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -57,7 +57,7 @@ $calendar = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <!-- Main -->
       <section class="manage grid grid-cols-5 gap-4 my-4 ">
       <div class="menu  leading-10 bg-[#30536D]">
-            <a
+            <!-- <a
               class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
               href="../layout/admin/showadmin.php"
               ><i class="fa-solid fa-user p-4"> </i> Quản lý tài khoản nhân sự</a
@@ -81,7 +81,7 @@ $calendar = $stmt->fetchAll(PDO::FETCH_ASSOC);
               class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
               href="quanLyBooking.php"
               ><i class="fa-solid fa-calendar-days p-4"></i> Quản lý booking</a
-            >
+            > -->
             <a
               class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
               href="quanLyLichKham.php"
@@ -105,22 +105,22 @@ $calendar = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th class="py-3 px-6" >Bác sĩ</th> 
                     <th class="py-3 px-6" >Dịch vụ</th>
                     <th class="py-3 px-6" >Giá</th>
-
-                    <th class="py-3 px-6"> <a href="" class="border rounded-md px-4 py-2 bg-green-500 text-center text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">Thêm tài khoản</a> </th>  
+                    <th class="py-3 px-6" ></th>
+                   
                   </tr>
                 </thead>
                 <tbody class="bg-white border-b dark:bg-gray-300 dark:border-gray-700">
                 <?php foreach ($calendar as $index => $cld) : ?>
                   <tr>
                     <td class="py-4 px-6"><?= $index + 1 ?></td>
-                    <td class="py-4 px-6" ><?= $cld['hoten']?>g</td>
-                    <td class="py-4 px-6" ><?= $cld['ca']?></td>
+                    <td class="py-4 px-6" ><?= $cld['hoten']?></td>
+                    <td class="py-4 px-6" ><?= $cld['time']?></td>
                     <td class="py-4 px-6" ><?= $cld['doctor']?></td>
-                    <td class="py-4 px-6" ><?= $cld['name']?></td>
+                    <td class="py-4 px-6" ><?= $cld['sv']?></td>
                     <td class="py-4 px-6" ><?= $cld['price']?></td>
                     <td class="py-4 px-6">
-                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="../danh-muc/quanlylichkham/detele.php?=id<?$cld['id_user']?>">Sửa</a>
-                      <a onclick="return confirm('Xác nhận xóa?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="quanlylichkham/detele.php?id=<?= $cld ['id']?>">Xóa</a>
+                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="../danh-muc/quanlylichkham/detele.php?=id<?$cld['id_booking']?>">Sửa</a>
+                    
                     </td>
                   </tr>
                   <?php endforeach?>

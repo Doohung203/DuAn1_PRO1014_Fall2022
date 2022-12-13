@@ -1,3 +1,13 @@
+<?php
+require "../dao/connect.php";
+$sql = 'SELECT booking.id,user.hoten,schedule.time,service.name as sv,service.price,doctor.name as doctor FROM `booking` INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.schedule = schedule.id INNER JOIN service on booking.service = service.id INNER JOIN doctor on booking.id_doctor = doctor.id ';
+$stmt = $conn -> prepare($sql);
+$stmt -> execute();
+$calendar = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,7 +59,7 @@
 <!-- Main -->
       <section class="manage grid grid-cols-5 gap-4 my-4 ">
       <div class="menu  leading-10 bg-[#30536D]">
-            <a
+            <!-- <a
               class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
               href="../layout/admin/showadmin.php"
               ><i class="fa-solid fa-user p-4"> </i> Quản lý tài khoản nhân sự</a
@@ -59,11 +69,11 @@
               href="quanLyBenhNhan.php"
               ><i class="fa-solid fa-hospital-user p-4"></i> Quản lý bệnh nhân</a
             >
-            <!-- <a
+            <a
               class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
               href="quanLyHoSo.php"
               ><i class="fa-solid fa-file-pen p-4"></i> Quản lý hồ sơ</a
-            > -->
+            >
             <a
               class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
               href="quanLyContact.php"
@@ -73,6 +83,11 @@
               class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
               href="quanLyBooking.php"
               ><i class="fa-solid fa-calendar-days p-4"></i> Quản lý booking</a
+            > -->
+            <a
+              class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500"
+              href="quanLyLichKham.php"
+              ><i class="fa-sharp fa-solid fa-clock p-4"></i> Quản lý lịch khám</a
             >
             <a
               class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500"
@@ -97,36 +112,22 @@
                   </tr>
                 </thead>
                 <tbody class="bg-white border-b dark:bg-gray-300 dark:border-gray-700">
+                <?php foreach ($calendar as $index => $cld) : ?>
                   <tr>
-                    <td class="py-4 px-6" >1</td>
-                    <td class="py-4 px-6" >Trần Hữu Hưng</td>
-                    <td class="py-4 px-6" >0123456890</td>
-                    <td class="py-4 px-6" >Thái Bình</td>
-                    <td class="py-4 px-6" >8:00_17-10-2022</td>
-                    <td class="py-4 px-6" >Nguyễn Văn A</td>
-                    <td class="py-4 px-6">Tình trạng sức khoẻ ổn, cần chăm sóc răng thường xuyên</td>
-                    
-                    
-                  </tr>
-                  <tr>
-                    <td class="py-4 px-6" >1</td>
-                    <td class="py-4 px-6" >Vũ Minh Đại</td>
-                    <td class="py-4 px-6" >0987565442</td>
-                    <td class="py-4 px-6" >Hải Phòng</td>
-                    <td class="py-4 px-6" >9:00_11-10-2022</td>
-                    <td class="py-4 px-6" >Nguyễn Văn C</td>
+                    <td class="py-4 px-6"><?= $index + 1 ?></td>
+                    <td class="py-4 px-6" ><?= $cld['hoten']?></td>
+                    <td class="py-4 px-6" ><?= $cld['time']?></td>
+                    <td class="py-4 px-6" ><?= $cld['doctor']?></td>
+                    <td class="py-4 px-6" ><?= $cld['sv']?></td>
+                    <td class="py-4 px-6" ><?= $cld['price']?></td>
                     <td class="py-4 px-6">
-                    Duy  trì việc thăm khám thường xuyên với bác sĩ răng miệng của bạn
+                      <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="../doctor/quanlylichkham/final.php?=id<?$cld['id']?>">thêm</a>
+                    
                     </td>
                   </tr>
-                  <tr>
-                    <td class="py-4 px-6" >1</td>
-                    <td class="py-4 px-6" >Lê Thanh Toàn</td>
-                    <td class="py-4 px-6" >0855499383</td>
-                    <td class="py-4 px-6" >Hà Nội</td>
-                    <td class="py-4 px-6" >15:00_17-11-2022</td>
-                    <td class="py-4 px-6" >Nguyễn Văn B</td>
-                    <td class="py-4 px-6" >Qua thăm khám và tư vấn của bác sĩ, bệnh nhân đã quyết định trám 8 răng sâu, nhổ 2 răng nhiễm trùng không thể giữ lại được và làm 7 đơn vị sứ - kim loại hàm trên qua 3 lần hẹn. Sau điều trị bệnh nhân đã hết hẳn đau và ê buốt đồng thời tự tin hơn trong giao tiếp.  </td>
+                  <?php endforeach?>
+                  
+                 
         </section>
       </section>
 <!-- End-Main -->
