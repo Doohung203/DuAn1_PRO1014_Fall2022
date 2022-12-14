@@ -127,7 +127,7 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <tr>
                         <th class="py-3 px-6">STT</th>
                         <th class="py-3 px-6">Họ Tên</th>
-                        <th class="py-3 px-6">Ảnhn</th>
+                        <th class="py-3 px-6">Ảnh</th>
                         <th class="py-3 px-6">Thông tin</th>
                         <th class="py-3 px-6"> <a href="../../../../DuAn1_PRO1014_Fall2022/admin/layout/admin/quanLyDoctor/add.php" class="border rounded-md px-4 py-2 bg-green-500 text-center text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">Thêm nhân viên</a> </th>
 
@@ -143,7 +143,7 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td class="py-4 px-6"><?= $doctor['information'] ?></td>
                         
                         <td class="py-4 px-6">
-                            <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="quanLyBenhNhan/update.php?id=<?= $doctor['id']?>">Sửa</a>
+                            <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="admin/danh-muc/quanLyBenhNhan/update.php?id=<?= $doctor['id']?>">Sửa</a>
                             <a onclick="return confirm('Xác nhận xóa?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="../../danh-muc/quanLyDoctor/delete.php?id=<?= $doctor['id']?>">Xóa</a>
                         </td>
 

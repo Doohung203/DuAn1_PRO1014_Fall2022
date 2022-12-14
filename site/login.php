@@ -46,7 +46,7 @@ if (isset($_POST['btn-dangnhap'])){
     <div class="flex justify-center bg-gradient-to-r from-green-500 border">
       <div class="logo flex items-center max-w-7xl lg:max-w-[20%]">
         <img src="../../images/zyro-mouth.png" alt="" width="30%" class="max-w-7xl md:inlne-flex" />
-        <h2 class="p-4 font-bold text-4xl md:text-center hover:text-white"><a href="../site/home.php">Health Clinic</a></h2>
+        <h2 class="p-4 font-bold text-4xl md:text-center hover:text-white"><a href="site/home.php">Health Clinic</a></h2>
       </div>
     </div>
     <!-- End-header -->
