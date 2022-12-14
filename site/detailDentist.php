@@ -1,9 +1,7 @@
 <?php
 require_once "../dao/connect.php";
 // require_once "dentist.php";
-
-$id = $_GET['id'];
-$sql = "SELECT * FROM doctor WHERE id=$id";
+$sql = "SELECT * FROM doctor ";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $doctor = $stmt->fetch(PDO::FETCH_ASSOC);
