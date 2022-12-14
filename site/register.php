@@ -21,8 +21,8 @@ if(isset($_POST['btn-dangky'])){
     }
     
     if(!$errors){
-        $sql = "INSERT INTO `user`(`hoten`, `username`, `password`, `sdt`, `diachi`) 
-        VALUES ('$hoten', '$username', '$password', '$sdt', '$diachi')";
+        $sql = "INSERT INTO `user`(`hoten`, `username`, `password`, `sdt`, `diachi`, 'role') 
+        VALUES ('$hoten', '$username', '$password', '$sdt', '$diachi','1')";
 
         $stmt=$conn->prepare($sql);
         $stmt->execute();

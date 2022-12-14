@@ -37,6 +37,7 @@ require_once "../dao/connect.php";
 
 <body>
     <!--Main-header -->
+    
     <div class="container  mx-auto">
         <div class="mx-auto">
             <div class="Header">
@@ -63,6 +64,7 @@ require_once "../dao/connect.php";
                                         <div>
                                             <li><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href=""><?= $_SESSION['user']['username']?></a></li>
                                             <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="update.php">Sửa thông tin cá nhân</a></li>
+                                            <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="">Lịch khám</a></li>
                                             <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="logout.php">Đăng xuất</a></li>
                                         </div>
                                         
