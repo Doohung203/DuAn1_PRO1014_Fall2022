@@ -1,7 +1,15 @@
 <?php
+<<<<<<< HEAD
 if(!isset($_SESSION)){
     session_start();
 }
+=======
+if(!isset($_SESSION))
+{
+    session_start();
+}
+
+>>>>>>> d807ec7f6fd00d9d73e7213dc4ae9a503c3f58d9
 require_once "../dao/connect.php";
 
 // require_once "login.php";
@@ -35,6 +43,7 @@ require_once "../dao/connect.php";
 
 <body>
     <!--Main-header -->
+    
     <div class="container  mx-auto">
         <div class="mx-auto">
             <div class="Header">
@@ -61,6 +70,7 @@ require_once "../dao/connect.php";
                                         <div>
                                             <li><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href=""><?= $_SESSION['user']['username']?></a></li>
                                             <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="update.php">Sửa thông tin cá nhân</a></li>
+                                            <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="">Lịch khám</a></li>
                                             <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="logout.php">Đăng xuất</a></li>
                                         </div>
                                         

@@ -4,22 +4,24 @@ require_once "../../../../dao/connect.php";
 if (isset($_POST['save'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-
+    $re_password = $_POST['re_password'];
     $errors = [];
 
     if ($username == "") {
         $errors['username'] = "Tên đăng nhập không được bỏ trống!";
     }
     if ($password == "") {
-        $errors['password'] = "Nhập pass đê!";
+        $errors['password'] = "Vui lòng nhập mật khậu";
     }
-
+    if($re_password == "") {
+        $errors['re_password'] = "Vui lòng nhập mật khậu";
+    }else if($re_password != $password) {
+        $errors['re_password'] = "Mật khẩu không đúng";
+    }
     if (!$errors) {
-        $sql = "INSERT INTO `admin` (`username`, `password`) VALUES ('$username', '$password')";
-
+        $sql = "INSERT INTO user (username, password,role) VALUES ('$username', '$password','2')";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
-
         header("location: ../showadmin.php");
         setcookie("add", "Thêm thành công", time()+1);
         exit;
@@ -54,7 +56,7 @@ if (isset($_POST['save'])) {
     </button>
 
     <form action="" method="post" enctype="multipart/form-data" class="space-y-6">
-        <div class="my-40 bg-[#2B4B62] rounded-lg font-['Roboto'] text-xl text-white w-[800px] h-[550px] pt-[10%] text-center">
+        <div class="my-200 bg-[#2B4B62] rounded-lg font-['Roboto'] text-xl text-white w-[800px] h-[700px] pt-[10%] text-center">
                 <div class="title font-bold uppercase text-4xl py-2 ">
                     <h2 class="py-4 text-center"> Thêm tài khoản</h2>
                 </div>
@@ -76,14 +78,20 @@ if (isset($_POST['save'])) {
                         <div class="password my-3">
                             <input type="password" name="password" placeholder="Nhập password" class="rounded-lg w-[70%] p-2 py-4 text-black">
                         </div>
-                        <br>
+                        
                         <?php if (isset($errors['password'])) : ?>
                          <span style="color: red; font-size: 10px;"><?= $errors['password'] ?></span>
                          <?php endif ?>
-                        <br>
+                        
+                        <div class="password my-3">
+                            <input type="password" name="re_password" placeholder="Nhập lại password" class="rounded-lg w-[70%] p-2 py-4 text-black">
+                        </div>
+                        <?php if (isset($errors['re_password'])) : ?>
+                         <span style="color: red; font-size: 10px;"><?= $errors['re_password'] ?></span>
+                         <?php endif ?>
                         <div class="space-x-4" >
                         <button class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg hover:bg-white hover:text-black " href="../admin/layout/admin/showadmin.php">Quay Lại</button>
-                        <button class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg hover:bg-white hover:text-black " name="save">Save</button>
+                        <button class="bg-[#2B4B62] w-[20%] py-3 px-2  border rounded-lg hover:bg-white hover:text-black " name="save">Thêm</button>
                         </div>
                        
 

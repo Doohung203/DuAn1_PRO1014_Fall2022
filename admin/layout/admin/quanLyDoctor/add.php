@@ -1,5 +1,5 @@
 <?php
-    require "../../../dao/connect.php";
+    require "../../../../dao/connect.php";
     if(isset($_POST['btn-submit']))  
     {
         $name = $_POST['name'];

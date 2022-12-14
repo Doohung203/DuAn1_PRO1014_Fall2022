@@ -27,7 +27,7 @@ if (isset($_POST['submit-booking'])) {
         $stmt = $conn->prepare($sql);
         $stmt->execute();
 
-        header("location: contact.php");
+        header("location: booking.php");
         setcookie("booking", "Đặt lịch thành công, bạn hãy đến phòng khám đúng giờ để chúng tôi dễ dàng làm việc. Thanks.", time() + 1);
         exit;
     }
@@ -167,8 +167,11 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                         <div class="text-center mt-8 ">
                             <button type="submit" name='submit-booking' class="border rounded-md text-black bg-white hover:bg-white hover:text-green-600 hover:border-red-700 font-bold px-3 py-2">Đặt lịch</button>
-
                         </div>
+                        <?php if (isset($_COOKIE['booking'])) : ?>
+                            <p><?= $_COOKIE['booking'] ?></p>
+                        <?php endif ?>
+                         
                     </form>
                 </div>
 

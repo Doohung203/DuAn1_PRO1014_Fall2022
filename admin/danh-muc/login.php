@@ -48,7 +48,7 @@ if(isset($_POST['btn-dangnhap'])){
             width="30%"
             class="max-w-7xl md:inlne-flex"
           />
-          <h2 class="p-4 font-bold text-4xl md:text-center hover:text-white"><a href="../site/home.php">Health Clinic</a></h2>
+          <h2 class="p-4 font-bold text-4xl md:text-center hover:text-white"><a href="../../site/home.php">Health Clinic</a></h2>
         </div>
     </div>
 <!-- End-header -->
