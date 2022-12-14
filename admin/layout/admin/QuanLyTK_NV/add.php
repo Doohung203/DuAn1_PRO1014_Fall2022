@@ -86,7 +86,7 @@ if (isset($_POST['save'])) {
                          <?php endif ?>
                         
                         <div class="password my-3">
-                            <input type="password" name="re_password" placeholder="Nhập password" class="rounded-lg w-[70%] p-2 py-4 text-black">
+                            <input type="password" name="re_password" placeholder="Nhập lại password" class="rounded-lg w-[70%] p-2 py-4 text-black">
                         </div>
                         <?php if (isset($errors['re_password'])) : ?>
                          <span style="color: red; font-size: 10px;"><?= $errors['re_password'] ?></span>
