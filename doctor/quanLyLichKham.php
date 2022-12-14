@@ -32,7 +32,7 @@ $calendar = $stmt->fetchAll(PDO::FETCH_ASSOC);
             width="20%"
             class="max-w-7xl md:inlne-flex"
           />
-          <h2 class="p-4 font-bold text-2xl md:text-center text-white">Health Clinic</h2>
+          <a href="../admin/layout/admin/showadmin.php" class="p-4 font-bold text-2xl md:text-center text-white">Health Clinic</a>
          </div>
          <div class="search">
 

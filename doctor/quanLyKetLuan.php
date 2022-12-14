@@ -28,13 +28,15 @@ $calendar = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <section class=" bg-[#2B4B62] border">
         <div class=" flex justify-between items-center ">
          <div class=" logo flex items-center">
+           <a href="../../layout/admin/showadmin.php">
            <img
             src="../images/zyro-mouth.png"
             alt=""
             width="20%"
             class="max-w-7xl md:inlne-flex"
           />
-          <h2 class="p-4 font-bold text-2xl md:text-center text-white">Health Clinic</h2>
+           </a>
+         <a href="../admin/layout/admin/showadmin.php" class="p-4 font-bold text-2xl md:text-center text-white">Health Clinic</a>
          </div>
          <div class="search">
 
