@@ -60,6 +60,9 @@ if (isset($_POST['btn-dangnhap'])){
           <?php if (isset($_COOKIE['dangky'])) : ?>
             <p><?= $_COOKIE['dangky'] ?></p>
           <?php endif ?>
+          <?php if (isset($_COOKIE['update'])) : ?>
+            <p><?= $_COOKIE['update'] ?></p>
+          <?php endif ?>
 
           <div class="content-center font-bold text-black">
             <form method="POST" class="space-y-8">

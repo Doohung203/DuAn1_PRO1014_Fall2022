@@ -81,11 +81,11 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <h2 class="font-bold text-2xl border-b-2 uppercase">Đội ngũ chuyên gia</h2>
                 <div class="grid grid-cols-4 gap-8 my-4 text-center">
 
-                    <?php foreach ($doctor as $bs) : ?>
-                        <a href="detailDentist.php?id=<?= $bs['id']?>" class="dentist">
-                            <div href=""><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt=""></div>
-                            <div class="text-green-500 font-bold text-[14px] " href=""><?= $bs['hoten'] ?></div>
-                            <p class=""><?= $bs['chucvu'] ?></p>
+                    <?php foreach ($doctor as $doctor) : ?>
+                        <a href="detailDentist.php?id=<?= $doctor['id']?>" class="dentist">
+                            <div href="">  <img src="../admin/layout/admin/quanLyDoctor/img/<?= $doctor['img']?>" alt="" width=""></div>
+                            <div class="text-green-500 font-bold text-[14px] " href=""><?= $doctor['name'] ?></div>
+                            <p class=""><?= $doctor['information'] ?></p>
                         </a>
                     <?php endforeach ?>
 

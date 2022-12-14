@@ -1,10 +1,9 @@
 <?php
+session_start();
 require_once "../dao/connect.php";
 
 // require_once "login.php";
  require_once "../dao/connect.php"; 
-
- 
  $sql = "SELECT * FROM user ";
  $stmt = $conn->prepare($sql);
  $stmt->execute();
@@ -59,6 +58,7 @@ require_once "../dao/connect.php";
                                     <?php } else{?>
                                         <div>
                                             <li><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href=""><?= $_SESSION['user']['username']?></a></li>
+                                            <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="update.php">Sửa thông tin cá nhân</a></li>
                                             <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="logout.php">Đăng xuất</a></li>
                                         </div>
                                         

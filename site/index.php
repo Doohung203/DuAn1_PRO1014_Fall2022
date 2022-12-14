@@ -21,7 +21,6 @@
                     $address = $_POST['address'];
                     $schedule = $_POST['time'];
                     $service = $_POST['service'];
-                    $user_booking = userBooking($name,$phone,$address);
                     Booking($_SESSION['user']['id'],$_SESSION['user']['id'],$schedule,$service);
                     header ('location: index.php');
                 }

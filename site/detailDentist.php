@@ -93,7 +93,7 @@ $doctor = $stmt->fetch(PDO::FETCH_ASSOC);
                 <h2 class="font-bold text-2xl border-b-2 uppercase">Thông tin bác sĩ</h2>
                 <div class="grid grid-cols-3 gap-8 my-4">
                     <div class="image-detail ">
-                        <img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt="">
+                            <img src="../admin/layout/admin/quanLyDoctor/img/<?= $doctor['img']?>" alt="" width="">            
                         <div class="booking text-center text-green-500 font-bold border-2 rounded-lg p-4 my-4  hover:bg-green-500 hover:text-white w-[88%]">
                             <a href="">Đặt lịch khám</a>
                         </div>
@@ -101,10 +101,9 @@ $doctor = $stmt->fetch(PDO::FETCH_ASSOC);
                     <div class="infomation-detail col-span-2">
                         <div class="name border-b-2 py-4">
                             <?php if (isset($doctor['id'])) : ?>
-                                <p class="font-bold text-green-800 text-2xl"><?= $doctor['hoten'] ?></p>
-                                <span><?= $doctor['chucvu'] ?></span>
-                                -
-                                <span>SĐT: <?= $doctor['sdt'] ?></span>
+                                <p class="font-bold text-green-800 text-2xl"><?= $doctor['name'] ?></p>
+                                <span><?= $doctor['information'] ?></span>
+                                <br>
                             <?php endif ?>
                         </div>
                         <div class="position border-b-2 my-4 leading-8 text-[14px]">
