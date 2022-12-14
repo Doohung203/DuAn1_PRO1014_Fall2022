@@ -59,8 +59,12 @@ $booking = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyBenhNhan.php"><i class="fa-solid fa-hospital-user p-4"></i> Quản lý bệnh nhân</a>
         <!-- <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyHoSo.php"><i class="fa-solid fa-file-pen p-4"></i> Quản lý hồ sơ</a> -->
         <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyContact.php"><i class="fa-solid fa-comments p-4"></i> Quản lý bình luận</a>
+<<<<<<< HEAD
         <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyBooking.php"><i class="fa-solid fa-calendar-days p-4"></i> Quản lý booking</a>        
         <a class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500" href="../../doctor/quanLyKetLuan.php"><i class="fa-solid fa-comment-medical px-8"></i>Kết luận của bác sĩ</a>
+=======
+        <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyBooking.php"><i class="fa-solid fa-calendar-days p-4"></i> Quản lý booking</a>        <a class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500" href="/quanLyKetLuan.php"><i class="fa-solid fa-comment-medical px-8"></i>Kết luận của bác sĩ</a>
+>>>>>>> f945e66c07c1540e17fc9d83e27be84c12aad747
       </div>
       <section class="col-span-4 border-2-sm bg-gray-200 shadow-inherit">
         <h2 class="py-6 font-bold text-3xl text-center text-gray-600 uppercase">Quản lý đặt lịch khám</h2>
