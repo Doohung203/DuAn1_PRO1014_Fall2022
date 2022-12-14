@@ -1,9 +1,15 @@
 <?php
+<<<<<<< HEAD
+if(!isset($_SESSION)){
+    session_start();
+}
+=======
 if(!isset($_SESSION))
 {
     session_start();
 }
 
+>>>>>>> d807ec7f6fd00d9d73e7213dc4ae9a503c3f58d9
 require_once "../dao/connect.php";
 
 // require_once "login.php";
