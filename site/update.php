@@ -63,18 +63,18 @@ if (isset($_POST['save'])) {
           <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $_SESSION['user']['id'] ?>">
 
-        <input class="text-black" type="text" name="name" placeholder="Họ tên" value="<?= $_SESSION['user']['hoten'] ?>">
+        <input class="text-black w-[70%] border p-2 my-3 rounded-sm " type="text" name="name" placeholder="Họ tên" value="<?= $_SESSION['user']['hoten'] ?>">
         <br>
 
-        <input class="text-black" type="text" name="password" placeholder="Password" value="<?= $_SESSION['user']['password'] ?>">
+        <input class="text-black w-[70%] border p-2 my-3 rounded-sm " type="text" name="password" placeholder="Password" value="<?= $_SESSION['user']['password'] ?>">
         <br>
 
-        <input class="text-black" type="text" name="phone" placeholder="Số điện thoại" value="<?= $_SESSION['user']['sdt'] ?>">
+        <input class="text-black w-[70%] border p-2 my-3 rounded-sm " type="text" name="phone" placeholder="Số điện thoại" value="<?= $_SESSION['user']['sdt'] ?>">
         <br>
-        <input class="text-black" type="text" name="address" placeholder="Địa chỉ" value="<?=  $_SESSION['user']['diachi'] ?>">
+        <input class="text-black w-[70%] border p-2 my-3 rounded-sm " type="text" name="address" placeholder="Địa chỉ" value="<?=  $_SESSION['user']['diachi'] ?>">
         <br>
-        <button name="save" class="btn btn-primary">Save</button>
-        <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="../site/home.php">Quay Lại</a>
+        <button name="save" class="btn btn-primary border rounded-md px-4 py-[6px] bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">Lưu</button>
+        <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300 mx-10" href="../site/home.php">Quay Lại</a>
 
     </form>
         </div>
