@@ -79,11 +79,11 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <!--Main-content  -->
             <div class="container max-w-7xl mx-auto my-4">
                 <h2 class="font-bold text-2xl border-b-2 uppercase">Đội ngũ chuyên gia</h2>
-                <div class="grid grid-cols-4 gap-8 my-4 text-center">
+                <div class="grid grid-cols-4 gap-8 my-4 text-center space-x-6">
 
                     <?php foreach ($doctor as $doctor) : ?>
                         <a href="detailDentist.php?id=<?= $doctor['id']?>" class="dentist">
-                            <div href="">  <img src="../admin/layout/admin/quanLyDoctor/img/<?= $doctor['img']?>" alt="" width=""></div>
+                            <div href="">  <img src="../admin/layout/admin/quanLyDoctor/img/<?= $doctor['img']?>" alt="" width="100%"></div>
                             <div class="text-green-500 font-bold text-[14px] " href=""><?= $doctor['name'] ?></div>
                             <p class=""><?= $doctor['information'] ?></p>
                         </a>
@@ -114,7 +114,7 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <!-- End-Main-content  -->
 
             <!-- Footer -->
-            <div class="footer bg-[#eff7f9] my-6 ">
+            <div class="footer bg-green-500 my-6 ">
                 <div class="grid grid-cols-5 gap-8 text-center p-4">
                     <div class="columns col-span-2">
                         <h2 class="font-bold">BỆNH VIỆN NHA KHOA HEALTH CLINIC</h2>
@@ -141,17 +141,17 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <p>Tin Tức</p>
                     </div>
                 </div>
-                <div class="copyright bg-green-500 ">
-                    <div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
-                        <div class="copy-right ">
-                            <p>Copyright © RANGHAMMAT.ORG.VN. All rights reserved. Thiết kế website bởi ADC.</p>
-                        </div>
-                        <div class="internet flex justify-between space-x-4">
-                            <a href=""><i class="fa-brands fa-facebook"></i></a>
-                            <a href=""><i class="fa-brands fa-instagram"></i></a>
-                            <a href=""><i class="fa-brands fa-twitter"></i></a>
-                            <a href=""><i class="fa-brands fa-youtube"></i></a>
-                        </div>
+            </div>
+            <div class="copyright bg-green-500 ">
+                <div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
+                    <div class="copy-right ">
+                        <p>Copyright © RANGHAMMAT.ORG.VN. All rights reserved. Thiết kế website bởi ADC.</p>
+                    </div>
+                    <div class="internet flex justify-between space-x-4">
+                        <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                        <a href=""><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
             </div>

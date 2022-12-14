@@ -136,11 +136,7 @@ require_once "../dao/connect.php";
                         <h2 class="border-b-2 font-bold text-center">ĐỘI NGŨ CHUYÊN GIA</h2>
                         <div class="grid grid-cols-3 gap-8 text-center">
                             <div class="columns">
-<<<<<<< HEAD
                                 <a href="chi-tiet.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt=""></a>
-=======
-                                <a href="detailDentist.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt=""></a>
->>>>>>> 85a468c60434dc4de5d1e8b8e48cc2031de88dce
                                 <a class="text-green-500 font-bold text-[14px] " href="../site/detailDentist.php">PGS.TS.TRẦN HỮU HƯNG</a>
                                 <p class="">Giám đốc Bệnh viện</p>
                             </div>
