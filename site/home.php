@@ -138,18 +138,18 @@ require_once "../dao/connect.php";
                         <h2 class="border-b-2 font-bold text-center">ĐỘI NGŨ CHUYÊN GIA</h2>
                         <div class="grid grid-cols-3 gap-8 text-center">
                             <div class="columns">
-                                <a href="chi-tiet.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt=""></a>
-                                <a class="text-green-500 font-bold text-[14px] " href="chi-tiet.php">PGS.TS.TRẦN HỮU HƯNG</a>
+                                <a href="detailDentist.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs1.jpg" alt=""></a>
+                                <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php">PGS.TS.TRẦN HỮU HƯNG</a>
                                 <p class="">Giám đốc Bệnh viện</p>
                             </div>
                             <div class="columns">
-                                <a href=""><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs2.jpg" alt=""></a>
-                                <a class="text-green-500 font-bold text-[14px] " href="">TS.MAI VĂN NAM</a>
+                                <a href="detailDentist.php"><img src="https://ranghammat.org.vn/Upload/Avartar/anh-bs2.jpg" alt=""></a>
+                                <a class="text-green-500 font-bold text-[14px] " href="detailDentist.php">TS.MAI VĂN NAM</a>
                                 <p class="">Phó Giám đốc Bệnh viện</p>
                             </div>
                             <div class="columns">
-                                <a href=""><img src="https://ranghammat.org.vn/Upload/Avartar/a-binh.JPG" alt=""></a>
-                                <a class="text-green-500 font-bold text-[13px] " href="">TS.LÝ TỰ LẪM</a>
+                                <a href="detailDentist.php"><img src="https://ranghammat.org.vn/Upload/Avartar/a-binh.JPG" alt=""></a>
+                                <a class="text-green-500 font-bold text-[13px] " href="detailDentist.php">TS.LÝ TỰ LẪM</a>
                                 <p class="">Phó Giám đốc Bệnh viện</p>
                             </div>
 

@@ -2,8 +2,7 @@
 require_once "../dao/connect.php";
 // require_once "dentist.php";
 
-$id = $_GET['id'];
-$sql = "SELECT * FROM doctor WHERE id=$id";
+$sql = "SELECT * FROM doctor ";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $doctor = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -52,7 +51,6 @@ $doctor = $stmt->fetch(PDO::FETCH_ASSOC);
                                         </button>
                                         <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
                                             <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="login.php">Đăng nhập</a></li>
-                                            <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="register.php">Đăng ký</a></li>
                                             <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-3 px-4 block whitespace-no-wrap" href="logout.php">Đăng xuất</a></li>
                                         </ul>
                                     </div>
