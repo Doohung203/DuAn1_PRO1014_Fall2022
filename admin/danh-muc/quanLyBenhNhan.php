@@ -58,7 +58,7 @@ require_once "../../dao/connect.php";
         <!-- <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyHoSo.php"><i class="fa-solid fa-file-pen p-4"></i> Quản lý hồ sơ</a> -->
         <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyContact.php"><i class="fa-solid fa-comments p-4"></i> Quản lý bình luận</a>
         <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="quanLyBooking.php"><i class="fa-solid fa-calendar-days p-4"></i> Quản lý booking</a>        
-        <a class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500" href="../../doctor/quanLyLichKham.php"><i class="fa-solid fa-comment-medical p-4"></i>Kết luận của bác sĩ</a>
+        <a class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500" href="../../doctor/quanLyKetLuan.php"><i class="fa-solid fa-comment-medical p-4"></i>Kết luận của bác sĩ</a>
       </div>
       <section class="col-span-4 border-2-sm bg-gray-200 shadow-inherit">
         <h2 class="py-6 font-bold text-3xl text-center text-gray-600 uppercase">Quản lý bệnh nhân</h2>
