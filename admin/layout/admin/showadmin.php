@@ -43,6 +43,7 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
+                 
     <section class="admin mx-auto items-center ">
         <!--nav-bar-top-->
         <section class=" bg-[#2B4B62] border">
@@ -52,7 +53,9 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <h2 class="p-4 font-bold text-2xl md:text-center text-white">Health Clinic</h2>
                 </div>
                 <div class="search">
-
+                <?php if(isset($_COOKIE['update'])) : ?>
+                        <p style="color: green; font-size: 10px;"><?= $_COOKIE['update'] ?></p>
+                <?php endif ?>
                 </div>
                 <div class="notic-mail-admin ">
                     <div class="flex justify-between items-center my-10 ">
@@ -79,7 +82,7 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="../../danh-muc/quanLyContact.php"><i class="fa-solid fa-comments p-4"></i> Quản lý bình luận</a>
                 <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="../../danh-muc/quanLyBooking.php"><i class="fa-solid fa-calendar-days p-4"></i> Quản lý booking</a>
                 <a class="block py-[35px] px-4 font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-yellow-500" href="../../danh-muc/quanLyLichKham.php"><i class="fa-sharp fa-solid fa-clock p-4"></i> Quản lý lịch khám</a>
-                <a class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500" href="../../danh-muc/quanLyKetLuan.php"><i class="fa-solid fa-comment-medical p-4"></i>Kết luận của bác sĩ</a>
+                <a class="block py-[35px] font-bold text-lg text-white to-yellow-300 hover:bg-white hover:text-green-300 hover:border hover:border-red-500" href="../..//danh-muc/quanLyKetLuan.php"><i class="fa-solid fa-comment-medical p-4"></i>Kết luận của bác sĩ</a>
             </div>
             <section class="col-span-4 border-2-sm bg-gray-200 shadow-inherit">
                 <h2 class="py-6 font-bold text-3xl text-center text-gray-600 uppercase">Quản lý tài khoản nhân sự</h2>
@@ -143,12 +146,12 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td class="py-4 px-6"><?= $doctor['information'] ?></td>
                         
                         <td class="py-4 px-6">
-                            <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="admin/danh-muc/quanLyBenhNhan/update.php?id=<?= $doctor['id']?>">Sửa</a>
+                            <a class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="quanLyDoctor/update.php?id=<?= $doctor['id']?>">Sửa</a>
                             <a onclick="return confirm('Xác nhận xóa?')" class="border rounded-md px-4 py-2 bg-green-500 text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300" href="../../danh-muc/quanLyDoctor/delete.php?id=<?= $doctor['id']?>">Xóa</a>
                         </td>
-
                         </tr>
                     <?php endforeach ?>
+                    
                     </tbody>
                 </table>
                 </div>

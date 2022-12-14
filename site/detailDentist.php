@@ -1,10 +1,6 @@
 <?php
 require_once "../dao/connect.php";
 // require_once "dentist.php";
-<<<<<<< HEAD
-=======
-
->>>>>>> ac61dd773c8d97b82aa7e20acc1780f20fa5ae17
 $sql = "SELECT * FROM doctor ";
 $stmt = $conn->prepare($sql);
 $stmt->execute();

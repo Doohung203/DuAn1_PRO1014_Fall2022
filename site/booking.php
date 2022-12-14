@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 require "../dao/connect.php";
 include "../global.php";
 require "../dao/pdo.php";
@@ -17,14 +17,18 @@ if (isset($_POST['submit-booking'])) {
     // $id_doctor = $_POST['id_doctor'];
     $schedule = $_POST['schedule'];
     $service = $_POST['service'];
-
+    $date = $_POST['date'];
+    $timestamp = time();
     $errors = [];
-
+    if($date <= $timestamp)
+    {
+        $errors = "Ngày không hợp lệ"; 
+    }
     if (!$errors) {
-        $sql = "INSERT INTO `booking` (`id_user`, `schedule`, `service`) 
-        VALUES ('$id_user', '$schedule', '$service')";
+        $sql = "INSERT INTO `booking` (id_user, id_schedule, id_service, date) 
+        VALUES ('$id_user', '$schedule', '$service','$date')";
 
-        $stmt = $conn->prepare($sql);
+        $stmt = $conn->prepare($sql);   
         $stmt->execute();
 
         header("location: booking.php");
@@ -136,7 +140,11 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <input  type="text" name="phone" id="" placeholder="Điện thoại" class="border rounded-md w-full my-4 p-2" value="<?= $_SESSION['user']['sdt']?>">
                     <input  type="text" name="address" id="" placeholder="địa chỉ" class="border rounded-md w-full my-4 p-2" value="<?= $_SESSION['user']['diachi']?>">
                     <span class="text-white text-lg">Thời gian hẹn: </span>
-                    
+                    <br>
+                    <input type="date" name="date" class="border rounded-md w-full my-4 p-2">
+                    <?php if (isset($errors['date'])) : ?>
+                        <span style="color: red; font-size: 10px;"><?= $errors['date'] ?></span>
+                    <?php endif ?>
                     <select name="time" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">
                         <option value="0">SÁNG-CHIỀU</option>
                         <?php foreach ($schedule as  $sch) : ?>  

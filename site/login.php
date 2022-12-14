@@ -21,9 +21,11 @@ if (isset($_POST['btn-dangnhap'])){
     header("Location: ../../../../DuAn1_PRO1014_Fall2022/admin/layout/admin/showadmin.php");
   }elseif($user['role'] == 3){
     header("Location: ../../../../DuAn1_PRO1014_Fall2022/doctor/quanLyLichKham.php");
-  }
+  } 
   else{
-    header("location: login.php");
+    header("Location: login.php");
+    $error = "Tải khoản hoặc mật khẩu không đúng";
+    exit;
     
   }
 }

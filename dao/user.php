@@ -6,7 +6,9 @@
     function checkUser($username,$password)
   {
     $sql =  "select * from user where username='" . $username . "' and password='" . $password . "'";
-    return pdo_query_one($sql);
+    
+    return pdo_query_all($sql);
+   
   }
 
 
