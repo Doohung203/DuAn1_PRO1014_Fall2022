@@ -129,7 +129,7 @@ $doctor = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <th class="py-3 px-6">Họ Tên</th>
                         <th class="py-3 px-6">Ảnh</th>
                         <th class="py-3 px-6">Thông tin</th>
-                        <th class="py-3 px-6"> <a href="../../danh-muc/quanLyDoctor/add.php" class="border rounded-md px-4 py-2 bg-green-500 text-center text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">Thêm nhân viên</a> </th>
+                        <th class="py-3 px-6"> <a href="../../../../DuAn1_PRO1014_Fall2022/admin/layout/admin/quanLyDoctor/add.php" class="border rounded-md px-4 py-2 bg-green-500 text-center text-white font-bold hover:text-green-400 hover:bg-white hover:border-red-300">Thêm nhân viên</a> </th>
 
                     </tr>
                     </thead>

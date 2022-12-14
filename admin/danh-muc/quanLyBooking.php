@@ -2,7 +2,7 @@
 require "../../dao/connect.php";
 
 //show
-$sql = " SELECT booking.id, user.hoten, user.sdt,user.diachi, schedule.time, doctor.hoten as doctor, service.name as service FROM booking INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.id_schedule = schedule.id INNER JOIN doctor on booking.id_doctor = doctor.id INNER JOIN service on booking.id_service = service.id ";
+$sql = " SELECT booking.id, user.hoten, user.sdt,user.diachi, schedule.time, doctor.name as doctor, service.name as service FROM booking INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.id_schedule = schedule.id INNER JOIN doctor on booking.id_doctor = doctor.id INNER JOIN service on booking.id_service = service.id ";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();

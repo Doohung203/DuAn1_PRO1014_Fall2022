@@ -18,9 +18,9 @@ if (isset($_POST['btn-dangnhap'])){
   if($user['role'] == 1){
     header("Location: home.php");
   }elseif($user['role'] == 2){
-    header("Location: ../admin/danh-muc/quanLyBenhNhan.php");
+    header("Location: ../../../../DuAn1_PRO1014_Fall2022/admin/layout/admin/showadmin.php");
   }elseif($user['role'] == 3){
-    header("Location: .../../../doctor/quanLyLichKham.php");
+    header("Location: ../../../../DuAn1_PRO1014_Fall2022/doctor/quanLyLichKham.php");
   }
   else{
     header("location: login.php");

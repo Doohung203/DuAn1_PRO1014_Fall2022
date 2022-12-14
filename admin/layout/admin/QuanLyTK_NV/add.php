@@ -19,11 +19,9 @@ if (isset($_POST['save'])) {
         $errors['re_password'] = "Mật khẩu không đúng";
     }
     if (!$errors) {
-        $sql = "INSERT INTO `admin` (`username`, `password`) VALUES ('$username', '$password')";
-
+        $sql = "INSERT INTO user (username, password,role) VALUES ('$username', '$password','2')";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
-
         header("location: ../showadmin.php");
         setcookie("add", "Thêm thành công", time()+1);
         exit;
