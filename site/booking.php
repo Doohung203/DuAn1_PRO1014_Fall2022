@@ -1,8 +1,7 @@
 <?php
-date_default_timezone_set('Asia/Ho_Chi_Minh');
+
 require "../dao/connect.php";
 include "../global.php";
-require "../dao/pdo.php";
 
 
 // $sql =" SELECT user.id as id_user, user.hoten,user.sex,user.birthday,user.username,user.sdt,schedule.id as id_schedule,schedule.time,service.id as id_service ,service.name as sv FROM booking INNER JOIN user on booking.id_user = user.id INNER JOIN schedule on booking.id_schedule = schedule.id INNER JOIN service on booking.id_service = service.id";
@@ -18,16 +17,9 @@ if (isset($_POST['submit-booking'])) {
     $schedule = $_POST['schedule'];
     $service = $_POST['service'];
     $date = $_POST['date'];
-    $timestamp = time();
     $errors = [];
-    if($date <= $timestamp)
-    {
-        $errors = "Ngày không hợp lệ"; 
-    }
     if (!$errors) {
-        $sql = "INSERT INTO `booking` (id_user, id_schedule, id_service, date) 
-        VALUES ('$id_user', '$schedule', '$service','$date')";
-
+        $sql = "INSERT INTO `booking`( `id_user`, `id_schedule`, `id_service`, `date`) VALUES ('$id_user','$schedule','$service','$date')";
         $stmt = $conn->prepare($sql);   
         $stmt->execute();
 
@@ -148,7 +140,7 @@ $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <select name="time" id="" class=" w-full border rounded-md text-center my-3 px-4 p-2">
                         <option value="0">SÁNG-CHIỀU</option>
                         <?php foreach ($schedule as  $sch) : ?>  
-                            <option name="time" value="<?= $sch['id'] ?>"><?= $sch['time'] ?></option>
+                            <option name="schedule" value="<?= $sch['id'] ?>"><?= $sch['time'] ?></option>
                         <?php endforeach ?>    
                     </select>
                     
